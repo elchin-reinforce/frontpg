@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reinforce Labs | Ship AI with confidence</title>
+<meta name="description" content="Reinforce Labs finds how your AI fails, generates the data and fixes to close the gaps, and guards it in production. Built to last. Trusted to work.">
+<link rel="icon" href="/favicon.ico">
+<style>
+  :root {
+    --ink: #16131f;
+    --ink-2: #4b465c;
+    --ink-3: #767185;
+    --line: #e7e4ee;
+    --bg: #ffffff;
+    --bg-2: #f7f6fa;
+    --brand: #6d4aff;
+    --brand-2: #9d7bff;
+    --brand-soft: #f1ecff;
+    --accent: #16b8a6;
+    --accent-soft: #e6f7f4;
+    --warn: #b45309;
+    --radius: 14px;
+    --maxw: 1200px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- layout primitives ---------- */
+  section.band { padding: 64px 24px; position: relative; }
+  section.band.alt { background: var(--bg-2); }
+  .inner { max-width: var(--maxw); margin: 0 auto; position: relative; z-index: 1; }
+  .kicker { display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--brand); margin-bottom: 14px; }
+  h1 { font-size: clamp(36px, 5.2vw, 58px); line-height: 1.08; letter-spacing: -1.4px; font-weight: 780; }
+  h2 { font-size: clamp(26px, 3.4vw, 36px); letter-spacing: -.7px; font-weight: 720; margin-bottom: 10px; }
+  h3 { font-size: 19px; font-weight: 650; letter-spacing: -.2px; }
+  .sub { color: var(--ink-2); font-size: 18px; max-width: 720px; }
+  .section-head { max-width: 760px; }
+  .grid { display: grid; gap: 20px; }
+  .g3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+  .card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+  .card.clickable { cursor: pointer; transition: transform .18s, box-shadow .18s, border-color .18s; }
+  .card.clickable:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(109,74,255,.10); border-color: var(--brand-2); }
+  .card .one-liner { color: var(--ink-2); font-size: 15px; margin-top: 8px; }
+  .card .learn { color: var(--brand); font-weight: 600; font-size: 14px; margin-top: 14px; display: inline-block; }
+
+  .btn { display: inline-block; position: relative; overflow: hidden; background: var(--brand); color: #fff; padding: 13px 24px; border-radius: 10px; font-weight: 650; font-size: 15px; cursor: pointer; transition: background .15s, transform .15s, box-shadow .15s; border: none; }
+  .btn:hover { background: #5a39e0; transform: translateY(-2px); box-shadow: 0 12px 26px rgba(109,74,255,.28); }
+  .btn:active { transform: translateY(0); }
+  .btn.ghost { background: transparent; color: var(--brand); border: 1.5px solid var(--brand); box-shadow: none; }
+  .btn.ghost:hover { background: var(--brand-soft); box-shadow: 0 8px 20px rgba(109,74,255,.12); }
+  .btn.accent { background: var(--accent); }
+  .btn.accent:hover { background: #119b8c; box-shadow: 0 12px 26px rgba(22,184,166,.28); }
+  /* shimmer sweep on hover */
+  .btn::after { content: ""; position: absolute; top: 0; left: -120%; width: 60%; height: 100%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent); transform: skewX(-18deg); transition: left .55s ease; pointer-events: none; }
+  .btn:hover::after { left: 140%; }
+  .btn.ghost::after { background: linear-gradient(100deg, transparent, rgba(109,74,255,.18), transparent); }
+
+  .pill { display: inline-block; background: var(--brand-soft); color: var(--brand); font-size: 12.5px; font-weight: 650; border-radius: 999px; padding: 4px 12px; }
+  .pill.accent { background: var(--accent-soft); color: #0f8b7d; }
+
+  /* ================= scroll reveal ================= */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); transition-delay: var(--d, 0ms); will-change: opacity, transform; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ================= HERO ================= */
+  .hero { padding: 96px 24px 64px; text-align: center; position: relative; overflow: hidden; isolation: isolate; }
+  /* drifting aurora built only from brand/accent radials */
+  .hero .aurora { position: absolute; inset: -20% -10%; z-index: -2; pointer-events: none; background:
+    radial-gradient(640px 360px at 22% 18%, rgba(109,74,255,.22), transparent 60%),
+    radial-gradient(560px 320px at 82% 12%, rgba(22,184,166,.16), transparent 60%),
+    radial-gradient(700px 460px at 60% 90%, rgba(157,123,255,.16), transparent 62%);
+    filter: blur(6px); animation: aurora-drift 18s ease-in-out infinite alternate; }
+  @keyframes aurora-drift {
+    0%   { transform: translate3d(-2%, -1%, 0) scale(1); }
+    50%  { transform: translate3d(2%, 1.5%, 0) scale(1.06); }
+    100% { transform: translate3d(1%, -2%, 0) scale(1.02); }
+  }
+  /* dot grain overlay */
+  .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: radial-gradient(rgba(30,25,70,.045) 1px, transparent 1.4px); background-size: 22px 22px; -webkit-mask-image: radial-gradient(1000px 520px at 50% 30%, #000, transparent 80%); mask-image: radial-gradient(1000px 520px at 50% 30%, #000, transparent 80%); }
+  .hero .inner { max-width: 1000px; }
+  .hero h1 { margin-top: 6px; line-height: 1.05; }
+  /* word reveal */
+  .hero h1 .word { display: inline-block; opacity: 0; transform: translateY(28px) rotate(2deg); animation: word-up .8s cubic-bezier(.2,.7,.3,1) forwards; animation-delay: var(--wd, 0ms); }
+  .hero h1 .grad { background: linear-gradient(100deg, #221d44 0%, #4733b5 42%, #6d4aff 64%, #221d44 100%); background-size: 220% 100%; background-position: 0% 50%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: word-up .8s cubic-bezier(.2,.7,.3,1) var(--wd, 0ms) forwards, grad-sheen 8s ease-in-out 1.2s infinite; }
+  @keyframes grad-sheen { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+  @keyframes word-up { to { opacity: 1; transform: none; } }
+  .hero .mission { margin: 22px auto 0; color: var(--ink-2); font-size: 18px; max-width: 660px; opacity: 0; animation: word-up .8s ease forwards; animation-delay: .5s; }
+  .hero .cta-row { margin-top: 30px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; opacity: 0; animation: word-up .8s ease forwards; animation-delay: .68s; }
+
+  /* ---------- credibility marquee rails ---------- */
+  .hero-cred { margin-top: 46px; padding-top: 30px; border-top: 1px dashed var(--line); }
+  .cred-rails { max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+  .cred-rail { display: grid; grid-template-columns: 256px 1fr; align-items: center; gap: 20px; text-align: left; }
+  .cred-rail.s1 { margin-left: -28px; }
+  .cred-rail.s2 { margin-left: 52px; }
+  .cred-rail.s3 { margin-left: 132px; }
+  .cred-tag { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; padding: 12px 14px; border-radius: 14px; border: 1px solid transparent; transition: background .2s, border-color .2s, box-shadow .2s; }
+  .cred-tag:hover { background: rgba(255,255,255,.82); border-color: var(--line); box-shadow: 0 10px 26px rgba(80,60,180,.10); }
+  .cred-ico { flex: none; width: 40px; height: 40px; border-radius: 11px; background: var(--brand-soft); color: var(--brand); display: flex; align-items: center; justify-content: center; }
+  .cred-ico svg { width: 20px; height: 20px; }
+  .cred-rail.s2 .cred-ico { background: var(--accent-soft); color: #0f8b7d; }
+  .cred-tag b { font-size: 15px; font-weight: 700; letter-spacing: -.2px; display: block; }
+  .cred-tag i { font-style: normal; display: block; font-size: 12.5px; color: var(--ink-2); margin-top: 2px; line-height: 1.42; }
+  .cred-tag .learn { display: inline-flex; align-items: center; gap: 5px; margin-top: 7px; font-size: 12.5px; font-weight: 700; color: var(--brand); }
+  .cred-tag .learn .arr { transition: transform .2s; }
+  .cred-tag:hover .learn .arr { transform: translateX(4px); }
+
+  .marquee { overflow: hidden; position: relative; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+  .marquee-track { display: flex; gap: 14px; width: max-content; animation: scroll-x 36s linear infinite; }
+  .cred-rail.s2 .marquee-track { animation-duration: 44s; animation-direction: reverse; }
+  .cred-rail.s3 .marquee-track { animation-duration: 50s; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes scroll-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .logo-chip { display: inline-flex; align-items: center; gap: 9px; height: 52px; padding: 0 18px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink-2); font-weight: 650; font-size: 14.5px; letter-spacing: -.2px; white-space: nowrap; box-shadow: 0 2px 8px rgba(22,19,31,.03); transition: border-color .2s, transform .2s, box-shadow .2s; }
+  .logo-chip:hover { border-color: var(--brand-2); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(109,74,255,.10); }
+  .logo-chip .lc-ico { flex: none; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; color: var(--brand); }
+  .logo-chip .lc-ico svg { width: 22px; height: 22px; }
+  .logo-chip .yr { font-size: 11.5px; font-weight: 700; color: var(--ink-3); }
+  .cred-rail.s2 .logo-chip .lc-ico { color: #0f8b7d; }
+  .cred-rail.s3 .logo-chip .lc-ico { color: var(--brand); }
+
+  /* ================= WALLS ================= */
+  .wall-card { position: relative; overflow: hidden; }
+  .wall-card > h3, .wall-card > .tag, .wall-card > .one-liner { position: relative; z-index: 3; }
+  .wall-card .barrier { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; z-index: 2; background: repeating-linear-gradient(180deg, var(--brand) 0 10px, var(--brand-2) 10px 20px); }
+  .wall-card .tag { margin-top: 4px; font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+  .wall-num { position: absolute; right: 18px; top: 14px; font-size: 46px; font-weight: 800; letter-spacing: -2px; color: var(--brand); opacity: .07; line-height: 1; z-index: 1; }
+
+  /* "hitting a wall" animation: a request flies in, strikes the wall, cracks it, bounces back */
+  .wall-card .proj { position: absolute; top: 50%; left: 12px; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, var(--brand)); box-shadow: 0 2px 10px rgba(109,74,255,.55); opacity: 0; z-index: 1; animation: wall-hit 3.6s cubic-bezier(.45,0,.2,1) infinite; animation-delay: var(--hd, 0ms); }
+  .wall-card .burst { position: absolute; top: 50%; left: 6px; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; border: 2px solid var(--brand); opacity: 0; z-index: 2; animation: wall-burst 3.6s ease-out infinite; animation-delay: var(--hd, 0ms); }
+  .wall-card .crack { position: absolute; top: 50%; left: 3px; width: 48px; height: 64px; margin-top: -32px; color: var(--brand); opacity: 0; z-index: 2; animation: wall-crack 3.6s ease-out infinite; animation-delay: var(--hd, 0ms); }
+  .wall-card .crack svg { width: 100%; height: 100%; }
+  .wall-card.wall-anim { animation: wall-shake 3.6s ease-out infinite; animation-delay: var(--hd, 0ms); }
+
+  @keyframes wall-hit {
+    0%   { left: 102%; opacity: 0; transform: scale(.5); }
+    8%   { opacity: 1; }
+    34%  { left: 16px; transform: scale(1); }
+    38%  { left: 11px; transform: scale(1.35, .75); }
+    44%  { left: 64px; transform: scale(1); }
+    60%  { left: 102%; opacity: 0; transform: scale(.7); }
+    100% { left: 102%; opacity: 0; }
+  }
+  @keyframes wall-burst {
+    0%,34% { opacity: 0; transform: scale(.4); }
+    39%    { opacity: .85; transform: scale(1); }
+    54%    { opacity: 0; transform: scale(3); }
+    100%   { opacity: 0; }
+  }
+  @keyframes wall-crack {
+    0%,34% { opacity: 0; transform: scale(.7); }
+    40%    { opacity: .9; transform: scale(1); }
+    58%    { opacity: .55; }
+    76%    { opacity: 0; transform: scale(1.05); }
+    100%   { opacity: 0; }
+  }
+  @keyframes wall-shake {
+    0%,35% { transform: translateX(0); }
+    38%    { transform: translateX(4px); }
+    41%    { transform: translateX(-3px); }
+    44%    { transform: translateX(2px); }
+    47%    { transform: translateX(-1px); }
+    50%,100% { transform: translateX(0); }
+  }
+
+  /* ================= SOLUTION CAROUSEL ================= */
+  .sol-carousel { position: relative; margin-top: 34px; }
+  .sol-track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+  .sol-card { position: relative; overflow: hidden; border-top: 3px solid var(--accent); transition: transform .2s, box-shadow .2s, border-color .2s; }
+  .sol-card .wall-tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); background: var(--brand-soft); border-radius: 999px; padding: 5px 12px; }
+  .sol-card h3 { margin-top: 12px; }
+  .sol-card .one-liner { color: var(--ink-2); font-size: 15px; margin-top: 10px; }
+  .sol-card .learn { color: var(--brand); font-weight: 600; font-size: 14px; margin-top: 16px; display: inline-flex; gap: 5px; align-items: center; }
+  .sol-card .learn .arr { transition: transform .2s; }
+  .sol-card:hover .learn .arr { transform: translateX(4px); }
+  .sol-card.active { box-shadow: 0 18px 42px rgba(109,74,255,.16); border-color: var(--brand); transform: translateY(-4px); }
+  .sol-controls { display: none; }
+  .sol-dots { display: flex; gap: 8px; justify-content: center; margin-top: 22px; }
+  .sol-dots button { width: 9px; height: 9px; border-radius: 50%; border: none; background: var(--line); cursor: pointer; padding: 0; transition: background .2s, transform .2s, width .2s; }
+  .sol-dots button.on { background: var(--brand); width: 24px; border-radius: 99px; }
+
+  /* mobile: turn into swipeable carousel */
+  @media (max-width: 860px) {
+    .sol-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; padding-bottom: 8px; scrollbar-width: none; }
+    .sol-track::-webkit-scrollbar { display: none; }
+    .sol-card { flex: 0 0 84%; scroll-snap-align: center; }
+    .sol-card.active { transform: none; }
+    .sol-controls { display: flex; justify-content: space-between; position: absolute; top: 40%; left: -4px; right: -4px; pointer-events: none; }
+    .sol-controls button { pointer-events: auto; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: var(--brand); font-size: 20px; cursor: pointer; box-shadow: 0 8px 20px rgba(22,19,31,.10); display: flex; align-items: center; justify-content: center; }
+  }
+
+  /* ================= LOOP ================= */
+  .loop-strip { margin-top: 44px; padding: 36px 32px 40px; border: 1px solid var(--line); border-radius: 18px; background: #fff; text-align: center; position: relative; overflow: hidden; }
+  .flow { position: relative; margin-top: 30px; padding: 8px 0 4px; }
+  .flow-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: visible; }
+  .flow-path { fill: none; stroke: var(--line); stroke-width: 2; }
+  .flow-path.lit { stroke: url(#flowgrad); stroke-width: 2.5; stroke-dasharray: 12 320; stroke-linecap: round; animation: flow-dash 3.2s linear infinite; }
+  @keyframes flow-dash { to { stroke-dashoffset: -332; } }
+  .cycle { display: flex; align-items: stretch; justify-content: center; flex-wrap: nowrap; gap: 0; position: relative; z-index: 1; }
+  .cycle-step { flex: 1 1 0; min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 12px; text-align: center; transition: transform .25s, box-shadow .25s, border-color .25s; }
+  .cycle-step .cs-ico { width: 44px; height: 44px; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; border-radius: 13px; background: var(--brand-soft); color: var(--brand); transition: transform .3s, background .3s; }
+  .cycle-step .cs-ico svg { width: 22px; height: 22px; }
+  .cycle-step.last .cs-ico { background: var(--accent-soft); color: #0f8b7d; }
+  .cycle-step b { display: block; font-size: 15px; letter-spacing: -.2px; }
+  .cycle-step span { display: block; color: var(--ink-3); font-size: 12.5px; margin-top: 6px; line-height: 1.45; }
+  .cycle-step.hot { border-color: var(--brand); box-shadow: 0 14px 32px rgba(109,74,255,.16); transform: translateY(-5px); }
+  .cycle-step.hot .cs-ico { transform: scale(1.12) rotate(-4deg); background: var(--brand); color: #fff; }
+  .cycle-step.last.hot { border-color: var(--accent); box-shadow: 0 14px 32px rgba(22,184,166,.18); }
+  .cycle-step.last.hot .cs-ico { background: var(--accent); color: #fff; }
+  .cycle-arrow { align-self: center; color: var(--brand-2); font-size: 18px; font-weight: 800; padding: 0 4px; flex: 0 0 auto; }
+  @media (max-width: 760px) {
+    .cycle { flex-wrap: wrap; }
+    .cycle-step { flex: 1 1 140px; }
+    .cycle-arrow { transform: rotate(90deg); padding: 8px 0; }
+    .flow-svg { display: none; }
+  }
+  .cycle-loop-badge { display: inline-flex; align-items: center; gap: 8px; margin: 26px auto 0; background: var(--ink); color: #fff; border-radius: 999px; padding: 9px 18px; font-size: 13px; font-weight: 600; }
+  .cycle-loop-badge .spin { display: inline-block; animation: spin 4.5s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .deploy.kick { text-align: center; margin-top: 28px; color: var(--ink-2); font-size: 15px; font-style: italic; }
+
+  /* ================= WORKSHOP ================= */
+  .workshop { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--ink), #2a2440); color: #fff; border-radius: 18px; padding: 40px 44px; display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap; border: 1px solid rgba(157,123,255,.18); transition: transform .25s, box-shadow .25s; }
+  .workshop:hover { transform: translateY(-3px); box-shadow: 0 26px 60px rgba(45,30,110,.35); }
+  .workshop::before { content: ""; position: absolute; top: 0; left: -60%; width: 45%; height: 100%; background: linear-gradient(100deg, transparent, rgba(157,123,255,.18), transparent); transform: skewX(-18deg); animation: sheen 6.5s ease-in-out infinite; pointer-events: none; }
+  /* soft glow blobs */
+  .workshop::after { content: ""; position: absolute; right: -80px; top: -80px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(22,184,166,.22), transparent 65%); pointer-events: none; }
+  @keyframes sheen { 0%,18% { left: -60%; } 55%,100% { left: 130%; } }
+  .workshop .ws-left { position: relative; z-index: 1; flex: 1 1 520px; }
+  .workshop h2 { color: #fff; margin-bottom: 6px; }
+  .workshop p { color: #cfc8e6; font-size: 15.5px; max-width: 580px; }
+  .workshop .pill.accent { background: rgba(22,184,166,.18); color: #7ce7d6; position: relative; overflow: hidden; }
+  .workshop .pill.accent::after { content: ""; position: absolute; inset: 0; left: -100%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent); animation: sheen 6.5s ease-in-out infinite; }
+  .ws-perks { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .ws-perk { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: #e7e2f5; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 999px; padding: 6px 12px; }
+  .ws-perk svg { width: 14px; height: 14px; color: #7ce7d6; flex: none; }
+  .ws-cta { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: stretch; gap: 10px; flex: 0 0 auto; min-width: 230px; }
+  .workshop .btn { background: linear-gradient(180deg, #fff, #f2eeff); color: var(--ink); position: relative; z-index: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 26px; font-size: 15.5px; box-shadow: 0 10px 26px rgba(0,0,0,.25); }
+  .workshop .btn:hover { background: #efe9ff; transform: translateY(-2px); box-shadow: 0 16px 34px rgba(124,231,214,.25); }
+  .workshop .btn .arr { transition: transform .2s; }
+  .workshop .btn:hover .arr { transform: translateX(5px); }
+  .workshop .btn .ring { position: absolute; inset: 0; border-radius: 10px; box-shadow: 0 0 0 0 rgba(124,231,214,.5); animation: cta-ring 2.6s ease-out infinite; pointer-events: none; }
+  @keyframes cta-ring { 0% { box-shadow: 0 0 0 0 rgba(124,231,214,.5); } 70% { box-shadow: 0 0 0 12px rgba(124,231,214,0); } 100% { box-shadow: 0 0 0 0 rgba(124,231,214,0); } }
+  @media (max-width: 640px) { .ws-cta { width: 100%; } }
+
+  /* ================= CLOSING CTA ================= */
+  .closing { text-align: center; overflow: hidden; }
+  .closing .inner { max-width: 760px; }
+  .closing .glow { position: absolute; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(620px 280px at 50% 120%, rgba(109,74,255,.16), transparent 60%); }
+
+  @media (max-width: 840px) {
+    .cred-rail { grid-template-columns: 1fr; gap: 12px; }
+    .cred-rail.s1, .cred-rail.s2, .cred-rail.s3 { margin-left: 0; }
+    .cred-tag { background: rgba(255,255,255,.78); border-color: var(--line); }
+  }
+
+  /* ================= reduced motion ================= */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    .hero h1 .word, .hero .mission, .hero .cta-row { opacity: 1 !important; transform: none !important; }
+    .marquee { overflow-x: auto; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================================================================== HOME -->
+<main id="page-home">
+
+  <!-- 1. HERO -->
+  <section class="hero">
+    <div class="aurora"></div>
+    <div class="inner">
+      <h1>
+        <span class="word" style="--wd:.05s">Built</span> <span class="word" style="--wd:.13s">to</span> <span class="word" style="--wd:.21s">last.</span><br>
+        <span class="word grad" style="--wd:.32s">Trusted</span> <span class="word grad" style="--wd:.4s">to</span> <span class="word grad" style="--wd:.48s">work.</span>
+      </h1>
+      <p class="mission">Reinforce Labs catches how your AI fails, generates the data and fixes to close the gaps, and guards it in production. Find the failures, fix them, and ship with confidence.</p>
+      <div class="cta-row">
+        <span class="btn accent" data-scroll="closing">Free Agent Workshop</span>
+        <span class="btn ghost" data-scroll="walls">Explore Use Cases</span>
+      </div>
+
+      <!-- credibility: three never-ending logo rails -->
+      <div class="hero-cred">
+        <div class="cred-rails">
+
+          <!-- Rail 1: Used by enterprises -->
+          <div class="cred-rail s1 reveal" style="--d:60ms">
+            <div class="cred-tag" data-scroll="walls">
+              <div class="cred-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
+              <div>
+                <b>Used by enterprises</b>
+                <i>Production AI engagements across regulated industries.</i>
+                <span class="learn">See use cases <span class="arr">&rarr;</span></span>
+              </div>
+            </div>
+            <div class="marquee">
+              <div class="marquee-track">
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></span> Airline</span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 21V10M20 21V10M8 21V11M16 21V11M12 21V11M12 3l9 5H3z"/></svg></span> Banking</span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="19" r="1.4"/><path d="M8.5 15.5a5 5 0 0 1 7 0"/><path d="M5.5 12.5a9 9 0 0 1 13 0"/></svg></span> Telecom</span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l1 12H5z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></span> Retail</span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/></svg></span> Healthcare</span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></span> Insurance</span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v9H3z"/><path d="M14 9h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg></span> Logistics</span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M6 21h12M5 7h14M8 7l-3 6a3 3 0 0 0 6 0zM16 7l-3 6a3 3 0 0 0 6 0z"/></svg></span> Investment banking</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></span> Airline</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 21V10M20 21V10M8 21V11M16 21V11M12 21V11M12 3l9 5H3z"/></svg></span> Banking</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="19" r="1.4"/><path d="M8.5 15.5a5 5 0 0 1 7 0"/><path d="M5.5 12.5a9 9 0 0 1 13 0"/></svg></span> Telecom</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l1 12H5z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></span> Retail</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/></svg></span> Healthcare</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></span> Insurance</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v9H3z"/><path d="M14 9h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg></span> Logistics</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M6 21h12M5 7h14M8 7l-3 6a3 3 0 0 0 6 0zM16 7l-3 6a3 3 0 0 0 6 0z"/></svg></span> Investment banking</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rail 2: Backed by research -->
+          <div class="cred-rail s2 reveal" style="--d:160ms">
+            <div class="cred-tag" data-scroll="closing">
+              <div class="cred-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></div>
+              <div>
+                <b>Backed by research</b>
+                <i>Published at KDD 2026, ICML 2026, NeurIPS 2025, TrustCon 2026.</i>
+                <span class="learn">See research <span class="arr">&rarr;</span></span>
+              </div>
+            </div>
+            <div class="marquee">
+              <div class="marquee-track">
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg></span> KDD <span class="yr">2026</span></span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg></span> ICML <span class="yr">2026</span></span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg></span> NeurIPS <span class="yr">2025</span></span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg></span> TrustCon <span class="yr">2026</span></span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 13h6M10 17h4"/></svg></span> EvoFlint</span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 13h6M10 17h4"/></svg></span> InfoDLM</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg></span> KDD <span class="yr">2026</span></span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg></span> ICML <span class="yr">2026</span></span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg></span> NeurIPS <span class="yr">2025</span></span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg></span> TrustCon <span class="yr">2026</span></span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 13h6M10 17h4"/></svg></span> EvoFlint</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 13h6M10 17h4"/></svg></span> InfoDLM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rail 3: Grounded in data -->
+          <div class="cred-rail s3 reveal" style="--d:260ms">
+            <div class="cred-tag" data-scroll="solution">
+              <div class="cred-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+              <div>
+                <b>Grounded in data</b>
+                <i>Frontier-grade, verifiable datasets we build in-house.</i>
+                <span class="learn">See data <span class="arr">&rarr;</span></span>
+              </div>
+            </div>
+            <div class="marquee">
+              <div class="marquee-track">
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 14.5s1.5 2 4 2 4-2 4-2"/><path d="M9 10h.01M15 10h.01"/></svg></span> Hugging Face</span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg></span> Lean 4</span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h12l-7 7 7 7H5"/></svg></span> MATH Core</span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M2 20h20"/></svg></span> Chart-VQA</span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3 3 6v15l6-3 6 3 6-3V3l-6 3z"/><path d="M9 3v15M15 6v15"/></svg></span> GIS Spatial</span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span> 66k+ verified tasks</span>
+                <span class="logo-chip"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></span> Frontier-benchmarked</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 14.5s1.5 2 4 2 4-2 4-2"/><path d="M9 10h.01M15 10h.01"/></svg></span> Hugging Face</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg></span> Lean 4</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h12l-7 7 7 7H5"/></svg></span> MATH Core</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M2 20h20"/></svg></span> Chart-VQA</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3 3 6v15l6-3 6 3 6-3V3l-6 3z"/><path d="M9 3v15M15 6v15"/></svg></span> GIS Spatial</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span> 66k+ verified tasks</span>
+                <span class="logo-chip" aria-hidden="true"><span class="lc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></span> Frontier-benchmarked</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. The problem: three walls -->
+  <section class="band" id="walls">
+    <div class="inner">
+      <div class="section-head">
+        <span class="kicker">The problem</span>
+        <h2>Enterprise AI hits three walls.</h2>
+        <p class="sub">Software teams have CI and integration tests. AI teams haven't had the equivalent, and the gap shows up three ways.</p>
+      </div>
+      <div class="grid g3" style="margin-top:34px;">
+        <div class="card wall-card wall-anim" style="--hd:0ms">
+          <span class="barrier"></span>
+          <span class="proj"></span>
+          <span class="burst"></span>
+          <span class="crack"><svg viewBox="0 0 48 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 32l13-4 6 7 14-6"/><path d="M2 32l12 6 6-5 12 8"/><path d="M15 28l2-12"/><path d="M14 38l-2 12"/></svg></span>
+          <span class="wall-num">01</span>
+          <h3>You can't test it</h3>
+          <p class="tag">Evaluation</p>
+          <p class="one-liner" style="margin-top:10px;">No CI for AI. Manual red-teaming covers a few hundred prompts; adversaries and real users find the tail.</p>
+        </div>
+        <div class="card wall-card wall-anim" style="--hd:1200ms">
+          <span class="barrier"></span>
+          <span class="proj"></span>
+          <span class="burst"></span>
+          <span class="crack"><svg viewBox="0 0 48 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 32l13-4 6 7 14-6"/><path d="M2 32l12 6 6-5 12 8"/><path d="M15 28l2-12"/><path d="M14 38l-2 12"/></svg></span>
+          <span class="wall-num">02</span>
+          <h3>You can't fix it</h3>
+          <p class="tag">Data</p>
+          <p class="one-liner" style="margin-top:10px;">You found the failure modes, but the data to close the gaps is scarce, sensitive, or doesn't exist yet.</p>
+        </div>
+        <div class="card wall-card wall-anim" style="--hd:2400ms">
+          <span class="barrier"></span>
+          <span class="proj"></span>
+          <span class="burst"></span>
+          <span class="crack"><svg viewBox="0 0 48 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 32l13-4 6 7 14-6"/><path d="M2 32l12 6 6-5 12 8"/><path d="M15 28l2-12"/><path d="M14 38l-2 12"/></svg></span>
+          <span class="wall-num">03</span>
+          <h3>You can't ship it</h3>
+          <p class="tag">Enterprise &amp; FDE</p>
+          <p class="one-liner" style="margin-top:10px;">You have the use case and the budget, but not the in-house ML/AI engineering capacity to ship safely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. The solution -->
+  <section class="band alt" id="solution">
+    <div class="inner">
+      <div class="section-head reveal">
+        <span class="kicker">The solution</span>
+        <h2>One platform for every wall.</h2>
+        <p class="sub">Each wall maps directly to how we solve it.</p>
+      </div>
+
+      <div class="sol-carousel reveal">
+        <div class="sol-track" id="solTrack">
+          <div class="card clickable sol-card" data-scroll="closing">
+            <span class="wall-tag">You can't test it</span>
+            <h3>Evaluation</h3>
+            <p class="one-liner">Simulate real and adversarial users across models, chatbots, and agents, then grade every turn against your policy. Continuous, not a one-off red team.</p>
+            <span class="learn">Explore Evaluation <span class="arr">&rarr;</span></span>
+          </div>
+          <div class="card clickable sol-card" data-scroll="closing">
+            <span class="wall-tag">You can't fix it</span>
+            <h3>Data</h3>
+            <p class="one-liner">Turn the failure modes into custom, failure-derived datasets and applied fixes: taxonomy-covered, human-reviewed, built to close the gaps that matter.</p>
+            <span class="learn">Explore Data <span class="arr">&rarr;</span></span>
+          </div>
+          <div class="card clickable sol-card" data-scroll="closing">
+            <span class="wall-tag">You can't ship it</span>
+            <h3>Enterprise &amp; FDE</h3>
+            <p class="one-liner">No AI team? We become yours. Forward-deployed engineers design, build, evaluate, and ship your production agent across the full life cycle.</p>
+            <span class="learn">Explore FDE <span class="arr">&rarr;</span></span>
+          </div>
+        </div>
+        <div class="sol-controls">
+          <button type="button" id="solPrev" aria-label="Previous">&lsaquo;</button>
+          <button type="button" id="solNext" aria-label="Next">&rsaquo;</button>
+        </div>
+        <div class="sol-dots" id="solDots"></div>
+      </div>
+
+      <!-- How it runs: animated continuous loop -->
+      <div class="loop-strip reveal">
+        <span class="kicker">How it runs</span>
+        <h3 style="margin-top:6px;">It is one continuous loop.</h3>
+        <div class="flow">
+          <svg class="flow-svg" preserveAspectRatio="none" viewBox="0 0 1000 60" aria-hidden="true">
+            <defs>
+              <linearGradient id="flowgrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#6d4aff"/>
+                <stop offset="100%" stop-color="#16b8a6"/>
+              </linearGradient>
+            </defs>
+            <path class="flow-path" d="M0 30 H1000"/>
+            <path class="flow-path lit" d="M0 30 H1000"/>
+          </svg>
+          <div class="cycle" id="cycle">
+            <div class="cycle-step">
+              <div class="cs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></div>
+              <b>Build</b><span>agent, prompts, tools, RAG</span>
+            </div>
+            <div class="cycle-arrow">&rarr;</div>
+            <div class="cycle-step">
+              <div class="cs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+              <b>Evaluate</b><span>adversarial sim finds the failures</span>
+            </div>
+            <div class="cycle-arrow">&rarr;</div>
+            <div class="cycle-step">
+              <div class="cs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.3 2.3-2-2 2.3-2.3z"/></svg></div>
+              <b>Fix</b><span>data + applied fixes close the gaps</span>
+            </div>
+            <div class="cycle-arrow">&rarr;</div>
+            <div class="cycle-step">
+              <div class="cs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+              <b>Deploy</b><span>ship the hardened agent</span>
+            </div>
+            <div class="cycle-arrow">&rarr;</div>
+            <div class="cycle-step last">
+              <div class="cs-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg></div>
+              <b>Guardrails</b><span>protect live traffic, feed the next loop</span>
+            </div>
+          </div>
+        </div>
+        <div class="cycle-loop-badge"><span class="spin">&#8635;</span> Continuous loop &middot; each pass is cheaper</div>
+        <p class="sub" style="margin:20px auto 0;">A gap-quality screen sits between Evaluate and Fix, so we only spend effort on gaps that are real and closeable. The eval is the verifier, so the lift is provable.</p>
+      </div>
+
+      <p class="deploy kick reveal" style="display:block;">Runs on <b>Reinforce Cloud</b> or <b>self-hosted</b> in your own environment, with data residency by design. <b>Model-agnostic</b> across Claude, GPT, and open-weight.</p>
+    </div>
+  </section>
+
+  <!-- 4. Workshop banner -->
+  <section class="band">
+    <div class="inner">
+      <div class="workshop reveal">
+        <div class="ws-left">
+          <span class="pill accent">Free &middot; 2 hrs &middot; virtual</span>
+          <h2 style="margin-top:10px;">Free workshop: Agent Building Best Practices</h2>
+          <p>A free 2-hour virtual session with our forward-deployed engineers: lessons across the 6-stage agent journey, the Reinforce failure-mode taxonomy, a live agent autopsy, and three anonymized case studies. No NDA, no pitch. You leave with our playbook and checklists.</p>
+          <div class="ws-perks">
+            <span class="ws-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 6-stage agent journey</span>
+            <span class="ws-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Failure-mode taxonomy</span>
+            <span class="ws-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Live agent autopsy</span>
+            <span class="ws-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 3 case studies</span>
+            <span class="ws-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Playbook + checklists</span>
+          </div>
+        </div>
+        <div class="ws-cta">
+          <span class="btn" data-scroll="closing"><span class="ring"></span>Register for the workshop <span class="arr">&rarr;</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Closing CTA -->
+  <section class="band alt closing" id="closing">
+    <div class="glow"></div>
+    <div class="inner">
+      <h2 class="reveal">See how your AI behaves, before it reaches users.</h2>
+      <p class="sub reveal" style="--d:80ms; margin:10px auto 0;">Book a demo, or come to a workshop and leave with a plan.</p>
+      <div class="cta-row reveal" style="--d:160ms; margin-top:26px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <span class="btn">Book a Demo</span>
+        <span class="btn accent">Free Agent Workshop</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  (function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---------- scroll reveal ---------- */
+    var revealEls = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      revealEls.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+      revealEls.forEach(function (el) { io.observe(el); });
+    }
+
+    /* ---------- smooth-scroll CTAs ---------- */
+    document.querySelectorAll('[data-scroll]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var target = document.getElementById(el.getAttribute('data-scroll'));
+        if (target) target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      });
+    });
+
+    /* ---------- continuous loop: traveling highlight ---------- */
+    var steps = Array.prototype.slice.call(document.querySelectorAll('#cycle .cycle-step'));
+    if (steps.length && !reduce) {
+      var i = 0, loopTimer = null;
+      var tick = function () {
+        steps.forEach(function (s) { s.classList.remove('hot'); });
+        steps[i].classList.add('hot');
+        i = (i + 1) % steps.length;
+      };
+      var startLoop = function () { if (!loopTimer) { tick(); loopTimer = setInterval(tick, 1100); } };
+      var stopLoop = function () { clearInterval(loopTimer); loopTimer = null; };
+      if ('IntersectionObserver' in window) {
+        var loopIO = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { e.isIntersecting ? startLoop() : stopLoop(); });
+        }, { threshold: 0.3 });
+        loopIO.observe(document.getElementById('cycle'));
+      } else { startLoop(); }
+    }
+
+    /* ---------- solution: active highlight + mobile carousel ---------- */
+    var track = document.getElementById('solTrack');
+    var cards = Array.prototype.slice.call(track.querySelectorAll('.sol-card'));
+    var dotsWrap = document.getElementById('solDots');
+    var active = 0, autoTimer = null;
+
+    cards.forEach(function (_, idx) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Go to slide ' + (idx + 1));
+      b.addEventListener('click', function () { setActive(idx, true); });
+      dotsWrap.appendChild(b);
+    });
+    var dots = Array.prototype.slice.call(dotsWrap.children);
+
+    var isMobile = function () { return window.matchMedia('(max-width: 860px)').matches; };
+
+    function setActive(idx, userAction) {
+      active = (idx + cards.length) % cards.length;
+      cards.forEach(function (c, k) { c.classList.toggle('active', k === active); });
+      dots.forEach(function (d, k) { d.classList.toggle('on', k === active); });
+      if (isMobile()) {
+        var card = cards[active];
+        track.scrollTo({ left: card.offsetLeft - (track.clientWidth - card.clientWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+      }
+      if (userAction) restartAuto();
+    }
+
+    function next() { setActive(active + 1); }
+    function prev() { setActive(active - 1); }
+    document.getElementById('solNext').addEventListener('click', function () { setActive(active + 1, true); });
+    document.getElementById('solPrev').addEventListener('click', function () { setActive(active - 1, true); });
+
+    function startAuto() { if (!autoTimer && !reduce) autoTimer = setInterval(next, 4200); }
+    function stopAuto() { clearInterval(autoTimer); autoTimer = null; }
+    function restartAuto() { stopAuto(); startAuto(); }
+
+    var solWrap = document.querySelector('.sol-carousel');
+    solWrap.addEventListener('mouseenter', stopAuto);
+    solWrap.addEventListener('mouseleave', startAuto);
+
+    // sync active state when user swipes on mobile
+    var scrollSync;
+    track.addEventListener('scroll', function () {
+      if (!isMobile()) return;
+      clearTimeout(scrollSync);
+      scrollSync = setTimeout(function () {
+        var center = track.scrollLeft + track.clientWidth / 2;
+        var nearest = 0, best = Infinity;
+        cards.forEach(function (c, k) {
+          var c2 = c.offsetLeft + c.clientWidth / 2;
+          var dist = Math.abs(c2 - center);
+          if (dist < best) { best = dist; nearest = k; }
+        });
+        if (nearest !== active) {
+          active = nearest;
+          cards.forEach(function (c, k) { c.classList.toggle('active', k === active); });
+          dots.forEach(function (d, k) { d.classList.toggle('on', k === active); });
+        }
+      }, 90);
+    }, { passive: true });
+
+    setActive(0);
+    if ('IntersectionObserver' in window) {
+      var autoIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { e.isIntersecting ? startAuto() : stopAuto(); });
+      }, { threshold: 0.25 });
+      autoIO.observe(solWrap);
+    } else { startAuto(); }
+  })();
+</script>
+</body>
+</html>
