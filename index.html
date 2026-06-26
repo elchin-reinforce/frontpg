@@ -781,12 +781,12 @@
         <span class="tab" data-page="products" onclick="go('products')">Past Work</span>
         <span class="tab" data-page="evaluation" onclick="go('evaluation')">Product</span>
         <span class="tab" data-page="enterprise" onclick="go('enterprise')">Enterprise FDE</span>
+        <span class="tab" data-page="blogs" onclick="go('blogs')">Blogs</span>
       </nav>
     </div>
     <div class="code-links">
       <a href="https://huggingface.co/reinforcelabs/datasets" target="_blank" rel="noopener" title="Open datasets on Hugging Face">Hugging Face datasets<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
       <a class="cl-internal" onclick="go('publications')" title="Peer-reviewed publications and conferences">Publications<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-      <a class="cl-internal" onclick="go('blogs')" title="Engineering and research notes from the team">Blogs<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
     </div>
   </div>
   <nav class="tabs-mobile">
@@ -2517,7 +2517,7 @@
     document.querySelectorAll('nav.tabs .tab').forEach(function(t){
       t.classList.toggle('active', t.dataset.page === page ||
         (t.dataset.page === 'evaluation' && PRODUCT_GROUP.indexOf(page) >= 0) ||
-        (t.dataset.page === 'resources' && page.indexOf('blog-') === 0));
+        (t.dataset.page === 'blogs' && page.indexOf('blog-') === 0));
     });
     document.querySelectorAll('.tabs-mobile .mtab').forEach(function(t){
       t.classList.toggle('active', t.dataset.page === page);
