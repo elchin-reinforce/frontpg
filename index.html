@@ -8,6 +8,14 @@
 <title>Reinforce Labs | Ship AI with confidence</title>
 <meta name="description" content="Reinforce Labs finds how your AI fails, generates the data and fixes to close the gaps, and guards it in production. Built to last. Trusted to work.">
 <link rel="icon" href="/favicon.ico">
+<!-- Site typography: Inter (sans) + JetBrains Mono (mono), matching the datasets micro-site -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<!-- KaTeX for the Data page's math samples -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 <!-- Social share (OG/Twitter): uses absolute URLs so previews work once deployed. Swap in a 1200x630 share card when ready. -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://reinforcelabs.ai/">
@@ -42,7 +50,7 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; }
   a { color: inherit; text-decoration: none; }
 
   /* ---------- demo banner ---------- */
@@ -225,7 +233,7 @@
   .cycle-meta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 22px; }
   .cycle-gate { flex: 1 1 360px; max-width: 560px; background: var(--brand-soft); border: 1px solid var(--brand-2); border-radius: 12px; padding: 14px 18px; font-size: 13.5px; color: var(--ink-2); text-align: left; }
   .cycle-gate b { color: var(--brand); }
-  .cycle-proof { flex: 1 1 280px; max-width: 360px; background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 12px; padding: 14px 18px; font-size: 13px; color: #0f6b60; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; display: flex; align-items: center; }
+  .cycle-proof { flex: 1 1 280px; max-width: 360px; background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 12px; padding: 14px 18px; font-size: 13px; color: #0f6b60; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; display: flex; align-items: center; }
 
   /* ---------- deployment band ---------- */
   .deploy { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -284,11 +292,11 @@
   .uc .uc-body .row span { color: var(--ink-2); font-size: 14.5px; }
 
   /* ---------- sample report / code ---------- */
-  .report { background: #fbfaff; border: 1px solid var(--line); border-radius: 12px; padding: 22px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; color: var(--ink-2); }
+  .report { background: #fbfaff; border: 1px solid var(--line); border-radius: 12px; padding: 22px; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; color: var(--ink-2); }
   .report .sev-crit { color: #c0392b; font-weight: 700; }
   .report .sev-mod { color: var(--warn); font-weight: 700; }
   .report .ok { color: #0f8b7d; font-weight: 700; }
-  pre.code { background: #1c1830; color: #e7e2f5; border-radius: 12px; padding: 20px 22px; overflow-x: auto; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; line-height: 1.7; }
+  pre.code { background: #1c1830; color: #e7e2f5; border-radius: 12px; padding: 20px 22px; overflow-x: auto; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; line-height: 1.7; }
   pre.code .k { color: #b39dff; }
   pre.code .s { color: #8fe3c8; }
   pre.code .c { color: #6f6a86; }
@@ -328,11 +336,11 @@
   .article strong { color: var(--ink); }
   .article em { font-style: italic; }
   .article img { width:100%; border-radius:12px; border:1px solid var(--line); margin: 26px 0; display:block; }
-  .article code { background: var(--bg-2); border:1px solid var(--line); border-radius:6px; padding: 1px 6px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; }
+  .article code { background: var(--bg-2); border:1px solid var(--line); border-radius:6px; padding: 1px 6px; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; }
   .article table { width:100%; border-collapse: collapse; margin: 22px 0; font-size: 15px; }
   .article th, .article td { border:1px solid var(--line); padding: 10px 12px; text-align:left; vertical-align: top; }
   .article th { background: var(--bg-2); font-size:12.5px; text-transform:uppercase; letter-spacing:.04em; color: var(--ink-3); }
-  .article .formula { background: var(--brand-soft); border:1px solid var(--brand-2); border-radius:10px; padding: 14px 18px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:15px; color: var(--ink); margin: 18px 0; text-align:center; }
+  .article .formula { background: var(--brand-soft); border:1px solid var(--brand-2); border-radius:10px; padding: 14px 18px; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size:15px; color: var(--ink); margin: 18px 0; text-align:center; }
   .article .vqa { border:1px solid var(--line); border-radius:14px; padding: 20px 22px; margin: 26px 0; background:#fff; }
   .article .vqa .q { font-size:15px; }
   .article .vqa .q b { color: var(--ink); }
@@ -637,6 +645,69 @@
     #page-home .dart-card { opacity: 1 !important; transform: none !important; }
     #page-home .dl-dart { opacity: 0 !important; }
   }
+
+  /* ---------- DATA page: dataset catalog (ported from datasets micro-site, recolored to brand) ---------- */
+  #page-data .ds-hero-section { padding: 78px 24px 84px; border-bottom: 1px solid var(--line); background: #fff; }
+  #page-data .ds-hero { max-width: 1100px; margin: 0 auto; text-align: center; }
+  #page-data .ds-hero-logo { display: block; width: 64px; height: 64px; margin: 0 auto; object-fit: contain; }
+  #page-data .ds-hero-badge { display: inline-flex; align-items: center; gap: 8px; margin: 30px auto 0; padding: 5px 13px; border: 1px solid var(--line); background: #fff; border-radius: 999px; }
+  #page-data .ds-hero-badge svg { flex: none; width: 14px; height: 14px; color: var(--brand); }
+  #page-data .ds-hero-badge span { font-size: 12px; font-weight: 500; color: var(--ink-3); }
+  #page-data .ds-hero h1 { margin: 24px auto 0; max-width: 760px; font-size: clamp(34px, 5.4vw, 60px); font-weight: 650; line-height: 1.08; letter-spacing: -.022em; color: var(--ink); }
+  #page-data .ds-hero .cta-row { margin-top: 30px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  #page-data .ds-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; max-width: 720px; margin: 58px auto 0; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--line); }
+  #page-data .ds-stats > div { background: #fff; padding: 22px 16px; text-align: center; }
+  #page-data .ds-stats b { display: block; font-size: 26px; font-weight: 700; letter-spacing: -.02em; color: var(--ink); }
+  #page-data .ds-stats span { display: block; margin-top: 5px; font-size: 12px; color: var(--ink-3); }
+  @media (max-width: 640px) { #page-data .ds-stats { grid-template-columns: repeat(2, 1fr); } }
+  #page-data .ds-catalog { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 30px; }
+  #page-data .ds-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 24px; transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+  #page-data .ds-card:hover { border-color: var(--brand-2); box-shadow: 0 16px 40px rgba(60,40,140,.10); transform: translateY(-2px); }
+  #page-data .ds-card h3 { font-size: 18px; letter-spacing: -.3px; }
+  #page-data .ds-card .ds-tagline { margin-top: 3px; font-size: 13.5px; color: var(--ink-3); }
+  #page-data .ds-label { display: inline-block; width: fit-content; margin-top: 12px; padding: 4px 9px; border-radius: 7px; background: var(--brand-soft); color: var(--brand); font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; }
+  #page-data .ds-desc { margin-top: 14px; font-size: 13.5px; line-height: 1.55; color: var(--ink-2); }
+  #page-data .ds-fit { display: flex; align-items: flex-start; gap: 9px; margin-top: 16px; padding: 12px 14px; border-radius: 11px; background: var(--brand-soft); font-size: 13px; color: var(--ink); }
+  #page-data .ds-fit svg { flex: none; width: 17px; height: 17px; color: var(--brand); margin-top: 1px; }
+  #page-data .ds-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 16px; border: 1px solid var(--line); border-radius: 11px; overflow: hidden; background: var(--line); }
+  #page-data .ds-meta > div { background: #fff; padding: 12px 14px; }
+  #page-data .ds-meta dt { font-size: 11.5px; color: var(--ink-3); }
+  #page-data .ds-meta dd { margin-top: 3px; font-size: 13.5px; font-weight: 700; color: var(--ink); }
+  #page-data .ds-meta dd .u { font-weight: 400; color: var(--ink-3); }
+  #page-data .ds-meta dd.mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 500; font-size: 12px; }
+  #page-data .ds-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  #page-data .ds-chip { border: 1px solid var(--line); border-radius: 6px; padding: 3px 7px; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: var(--ink-3); }
+  #page-data .ds-samples { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 16px; }
+  #page-data .ds-samples > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 7px; width: 100%; background: var(--brand); color: #fff; border-radius: 10px; padding: 11px 16px; font-size: 14px; font-weight: 650; transition: background .18s ease; }
+  #page-data .ds-samples > summary::-webkit-details-marker { display: none; }
+  #page-data .ds-samples > summary:hover { background: #5a39e0; }
+  #page-data .ds-samples[open] > summary { margin-bottom: 14px; }
+  #page-data .ds-samples > summary .open-label { display: none; }
+  #page-data .ds-samples[open] > summary .open-label { display: inline; }
+  #page-data .ds-samples[open] > summary .shut-label { display: none; }
+  #page-data .ds-sub { font-size: 12px; color: var(--ink-3); margin-bottom: 12px; }
+  #page-data .ds-sample { border: 1px solid var(--line); border-radius: 12px; background: #fff; padding: 16px; margin-top: 12px; }
+  #page-data .ds-sample-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 11px; }
+  #page-data .ds-num { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--ink-3); }
+  #page-data .ds-pill { border-radius: 999px; background: var(--brand-soft); color: var(--brand); padding: 3px 11px; font-size: 12px; font-weight: 600; }
+  #page-data .ds-pill.mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+  #page-data .ds-pill.line { background: transparent; border: 1px solid var(--line); color: var(--ink-3); font-weight: 500; }
+  #page-data .ds-q { font-size: 13.5px; line-height: 1.55; color: var(--ink); }
+  #page-data .ds-ans { display: block; margin-top: 12px; border-top: 1px solid var(--line); padding-top: 11px; font-size: 13.5px; color: var(--ink); }
+  #page-data .ds-ans .lbl, #page-data .ds-q .lbl { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-3); margin-right: 6px; }
+  #page-data .ds-ans b { color: var(--brand); font-weight: 650; }
+  #page-data .ds-sample pre { background: #faf9ff; border: 1px solid var(--line); border-radius: 9px; padding: 12px; margin-top: 6px; overflow-x: auto; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; line-height: 1.5; color: var(--ink); white-space: pre; }
+  #page-data .ds-fieldlabel { display: block; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-3); margin-top: 12px; }
+  #page-data .ds-img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; margin: 4px 0 2px; }
+  #page-data .ds-cot { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 11px; }
+  #page-data .ds-cot summary { list-style: none; cursor: pointer; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-3); }
+  #page-data .ds-cot summary::-webkit-details-marker { display: none; }
+  #page-data .ds-cot[open] summary { color: var(--brand); }
+  #page-data .ds-cot p { margin-top: 8px; font-size: 13px; line-height: 1.55; color: var(--ink-2); white-space: pre-line; }
+  #page-data .ds-tex .katex { font-size: 1em; }
+  @media (max-width: 820px) {
+    #page-data .ds-catalog { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -646,19 +717,23 @@
       <div class="logo" onclick="go('home')"><img src="/grad-on-light.png" alt="Reinforce Labs" onerror="this.style.display='none'">Reinforce Labs</div>
       <nav class="tabs">
         <span class="tab" data-page="products" onclick="go('products')">Past Work</span>
+        <span class="tab" data-page="evaluation" onclick="go('evaluation')">Product</span>
         <span class="tab" data-page="enterprise" onclick="go('enterprise')">Enterprise FDE</span>
       </nav>
     </div>
     <div class="code-links">
       <a href="https://huggingface.co/reinforcelabs/datasets" target="_blank" rel="noopener" title="Open datasets on Hugging Face">Hugging Face datasets<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
       <a class="cl-internal" onclick="goSection('resources','res-pubs')" title="Peer-reviewed publications and conferences">Publications<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      <a class="cl-internal" onclick="goSection('resources','res-blogs')" title="Engineering and research notes from the team">Blogs<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
     </div>
   </div>
   <nav class="tabs-mobile">
     <span class="mtab" data-page="products" onclick="go('products')">Past Work</span>
+    <span class="mtab" data-page="evaluation" onclick="go('evaluation')">Product</span>
     <span class="mtab" data-page="enterprise" onclick="go('enterprise')">Enterprise FDE</span>
     <span class="mtab" onclick="window.open('https://huggingface.co/reinforcelabs/datasets','_blank')">Hugging Face datasets</span>
     <span class="mtab" onclick="goSection('resources','res-pubs')">Publications</span>
+    <span class="mtab" onclick="goSection('resources','res-blogs')">Blogs</span>
   </nav>
 </header>
 
@@ -1148,89 +1223,398 @@
 
 <!-- ===================================================================== DATA -->
 <div class="page" id="page-data">
-  <div class="phero">
-    <span class="pill">Close the gap</span>
-    <h1 style="font-size:clamp(30px,4vw,46px); margin-top:14px;">Close the gaps you found, with data.</h1>
-    <p class="sub">Simulation &amp; synthetic data to fix the exact problems evaluation surfaced.</p>
-  </div>
+  <section class="ds-hero-section">
+    <div class="ds-hero">
+      <img class="ds-hero-logo" src="/grad-on-light.png" alt="Reinforce Labs" onerror="this.style.display='none'">
+      <div class="ds-hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+        <span>Single-answer verifiable. Benchmarked against frontier models. License-clean.</span>
+      </div>
+      <h1>Frontier-grade data for the models that need it most</h1>
+      <div class="cta-row">
+        <span class="btn" onclick="goSection('data','ds-catalog')">Browse datasets &rarr;</span>
+        <span class="btn ghost" onclick="go('contact')">Request a sample pack</span>
+      </div>
+      <dl class="ds-stats">
+        <div><b>66k+</b><span>Verified tasks</span></div>
+        <div><b>9</b><span>Domains</span></div>
+        <div><b>Lean 4</b><span>Formal proofs</span></div>
+        <div><b>Frontier</b><span>Model-benchmarked</span></div>
+      </dl>
+    </div>
+  </section>
 
-  <section class="band">
+  <section class="band" id="ds-catalog">
     <div class="inner">
-      <div class="section-head"><span class="kicker">What's included</span><h2>From failure to fix.</h2></div>
-      <div class="grid g4" style="margin-top:28px;">
-        <div class="card"><h3>Data cleaning</h3><p class="one-liner">Turn messy production logs into trustworthy training signal.</p></div>
-        <div class="card"><h3>Synthetic data</h3><p class="one-liner">Failure-derived, taxonomy-covered, human-reviewed, covering the long tail you can't collect.</p></div>
-        <div class="card"><h3>Prompt &amp; harness fixes</h3><p class="one-liner">Concrete improvements to prompts, tools, RAG, and routing, recommended from eval findings.</p></div>
-        <div class="card"><h3>The training it feeds</h3><p class="one-liner">SFT / DPO / preference datasets ready for fine-tuning specialized models.</p></div>
+      <span class="kicker">The catalog</span>
+      <div class="ds-catalog">
+
+        <!-- MATH Core -->
+        <div class="ds-card">
+          <h3>MATH Core</h3>
+          <p class="ds-tagline">Verifiable reasoning at scale</p>
+          <p class="ds-desc">Non-trivial undergraduate and early-graduate problems with single, machine-verifiable answers. Broad coverage across algebra, combinatorics, geometry, topology, number theory, probability, optimization, graph theory, and analysis. The workhorse corpus for reasoning RL and supervised fine-tuning.</p>
+          <div class="ds-fit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>High-volume training data, enterprise evaluations, and general reasoning coverage.</div>
+          <dl class="ds-meta">
+            <div><dt>Volume</dt><dd>20,000 <span class="u">tasks</span></dd></div>
+            <div><dt>Fields</dt><dd class="mono">4 columns</dd></div>
+          </dl>
+          <div class="ds-chips"><span class="ds-chip">problem</span><span class="ds-chip">final_answer</span><span class="ds-chip">topic</span><span class="ds-chip">difficulty</span></div>
+          <details class="ds-samples">
+            <summary><span class="shut-label">View 3 samples</span><span class="open-label">Hide samples</span></summary>
+            <p class="ds-sub">Representative records. Full corpus contains 20,000 tasks.</p>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">01</span><span class="ds-pill">Geometry</span><span class="ds-pill line">Core Breaker</span></div>
+              <p class="ds-q ds-tex">Let $S$ be the set consisting of $0$ together with all $51$ complex roots of $z^{51} = 1$. How many monic degree-$8$ complex polynomials $p(z)$ have eight distinct roots, all lying in $S$, with the additional property that every root is a corner point of the convex hull of the eight roots in the complex plane?</p>
+              <div class="ds-ans"><span class="lbl">answer</span><b class="ds-tex">$645\,795\,150$</b></div>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">02</span><span class="ds-pill">Probability</span><span class="ds-pill line">Core Breaker</span></div>
+              <p class="ds-q ds-tex">An urn begins with one ball of each of $12$ colors, labeled $1$ through $12$. Thirty times in a row, a ball is chosen uniformly at random from the urn, returned, and then one additional ball of that same color is added. What is the probability that, after the $30$ additions, exactly $6$ of the $12$ color-counts are odd? Let $q$ be this probability, written in lowest terms as $a/b$ with coprime positive integers $a$ and $b$. Compute $a+b$.</p>
+              <div class="ds-ans"><span class="lbl">answer</span><b class="ds-tex">$131\,245$</b></div>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">03</span><span class="ds-pill">Graph Coloring</span><span class="ds-pill line">Core Breaker</span></div>
+              <p class="ds-q ds-tex">Let $G$ be the path graph with vertices $a,b,c,d,e,f,g,h$ and edges $ab$, $bc$, $cd$, $de$, $ef$, $fg$, $gh$. A proper coloring assigns one of the colors $1,2,3,4,5$ to each vertex so that adjacent vertices get different colors. For a proper coloring $s$ and an ordering $(v_1,v_2,v_3,v_4,v_5,v_6,v_7,v_8)$ of the eight vertices, let $N_k$ be the number of proper colorings $t$ such that $t(v_j)=s(v_j)$ for every $j&gt;k$. Call the pair $(s,(v_1,v_2,v_3,v_4,v_5,v_6,v_7,v_8))$ admissible if $N_0/N_1 \geq N_1/N_2 \geq N_2/N_3 \geq N_3/N_4 \geq N_4/N_5 \geq N_5/N_6 \geq N_6/N_7 \geq N_7/N_8$. How many admissible pairs are there?</p>
+              <div class="ds-ans"><span class="lbl">answer</span><b class="ds-tex">$67\,018\,240$</b></div>
+            </div>
+          </details>
+        </div>
+
+        <!-- MATH Undergrad Breakers -->
+        <div class="ds-card">
+          <h3>MATH Undergrad Breakers</h3>
+          <p class="ds-tagline">Curated to break frontier models</p>
+          <code class="ds-label">undergrad-frontier-breaking</code>
+          <p class="ds-desc">Undergraduate-level tasks specifically engineered to defeat frontier models. Every item is benchmarked against strong models and kept only if they fail to solve it, giving you dense, high-signal training and eval material without crossing into graduate research.</p>
+          <div class="ds-fit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Buyers who want harder math tasks without moving fully into graduate research material.</div>
+          <dl class="ds-meta">
+            <div><dt>Volume</dt><dd>20,000 <span class="u">tasks</span></dd></div>
+            <div><dt>Fields</dt><dd class="mono">5 columns</dd></div>
+          </dl>
+          <div class="ds-chips"><span class="ds-chip">problem</span><span class="ds-chip">final_answer</span><span class="ds-chip">topic</span><span class="ds-chip">difficulty</span><span class="ds-chip">broke_model</span></div>
+          <details class="ds-samples">
+            <summary><span class="shut-label">View 4 samples</span><span class="open-label">Hide samples</span></summary>
+            <p class="ds-sub">Representative records. Full corpus contains 20,000 tasks.</p>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">01</span><span class="ds-pill">Graph Theory &amp; Networks</span><span class="ds-pill line">Undergrad Breaker</span></div>
+              <p class="ds-q ds-tex">The complete graph $K_{10}$ on $10$ labeled vertices has $10^8$ spanning trees by Cayley's formula. Determine the number of spanning trees in which, for every edge, the sum of the degrees (in the tree) of its endpoints is at most $5$.</p>
+              <div class="ds-ans"><span class="lbl">answer</span><b class="ds-tex">$35\,078\,400$</b></div>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">02</span><span class="ds-pill">Combinatorics</span><span class="ds-pill line">Undergrad Breaker</span></div>
+              <p class="ds-q ds-tex">How many pairs $(A, B)$, summed over all integers $l \geq 1$, are there such that $A$ is an ordered partition of $[8]$ into $l$ parts, $B$ is an ordered partition of $[7]$ into $l$ parts, and the number of singleton parts in $A$ equals the number of singleton parts in $B$?</p>
+              <div class="ds-ans"><span class="lbl">answer</span><b class="ds-tex">$1\,632\,965\,209$</b></div>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">03</span><span class="ds-pill">Discrete Math</span><span class="ds-pill line">Undergrad Breaker</span></div>
+              <p class="ds-q ds-tex">Let $S$ and $T$ be two sequences of length $40$, both given by $(1, 2, 3, \dots, 40)$. A matching pair is defined as a pair of indices $(i, j)$ such that the $i$-th element of $S$ is equal to the $j$-th element of $T$. Let $R$ be the set of all such matching pairs. A common subsequence is defined as a non-empty subset $P \subseteq R$ such that for any two distinct pairs $(i, j)$ and $(i', j')$ in $P$, the indices are strictly increasing: if $i &lt; i'$, then $j &lt; j'$. Let $\mu_R$ be the arithmetic mean of the vectors in $R$, and for any common subsequence $P$, let $\mu_P$ be the arithmetic mean of the vectors in $P$. Let $\Sigma$ be the population covariance matrix of the set $R$, and let $\rho$ be its spectral radius (the largest eigenvalue). How many distinct common subsequences $P$ exist such that the Euclidean distance between $\mu_P$ and $\mu_R$ is less than $\rho/25000$? Give your answer modulo $1{,}000{,}000{,}007$.</p>
+              <div class="ds-ans"><span class="lbl">answer</span><b class="ds-tex">$940\,303\,718$</b></div>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">04</span><span class="ds-pill">Graph Theory &amp; Networks</span><span class="ds-pill line">Undergrad Breaker</span></div>
+              <p class="ds-q ds-tex">Let $K_{10}$ denote the complete graph on $10$ vertices (the simple undirected graph on $10$ labeled vertices with an edge between every pair of distinct vertices). Compute $T(K_{10}; 2, 3)$, where $T(G; x, y)$ is the Tutte polynomial of the graph $G$.</p>
+              <div class="ds-ans"><span class="lbl">answer</span><b class="ds-tex">$5\,773\,079\,644\,137\,379\,872$</b></div>
+            </div>
+          </details>
+        </div>
+
+        <!-- MATH Graduate Breakers -->
+        <div class="ds-card">
+          <h3>MATH Graduate Breakers</h3>
+          <p class="ds-tagline">Frontier-grade difficulty</p>
+          <code class="ds-label">graduate-frontier-breaking</code>
+          <p class="ds-desc">Graduate and research-style tasks designed to challenge frontier models. The hardest tier we ship, sourced from advanced coursework and research-adjacent problems, then benchmarked against the strongest available models to confirm genuine frontier difficulty.</p>
+          <div class="ds-fit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Frontier-lab evaluation, difficult training data, and private math benchmarks.</div>
+          <dl class="ds-meta">
+            <div><dt>Volume</dt><dd>10,000 <span class="u">tasks</span></dd></div>
+            <div><dt>Fields</dt><dd class="mono">5 columns</dd></div>
+          </dl>
+          <div class="ds-chips"><span class="ds-chip">problem</span><span class="ds-chip">final_answer</span><span class="ds-chip">topic</span><span class="ds-chip">difficulty</span><span class="ds-chip">broke_model</span></div>
+          <details class="ds-samples">
+            <summary><span class="shut-label">View 3 samples</span><span class="open-label">Hide samples</span></summary>
+            <p class="ds-sub">Representative records. Full corpus contains 10,000 tasks.</p>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">01</span><span class="ds-pill">Finite Symplectic Geometry</span><span class="ds-pill line">Graduate Breaker</span></div>
+              <p class="ds-q ds-tex">Work over $F_{37}$ with basis $e_1, e_2, f_1, f_2$ and alternating form $\langle x, y \rangle = x_1 y_3 + x_2 y_4 - x_3 y_1 - x_4 y_2$. Let $X$ be the set of incident pairs $([v], L)$, where $[v]$ is a 1-dimensional subspace of $F_{37}^4$ and $L$ is a 2-dimensional subspace containing $[v]$ on which this form is identically zero. Let $W$ be the $F_2$-vector space of all labelings $c : X \to \{0,1\}$ such that, for every $[v]$, the sum of $c([v], L)$ over all $L$ containing $[v]$ is 0 in $F_2$, and for every $L$, the sum of $c([v], L)$ over all $[v]$ contained in $L$ is 0 in $F_2$. With $E_{ij}$ denoting the matrix in row $i$ and column $j$, define $A_+(t) = I + t(E_{12} - E_{43})$, $A_-(t) = I + t(E_{21} - E_{34})$, $B_+(t) = I + t E_{13}$, and $B_-(t) = I + t E_{31}$ for $t$ in $F_{37}$. Let $m_A$ be the $F_2$-dimension of the part of $W$ fixed by every $A_+(t)$ and $A_-(t)$, and define $m_B$ similarly using $B_+(t)$ and $B_-(t)$. Let $r$ be the index, among projective linear transformations preserving the incidence relation on $X$, of those induced by matrices preserving the alternating form exactly. The reported score is $m_A + m_B$ if $m_A + m_B$ is congruent to $r$ modulo 3 and the two numbers $m_A, m_B$ have opposite parity; otherwise the reported score is 0. What is the reported score?</p>
+              <div class="ds-ans"><span class="lbl">answer</span><b class="ds-tex">$149$</b></div>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">02</span><span class="ds-pill">Representation Theory</span><span class="ds-pill line">Graduate Breaker</span></div>
+              <p class="ds-q ds-tex">Let $A = \{1 &lt; 2 &lt; 3\}$. For a content $\alpha = (\alpha_1, \alpha_2, \alpha_3)$, let $\mathrm{Tab}(\alpha)$ be the set of all semistandard Young tableaux with entries in $A$, arbitrary Young shape, and exactly $\alpha_i$ entries equal to $i$. For $T$ in $\mathrm{Tab}(\alpha)$, let $w(T)$ be its row-reading word, obtained by reading rows from bottom to top and from left to right within each row. Let $P$ denote the Robinson-Schensted-Knuth row-insertion tableau of a word. Define the Lascoux-Schutzenberger cyclage map $C$ on $\mathrm{Tab}(\alpha)$ as follows: if $w(T) = xu$ and $x$ is not the smallest letter appearing in $T$, then $C(T) = P(ux)$; if $x$ is the smallest letter appearing in $T$, then $C(T)$ is undefined. Let $G_\alpha$ be the directed graph with vertex set $\mathrm{Tab}(\alpha)$ and an arrow $T \to C(T)$ whenever $C(T)$ is defined. The root of $G_\alpha$ is the unique row tableau $R_\alpha$ with content $\alpha$, and the cyclage depth of $T$ is the unique integer $k \geq 0$ such that $C^k(T) = R_\alpha$. Put $\mu = (100000065, 1, 100000064)$ and $\nu = (100000064, 2, 100000064)$. Let $L_{\mu, \nu} : \mathrm{Tab}(\mu) \to \mathrm{Tab}(\nu)$ be the unique injective map that preserves Young diagrams and satisfies $L_{\mu, \nu}(C(T)) = C(L_{\mu, \nu}(T))$ whenever $C(T)$ is defined, and set $S = L_{\mu, \nu}(\mathrm{Tab}(\mu))$. A vertex $U$ in $S$ is exposed if there exists a vertex $V$ in $\mathrm{Tab}(\nu) \setminus S$ such that $C(V) = U$. For each cyclage depth $d$ for which at least one exposed vertex has depth $d$, let $N_d$ be the number of subsets $E$ of the exposed vertices of depth $d$ such that the Young diagrams of the tableaux in $E$ are pairwise distinct and pairwise incomparable under dominance order. Compute the product of the $N_d$ over all such $d$, modulo $1000000007$.</p>
+              <div class="ds-ans"><span class="lbl">answer</span><b class="ds-tex">$829\,164\,019$</b></div>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">03</span><span class="ds-pill">Symbolic Dynamics</span><span class="ds-pill line">Graduate Breaker</span></div>
+              <p class="ds-q ds-tex">Call a binary word $w = d_1 \dots d_{28}$ eligible if $d_1 = 1$, the remaining 27 digits are not all zero, and there is a real base $b$ in $(1, 2)$ whose greedy base-$b$ expansion of 1 is $d_1 \dots d_{28}$ followed by zeros. For an eligible word, let $H = 1 + \lceil b^2 \rceil$, and for $2 \leq k \leq 2H$ let $P_k$ be the sum of $d_i d_j$ over all ordered pairs $(i, j)$ with $1 \leq i, j \leq H$ and $i + j = k$, taking $d_i = 0$ for $i &gt; 28$. How many eligible words satisfy $\sum_{k=H+1}^{2H} P_k \, b^{-k} &gt; b^{-1} \sum_{k=2}^{H} P_k \, b^{-k}$?</p>
+              <div class="ds-ans"><span class="lbl">answer</span><b class="ds-tex">$3\,255$</b></div>
+            </div>
+          </details>
+        </div>
+
+        <!-- LEAN Formalization -->
+        <div class="ds-card">
+          <h3>LEAN Formalization</h3>
+          <p class="ds-tagline">Informal to formal, fully proved</p>
+          <p class="ds-desc">Lean 4 data drawn from the undergraduate and graduate difficulty bands. Each record pairs a natural-language statement with its Lean formal statement and a complete, type-checked Lean proof, exactly what you need to train and evaluate autoformalization and proof-synthesis models.</p>
+          <div class="ds-fit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Training and evaluating models that translate informal mathematics into correct Lean.</div>
+          <dl class="ds-meta">
+            <div><dt>Volume</dt><dd>1,000 <span class="u">tasks</span></dd></div>
+            <div><dt>Fields</dt><dd class="mono">3 columns</dd></div>
+          </dl>
+          <div class="ds-chips"><span class="ds-chip">nl_statement</span><span class="ds-chip">lean_statement</span><span class="ds-chip">lean_proof</span></div>
+          <details class="ds-samples">
+            <summary><span class="shut-label">View 10 samples</span><span class="open-label">Hide samples</span></summary>
+            <p class="ds-sub">Representative records. Full corpus contains 1,000 tasks.</p>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">01</span><span class="ds-pill">Number Theory</span></div>
+              <p class="ds-q">The sum of two even integers is even.</p>
+              <span class="ds-fieldlabel">lean statement</span><pre>theorem even_add_even (m n : ℤ) (hm : Even m) (hn : Even n) : Even (m + n)</pre>
+              <span class="ds-fieldlabel">proof</span><pre>theorem even_add_even (m n : ℤ) (hm : Even m) (hn : Even n) :
+    Even (m + n) := by
+  obtain ⟨a, ha⟩ := hm
+  obtain ⟨b, hb⟩ := hn
+  exact ⟨a + b, by rw [ha, hb]; ring⟩</pre>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">02</span><span class="ds-pill">Algebra</span></div>
+              <p class="ds-q">For all real numbers a and b, (a + b)^2 = a^2 + 2ab + b^2.</p>
+              <span class="ds-fieldlabel">lean statement</span><pre>theorem sq_add (a b : ℝ) : (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2</pre>
+              <span class="ds-fieldlabel">proof</span><pre>theorem sq_add (a b : ℝ) :
+    (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2 := by
+  ring</pre>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">03</span><span class="ds-pill">Analysis</span></div>
+              <p class="ds-q">The square of any real number is nonnegative.</p>
+              <span class="ds-fieldlabel">lean statement</span><pre>theorem sq_nonneg' (a : ℝ) : 0 ≤ a ^ 2</pre>
+              <span class="ds-fieldlabel">proof</span><pre>theorem sq_nonneg' (a : ℝ) : 0 ≤ a ^ 2 := by
+  rcases le_or_lt 0 a with h | h
+  · positivity
+  · nlinarith [mul_pos (neg_pos.mpr h) (neg_pos.mpr h)]</pre>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">04</span><span class="ds-pill">Set Theory</span></div>
+              <p class="ds-q">Intersection of sets is commutative.</p>
+              <span class="ds-fieldlabel">lean statement</span><pre>theorem inter_comm' (s t : Set α) : s ∩ t = t ∩ s</pre>
+              <span class="ds-fieldlabel">proof</span><pre>theorem inter_comm' (s t : Set α) : s ∩ t = t ∩ s := by
+  ext x
+  constructor
+  · rintro ⟨hs, ht⟩; exact ⟨ht, hs⟩
+  · rintro ⟨ht, hs⟩; exact ⟨hs, ht⟩</pre>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">05</span><span class="ds-pill">Number Theory</span></div>
+              <p class="ds-q">Every natural number is less than its successor.</p>
+              <span class="ds-fieldlabel">lean statement</span><pre>theorem lt_succ_self' (n : ℕ) : n &lt; n + 1</pre>
+              <span class="ds-fieldlabel">proof</span><pre>theorem lt_succ_self' (n : ℕ) : n &lt; n + 1 := by
+  exact Nat.lt_succ_self n</pre>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">06</span><span class="ds-pill">Algebra</span></div>
+              <p class="ds-q">In a group, the inverse of a product equals the product of inverses in reverse order.</p>
+              <span class="ds-fieldlabel">lean statement</span><pre>theorem inv_mul_rev {G : Type*} [Group G] (a b : G) : (a * b)⁻¹ = b⁻¹ * a⁻¹</pre>
+              <span class="ds-fieldlabel">proof</span><pre>theorem inv_mul_rev {G : Type*} [Group G] (a b : G) :
+    (a * b)⁻¹ = b⁻¹ * a⁻¹ := by
+  rw [mul_inv_rev]</pre>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">07</span><span class="ds-pill">Analysis</span></div>
+              <p class="ds-q">The absolute value of a sum is at most the sum of absolute values.</p>
+              <span class="ds-fieldlabel">lean statement</span><pre>theorem abs_add' (a b : ℝ) : |a + b| ≤ |a| + |b|</pre>
+              <span class="ds-fieldlabel">proof</span><pre>theorem abs_add' (a b : ℝ) : |a + b| ≤ |a| + |b| := by
+  exact abs_add a b</pre>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">08</span><span class="ds-pill">Combinatorics</span></div>
+              <p class="ds-q">The sum of the first n natural numbers is n(n+1)/2.</p>
+              <span class="ds-fieldlabel">lean statement</span><pre>theorem sum_range_id (n : ℕ) : 2 * ∑ i ∈ Finset.range (n + 1), i = n * (n + 1)</pre>
+              <span class="ds-fieldlabel">proof</span><pre>theorem sum_range_id (n : ℕ) :
+    2 * ∑ i ∈ Finset.range (n + 1), i = n * (n + 1) := by
+  induction n with
+  | zero => simp
+  | succ k ih => rw [Finset.sum_range_succ]; ring_nf; omega</pre>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">09</span><span class="ds-pill">Number Theory</span></div>
+              <p class="ds-q">If a divides b and b divides c, then a divides c.</p>
+              <span class="ds-fieldlabel">lean statement</span><pre>theorem dvd_trans' {a b c : ℤ} (h1 : a ∣ b) (h2 : b ∣ c) : a ∣ c</pre>
+              <span class="ds-fieldlabel">proof</span><pre>theorem dvd_trans' {a b c : ℤ} (h1 : a ∣ b) (h2 : b ∣ c) :
+    a ∣ c := by
+  obtain ⟨k, hk⟩ := h1
+  obtain ⟨l, hl⟩ := h2
+  exact ⟨k * l, by rw [hl, hk]; ring⟩</pre>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">10</span><span class="ds-pill">Order Theory</span></div>
+              <p class="ds-q">The maximum of a and b is greater than or equal to a.</p>
+              <span class="ds-fieldlabel">lean statement</span><pre>theorem le_max_left' (a b : ℝ) : a ≤ max a b</pre>
+              <span class="ds-fieldlabel">proof</span><pre>theorem le_max_left' (a b : ℝ) : a ≤ max a b := by
+  exact le_max_left a b</pre>
+            </div>
+          </details>
+        </div>
+
+        <!-- Chart Understanding -->
+        <div class="ds-card">
+          <h3>Chart Understanding</h3>
+          <p class="ds-tagline">Multimodal quantitative reasoning</p>
+          <p class="ds-desc">Real-world charts across finance, healthcare, government, education, and scientific research, each paired with a grounded, verifiable question, a gold answer, and a full step-by-step chain of thought. Questions demand reading exact values, multi-step computation, and cross-panel reasoning, built for multimodal reasoning models.</p>
+          <div class="ds-fit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Vision-language training, multimodal evaluation, and document/analytics reasoning.</div>
+          <dl class="ds-meta">
+            <div><dt>Volume</dt><dd>15,000 <span class="u">tasks</span></dd></div>
+            <div><dt>Fields</dt><dd class="mono">6 columns</dd></div>
+          </dl>
+          <div class="ds-chips"><span class="ds-chip">data_id</span><span class="ds-chip">domain</span><span class="ds-chip">image</span><span class="ds-chip">question</span><span class="ds-chip">gold_answer</span><span class="ds-chip">COT</span></div>
+          <details class="ds-samples">
+            <summary><span class="shut-label">View 10 samples</span><span class="open-label">Hide samples</span></summary>
+            <p class="ds-sub">Representative records. Full corpus contains 15,000 tasks.</p>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">01</span><span class="ds-pill mono">FIN-01</span><span class="ds-pill line">Financial services</span></div>
+              <img class="ds-img" src="/charts/fin-01.jpg" alt="Chart for sample FIN-01" loading="lazy">
+              <p class="ds-q"><span class="lbl">q</span>What is the difference between Unilever's and Colgate-Palmolive's market share in Apparel Care, and which brand's delta suggests it is closing the gap faster?</p>
+              <div class="ds-ans"><span class="lbl">a</span><b>11.9 percentage points; Unilever</b></div>
+              <details class="ds-cot"><summary>Show chain of thought</summary><p>Unilever holds 21.3% share in Apparel Care (delta -0.7pp, share erosion flagged) versus Colgate-Palmolive's 9.4% (delta +0.3pp). The gap is 21.3 - 9.4 = 11.9 percentage points. With Unilever eroding 0.7pp and Colgate-Palmolive gaining 0.3pp, the gap narrows at a combined 1.0pp per quarter, and Unilever's erosion is the dominant factor closing it.</p></details>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">02</span><span class="ds-pill mono">FIN-02</span><span class="ds-pill line">Financial services</span></div>
+              <img class="ds-img" src="/charts/fin-02.jpg" alt="Chart for sample FIN-02" loading="lazy">
+              <p class="ds-q"><span class="lbl">q</span>Given the difference between the 1978 peak earnings yield of approximately 13.5% and the 1920 starting earnings yield of approximately 8.26%, and considering the 1920s to 1940s regime pattern of Expansion, Contraction, Contraction, is the 2020s Mixed regime more likely to transition to Expansion or Contraction?</p>
+              <div class="ds-ans"><span class="lbl">a</span><b>Contraction</b></div>
+              <details class="ds-cot"><summary>Show chain of thought</summary><p>The 1920 starting earnings yield is 8.26% and the 1978 peak is 13.5%, a difference of 5.24. The decade regimes run Expansion (1920s), Contraction (1930s), Contraction (1940s). Following that pattern and the earnings-yield trend, the 2020s Mixed regime is more likely to transition to Contraction.</p></details>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">03</span><span class="ds-pill mono">GOV-01</span><span class="ds-pill line">Government and policy</span></div>
+              <img class="ds-img" src="/charts/gov-01.jpg" alt="Chart for sample GOV-01" loading="lazy">
+              <p class="ds-q"><span class="lbl">q</span>Is the 2023 unemployment rate lower or higher than the 1948 rate, and by how much does the 1983 peak exceed the 2023 rate?</p>
+              <div class="ds-ans"><span class="lbl">a</span><b>lower; 7.4 percentage points</b></div>
+              <details class="ds-cot"><summary>Show chain of thought</summary><p>The 1983 peak (Peak Unemployment Era 1981-1985) is 10.8. The 1948 rate is 3.8 and the 2023 rate is 3.4. So 2023 (3.4) is lower than 1948 (3.8) by 0.4pp, and the 1983 peak exceeds the 2023 rate by 10.8 - 3.4 = 7.4 percentage points.</p></details>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">04</span><span class="ds-pill mono">EDU-01</span><span class="ds-pill line">Education and edtech</span></div>
+              <img class="ds-img" src="/charts/edu-01.jpg" alt="Chart for sample EDU-01" loading="lazy">
+              <p class="ds-q"><span class="lbl">q</span>What is the difference between the percentage of the number 1 and number 2 breakdown triggers for Powerschool?</p>
+              <div class="ds-ans"><span class="lbl">a</span><b>3.7</b></div>
+              <details class="ds-cot"><summary>Show chain of thought</summary><p>For Powerschool in Panel 03, the top-ranked breakdown trigger is Overlapping Category Labels at 38.9% and the second is Filter Not Persisted at 35.2%. The difference is 38.9% - 35.2% = 3.7%.</p></details>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">05</span><span class="ds-pill mono">HLS-01</span><span class="ds-pill line">Healthcare and life sciences</span></div>
+              <img class="ds-img" src="/charts/hls-01.jpg" alt="Chart for sample HLS-01" loading="lazy">
+              <p class="ds-q"><span class="lbl">q</span>What is the difference between the SpO2 drop from h00 to h60 and the largest annotated point-to-point drop from 97% to 89%?</p>
+              <div class="ds-ans"><span class="lbl">a</span><b>7</b></div>
+              <details class="ds-cot"><summary>Show chain of thought</summary><p>SpO2 at h00 is 96% and at h60 is ~97%, which is actually a 1-point increase rather than a drop. The largest annotated point-to-point drop is 8 percentage points. The difference is 8 - 1 = 7.</p></details>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">06</span><span class="ds-pill mono">HLS-02</span><span class="ds-pill line">Healthcare and life sciences</span></div>
+              <img class="ds-img" src="/charts/hls-02.jpg" alt="Chart for sample HLS-02" loading="lazy">
+              <p class="ds-q"><span class="lbl">q</span>What is the spread between McDowell, WV's death rate and the Q5 Bin Lower Bound of 8.1 per 100K, who is the 5th highest Q5 county, and will the national average rate stay within or exceed the Q5 Floor by 2025?</p>
+              <div class="ds-ans"><span class="lbl">a</span><b>40.5; Pulaski, KY; within</b></div>
+              <details class="ds-cot"><summary>Show chain of thought</summary><p>McDowell, WV's death rate is 48 and the Q5 Bin Lower Bound is 8.1, giving a spread of about 39.9-40.5. Among the Q5 counties, Pulaski, KY is the 5th highest. The declining national-rate trend stays above the Q5 Floor of 8.1 but within the Q5 Bin Range by 2025.</p></details>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">07</span><span class="ds-pill mono">EDU-02</span><span class="ds-pill line">Education and edtech</span></div>
+              <img class="ds-img" src="/charts/edu-02.jpg" alt="Chart for sample EDU-02" loading="lazy">
+              <p class="ds-q"><span class="lbl">q</span>What is the ratio of Retail Business Intelligence Teams to Financial Services Analysts participants, and which cohort has the highest participant count overall?</p>
+              <div class="ds-ans"><span class="lbl">a</span><b>1.17; Retail Business Intelligence Teams</b></div>
+              <details class="ds-cot"><summary>Show chain of thought</summary><p>Retail Business Intelligence Teams has 2,450 participants and Financial Services Analysts has 2,100. The ratio is 2,450 / 2,100 &asymp; 1.17. Across all five cohorts (2,100; 1,300; 1,850; 2,300; 2,450), Retail Business Intelligence Teams has the highest count.</p></details>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">08</span><span class="ds-pill mono">SCI-01</span><span class="ds-pill line">Scientific research and academia</span></div>
+              <img class="ds-img" src="/charts/sci-01.jpg" alt="Chart for sample SCI-01" loading="lazy">
+              <p class="ds-q"><span class="lbl">q</span>Given that mBERT shows deep blue with very low similarity of approximately 30-35 on BoolQ O2-23 and blue on CoNLL O4-22, while ALBERT-xxlarge shows a near-white tone on BoolQ O2-23, does mBERT consistently show lower similarity than ALBERT-xxlarge, and what does this imply about mBERT's embeddings?</p>
+              <div class="ds-ans"><span class="lbl">a</span><b>Yes, mBERT consistently shows lower cosine similarity than ALBERT-xxlarge (&asymp;30-35 vs &asymp;48-52 on BoolQ O2-23 and on CoNLL O4-22), implying more distinctive, spread-out embeddings, likely from multilingual training.</b></div>
+              <details class="ds-cot"><summary>Show chain of thought</summary><p>On BoolQ O2-23, mBERT is the darkest blue (~30-35, lowest in the heatmap) while ALBERT-xxlarge is near-white (~48-52). On CoNLL O4-22 mBERT is again blue (~35-45). mBERT is consistently lower, implying its embeddings are more spread out and distinctive, likely a consequence of multilingual training producing more varied distributions.</p></details>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">09</span><span class="ds-pill mono">FIN-03</span><span class="ds-pill line">Financial services</span></div>
+              <img class="ds-img" src="/charts/fin-03.jpg" alt="Chart for sample FIN-03" loading="lazy">
+              <p class="ds-q"><span class="lbl">q</span>Based on the descending pattern among South Asia ($1.1T), Latin America and the Caribbean ($0.9T), and Central and Eastern Europe ($0.8T), will Central and Eastern Europe's funding likely fall below $0.5T soon?</p>
+              <div class="ds-ans"><span class="lbl">a</span><b>No</b></div>
+              <details class="ds-cot"><summary>Show chain of thought</summary><p>The three regions descend by only $0.2T each ($1.1T &rarr; $0.9T &rarr; $0.8T). Central and Eastern Europe's current $0.8T sits well above $0.5T, so it is unlikely to fall below that threshold soon.</p></details>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">10</span><span class="ds-pill mono">EDU-03</span><span class="ds-pill line">Education and edtech</span></div>
+              <img class="ds-img" src="/charts/edu-03.jpg" alt="Chart for sample EDU-03" loading="lazy">
+              <p class="ds-q"><span class="lbl">q</span>What is the difference between the peak borrower count in 2020 and the 2023 active borrower count, and does the OLS projection for 2025P show borrowers increasing or decreasing from 2023?</p>
+              <div class="ds-ans"><span class="lbl">a</span><b>2.1 M; decreasing</b></div>
+              <details class="ds-cot"><summary>Show chain of thought</summary><p>The peak borrower count is 45.3M in 2020 and the 2023 active count is 43.2M, a difference of 2.1M. The OLS projection shows borrowers continuing to decrease from 2023 toward 2025P.</p></details>
+            </div>
+          </details>
+        </div>
+
+        <!-- GIS Spatial Reasoning -->
+        <div class="ds-card">
+          <h3>GIS Spatial Reasoning</h3>
+          <p class="ds-tagline">Reason over maps and geospatial layers</p>
+          <p class="ds-desc">Real cartographic maps spanning land cover, hydrology and flood risk, terrain elevation, and urban transportation, each paired with a grounded, verifiable question, a gold answer, and a full chain of thought. Questions require reading legends, scale bars, contour spacing, and choropleth gradients, then performing multi-layer spatial inference, built for multimodal models that need to reason over geospatial data.</p>
+          <div class="ds-fit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Vision-language training, geospatial analytics, and remote-sensing or mapping evaluation.</div>
+          <dl class="ds-meta">
+            <div><dt>Volume</dt><dd>12,000 <span class="u">tasks</span></dd></div>
+            <div><dt>Fields</dt><dd class="mono">6 columns</dd></div>
+          </dl>
+          <div class="ds-chips"><span class="ds-chip">data_id</span><span class="ds-chip">domain</span><span class="ds-chip">image</span><span class="ds-chip">question</span><span class="ds-chip">gold_answer</span><span class="ds-chip">COT</span></div>
+          <details class="ds-samples">
+            <summary><span class="shut-label">View 4 samples</span><span class="open-label">Hide samples</span></summary>
+            <p class="ds-sub">Representative records. Full corpus contains 12,000 tasks.</p>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">01</span><span class="ds-pill mono">GIS-01</span><span class="ds-pill line">Land cover &amp; remote sensing</span></div>
+              <img class="ds-img" src="/gis/gis-01.png" alt="Map for sample GIS-01" loading="lazy">
+              <p class="ds-q"><span class="lbl">q</span>Using the land-cover classification, which class occupies the largest contiguous area along the coastline, and what is the dominant adjacency relationship between urban (gray) and water (blue) classes?</p>
+              <div class="ds-ans"><span class="lbl">a</span><b>Forest (green) dominates the inland coastline; urban built-up areas are directly adjacent to water along the estuary, indicating a port/harbor settlement pattern.</b></div>
+              <details class="ds-cot"><summary>Show chain of thought</summary><p>Reading the legend, green = forest, gray = urban, blue = water. Tracing contiguous polygons along the coast, the green forest class forms the largest unbroken band inland of the shore. The gray urban polygons consistently border the blue water class at the estuary mouth rather than being embedded inland, which is the classic signature of a port settlement that grew around a harbor. Cropland (yellow) sits behind the urban fringe, away from the immediate shoreline.</p></details>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">02</span><span class="ds-pill mono">GIS-02</span><span class="ds-pill line">Hydrology &amp; flood risk</span></div>
+              <img class="ds-img" src="/gis/gis-02.png" alt="Map for sample GIS-02" loading="lazy">
+              <p class="ds-q"><span class="lbl">q</span>Which district carries the highest flood probability, and is that risk driven primarily by proximity to the river channel or by low-lying terrain away from it?</p>
+              <div class="ds-ans"><span class="lbl">a</span><b>The central floodplain district straddling the river bend has the darkest (highest) risk class, driven primarily by proximity to the meandering channel.</b></div>
+              <details class="ds-cot"><summary>Show chain of thought</summary><p>The legend maps darker blue to higher flood probability. The darkest shading clusters tightly around the river's meander, fading to lighter classes as distance from the channel increases. Because the high-risk zone follows the channel geometry rather than appearing in isolated low pockets away from the river, the dominant driver is channel proximity (fluvial flooding) rather than detached depressions, so floodplain districts on the inside of the bend are most exposed.</p></details>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">03</span><span class="ds-pill mono">GIS-03</span><span class="ds-pill line">Terrain &amp; elevation</span></div>
+              <img class="ds-img" src="/gis/gis-03.png" alt="Map for sample GIS-03" loading="lazy">
+              <p class="ds-q"><span class="lbl">q</span>Where is the steepest terrain gradient in the DEM, and how can you tell from the contour spacing relative to the elevation color ramp?</p>
+              <div class="ds-ans"><span class="lbl">a</span><b>The steepest gradient is on the flank between the brown/white peaks and the yellow mid-slopes, where contour lines are most tightly packed.</b></div>
+              <details class="ds-cot"><summary>Show chain of thought</summary><p>On a DEM, slope is inversely proportional to contour spacing: closely spaced contours mean a rapid elevation change over short horizontal distance. The tightest contour packing occurs on the transition flank where the color ramp jumps quickly from yellow (mid elevation) to brown and white (high peaks). Broad spacing in the green lowlands indicates gentle slopes, so the high-relief flank below the summits is the steepest terrain.</p></details>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">04</span><span class="ds-pill mono">GIS-04</span><span class="ds-pill line">Urban &amp; transportation</span></div>
+              <img class="ds-img" src="/gis/gis-04.png" alt="Map for sample GIS-04" loading="lazy">
+              <p class="ds-q"><span class="lbl">q</span>Do the highest population-density census blocks coincide with the densest road-network intersections, and what does the relationship of highways (orange) to the density gradient suggest about commuting structure?</p>
+              <div class="ds-ans"><span class="lbl">a</span><b>Yes. Peak density (darkest pink) aligns with the dense central street grid, while highways radiate outward through lower-density blocks, indicating a monocentric, commute-into-core structure.</b></div>
+              <details class="ds-cot"><summary>Show chain of thought</summary><p>The legend ties darker pink/purple to higher population density. The darkest blocks sit where the thin street lines form the tightest grid, confirming density and intersection density co-locate in the urban core. The thicker orange highways originate at that core and extend outward across progressively lighter-density blocks, which is the spatial signature of a monocentric city where peripheral residents commute along radial highways into a single dense center, rather than a polycentric pattern with multiple density peaks.</p></details>
+            </div>
+          </details>
+        </div>
+
       </div>
     </div>
   </section>
 
   <section class="band alt">
     <div class="inner">
-      <div class="section-head"><span class="kicker">What "good data" means</span><h2>Five quality axes.</h2></div>
-      <div class="grid g3" style="margin-top:26px;">
-        <div class="card"><h3>Correctness &amp; safety</h3><p class="one-liner">Verified-correct, policy-aligned examples.</p></div>
-        <div class="card"><h3>Diversity &amp; coverage</h3><p class="one-liner">The failure taxonomy, covered end to end.</p></div>
-        <div class="card"><h3>Complexity</h3><p class="one-liner">Multi-turn, multi-tool, realistic difficulty.</p></div>
-        <div class="card"><h3>Realism</h3><p class="one-liner">Mirrors how your real users actually behave.</p></div>
-        <div class="card"><h3>Verifiable outcomes</h3><p class="one-liner">Every example has a checkable ground truth.</p></div>
-        <div class="card" style="background:var(--accent-soft); border-color:var(--accent);"><h3 style="color:#0f8b7d;">In your environment</h3><p class="one-liner">Training runs inside your boundary; sensitive data never leaves.</p></div>
+      <div class="section-head"><span class="kicker">Why buyers choose us</span><h2>Data you can actually train and evaluate on.</h2><p class="sub" style="margin:10px auto 0;">Quality is the product. Each corpus is built to be hard, clean, and machine-gradable from day one.</p></div>
+      <div class="grid g3" style="margin-top:28px;">
+        <div class="card">
+          <div class="cred-ico" style="width:40px;height:40px;border-radius:11px;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-5-5H8z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg></div>
+          <h3>Sourced &amp; authored</h3>
+          <p class="one-liner">Problems are drawn and authored across nine mathematical domains, spanning undergraduate coursework to research-adjacent material, never scraped boilerplate.</p>
+        </div>
+        <div class="card">
+          <div class="cred-ico" style="width:40px;height:40px;border-radius:11px;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-4 9a2 2 0 0 0 2 3h8a2 2 0 0 0 2-3l-4-9V3"/></svg></div>
+          <h3>Benchmarked against frontier models</h3>
+          <p class="one-liner">Hard tiers are tested against the strongest available models first. Any problem they solve gets dropped, so what's left is the dense, high-signal material that actually moves evals.</p>
+        </div>
+        <div class="card">
+          <div class="cred-ico" style="width:40px;height:40px;border-radius:11px;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;margin-bottom:14px;"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></div>
+          <h3>Verifiable by construction</h3>
+          <p class="one-liner">Math ships with single checkable answers, Lean ships with type-checked proofs, and chart QA is grounded in the underlying data, so grading is unambiguous.</p>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="inner grid g2" style="align-items:start;">
-      <div>
-        <span class="kicker">Sample data</span>
-        <h2>One synthetic example.</h2>
-        <p class="sub">A single failure-derived training row: input, reference output, and the reasoning trace that makes it verifiable. Real public datasets live on <a href="https://huggingface.co/reinforcelabs/datasets" target="_blank" rel="noopener" style="color:var(--brand); font-weight:600;">Hugging Face</a>.</p>
+      <div class="card" style="margin-top:22px; background:var(--brand-soft); border-color:var(--brand-2);">
+        <span class="kicker">Built by people who understand the math</span>
+        <p class="one-liner" style="margin-top:10px; font-size:14.5px; color:var(--ink-2);">Our core team comes from mathematics and computer science at the University of Pennsylvania, with access to a broader network of PhDs, postdocs, and faculty across technical fields. The data is written and reviewed by people who understand the mathematics, not scraped from public problem banks or lightly rewritten from competitions.</p>
       </div>
-      <pre class="code"><span class="c"># synthetic_example: refund over-refusal</span>
-{
-  <span class="k">"input"</span>: <span class="s">"I returned my order 9 days ago, still no refund."</span>,
-  <span class="k">"policy"</span>: <span class="s">"Refunds within 14 days are valid; agent must not refuse."</span>,
-  <span class="k">"reference_output"</span>: <span class="s">"You're within the 14-day window. I've issued your refund."</span>,
-  <span class="k">"reasoning"</span>: <span class="s">"9 &lt; 14 → valid → must not refuse"</span>,
-  <span class="k">"label"</span>: <span class="s">"correct_allow"</span>
-}</pre>
-    </div>
-  </section>
-
-  <section class="band alt">
-    <div class="inner">
-      <div class="section-head"><span class="kicker">How we build it</span><h2>A production-grade synthetic data pipeline.</h2><p class="sub" style="margin:10px auto 0;">Staged prompt design, multi-agent generation, severity calibration, and human review: the pipeline behind our multimodal SFT and synthetic-eval work.</p></div>
-      <div class="shot-wrap" style="max-width:980px; margin:26px auto 0;">
-        <img class="shot" src="/multimodal-sft-pipeline.png" alt="Production-grade multimodal SFT data pipeline">
-      </div>
-    </div>
-  </section>
-
-  <!-- Frontier-grade datasets catalog -->
-  <section class="band alt">
-    <div class="inner">
-      <div class="section-head"><span class="kicker">Off-the-shelf catalog</span><h2>Frontier-grade reasoning datasets.</h2><p class="sub" style="margin:10px auto 0;">Single-answer verifiable, frontier-benchmarked, license-clean.</p></div>
-      <div class="fstats">
-        <div class="fstat"><b>66k+</b><span>Verified tasks</span></div>
-        <div class="fstat"><b>9</b><span>Domains</span></div>
-        <div class="fstat"><b>Lean 4</b><span>Formal proofs</span></div>
-        <div class="fstat"><b>Frontier</b><span>Model-benchmarked</span></div>
-      </div>
-      <div class="grid g3" style="margin-top:26px;">
-        <div class="card"><span class="pill">20,000 tasks</span><h3 style="margin-top:10px;">MATH Core</h3><p class="one-liner">Verifiable reasoning at scale across nine mathematical domains, with single machine-checkable answers. The workhorse corpus for reasoning RL and SFT.</p></div>
-        <div class="card"><span class="pill">20,000 tasks</span><h3 style="margin-top:10px;">MATH Undergrad Breakers</h3><p class="one-liner">Undergraduate tasks engineered to defeat frontier models. Kept only if strong models fail, so every item is high-signal.</p></div>
-        <div class="card"><span class="pill">10,000 tasks</span><h3 style="margin-top:10px;">MATH Graduate Breakers</h3><p class="one-liner">The hardest tier we ship: graduate and research-style problems benchmarked to confirm genuine frontier difficulty.</p></div>
-        <div class="card"><span class="pill">1,000 tasks</span><h3 style="margin-top:10px;">Lean Formalization</h3><p class="one-liner">Natural-language statements paired with Lean formal statements and complete, type-checked proofs for autoformalization.</p></div>
-        <div class="card"><span class="pill">15,000 tasks</span><h3 style="margin-top:10px;">Chart Understanding</h3><p class="one-liner">Real-world charts with grounded, verifiable questions, gold answers, and full chains of thought for multimodal reasoning.</p></div>
-        <div class="card"><span class="pill">12,000 tasks</span><h3 style="margin-top:10px;">GIS Spatial Reasoning</h3><p class="one-liner">Cartographic maps with verifiable questions, gold answers, and chains of thought for multi-layer spatial inference.</p></div>
-      </div>
-      <div class="grid g3" style="margin-top:22px;">
-        <div class="card"><h3>Sourced &amp; authored</h3><p class="one-liner">Drawn and authored across nine domains by people who understand the math, never scraped boilerplate.</p></div>
-        <div class="card"><h3>Benchmarked against frontier models</h3><p class="one-liner">Hard tiers are tested against the strongest models first; anything they solve is dropped.</p></div>
-        <div class="card"><h3>Verifiable by construction</h3><p class="one-liner">Single checkable answers, type-checked Lean proofs, and chart QA grounded in the underlying data.</p></div>
-      </div>
-      <p class="sub" style="text-align:center; margin-top:22px;">Built by a core team from mathematics and computer science at the University of Pennsylvania.</p>
     </div>
   </section>
 
@@ -1858,7 +2242,7 @@
 <button id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-  var PRODUCT_GROUP = ['products','evaluation','data','guardrails'];
+  var PRODUCT_GROUP = ['evaluation','data','guardrails'];
 
   function pickInterest(value) {
     var sel = document.querySelector('select[name="interested_in"]');
@@ -1911,7 +2295,7 @@
 
     document.querySelectorAll('nav.tabs .tab').forEach(function(t){
       t.classList.toggle('active', t.dataset.page === page ||
-        (t.dataset.page === 'products' && PRODUCT_GROUP.indexOf(page) >= 0) ||
+        (t.dataset.page === 'evaluation' && PRODUCT_GROUP.indexOf(page) >= 0) ||
         (t.dataset.page === 'resources' && page.indexOf('blog-') === 0));
     });
     document.querySelectorAll('.tabs-mobile .mtab').forEach(function(t){
@@ -2197,6 +2581,29 @@
       }, { threshold: 0.3 });
       io.observe(orbit);
     } else { start(); }
+  })();
+</script>
+<script>
+  /* Render inline LaTeX in the Data page's math samples (KaTeX loads deferred). */
+  (function () {
+    function renderData() {
+      if (typeof window.renderMathInElement !== 'function') return false;
+      document.querySelectorAll('#page-data .ds-tex').forEach(function (el) {
+        try {
+          window.renderMathInElement(el, {
+            delimiters: [{ left: '$', right: '$', display: false }],
+            throwOnError: false
+          });
+        } catch (e) {}
+      });
+      return true;
+    }
+    if (!renderData()) {
+      var tries = 0;
+      var t = setInterval(function () {
+        if (renderData() || ++tries > 40) clearInterval(t);
+      }, 100);
+    }
   })();
 </script>
 </body>
