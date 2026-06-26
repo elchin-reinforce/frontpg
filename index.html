@@ -2462,7 +2462,7 @@
 <button id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-  var PRODUCT_GROUP = ['evaluation','data','guardrails'];
+  var PRODUCT_GROUP = ['evaluation','guardrails'];
 
   function pickInterest(value) {
     var sel = document.querySelector('select[name="interested_in"]');
@@ -2493,18 +2493,19 @@
     'multimodel-attack-analysis': 'blog-multimodel', 'multimodal-attack-analysis': 'blog-multimodel'
   };
 
-  // canonical address-bar URL for a page (blogs keep their original /blogs/<slug> path)
+  // canonical address-bar URL for a page (clean paths, no hash; blogs keep their /blogs/<slug> path)
   function urlForPage(page) {
     if (BLOG_SLUGS[page]) return '/blogs/' + BLOG_SLUGS[page];
     if (page === 'home') return '/';
-    return '/#' + page;
+    return '/' + page;
   }
-  // which page to show for the current address bar (path first, then hash)
+  // which page to show for the current address bar (path first, then legacy hash)
   function pageFromLocation() {
     var m = location.pathname.match(/\/blogs\/([^\/]+?)(?:\.html)?\/?$/);
     if (m) return SLUG_TO_BLOG[m[1]] || 'resources';
-    var h = location.hash.replace('#','');
-    return h || 'home';
+    var seg = location.pathname.replace(/^\/+|\/+$/g, '').replace(/\.html$/, '');
+    if (seg && seg !== 'index') return seg;
+    return location.hash.replace('#', '') || 'home';
   }
 
   function go(page, fromPop) {
