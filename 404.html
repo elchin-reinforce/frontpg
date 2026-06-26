@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Redirecting...</title>
+  <script>
+    // Single Page Apps for GitHub Pages - Modified for React Router
+    // This file is only served when a route doesn't exist on the server (direct navigation or refresh)
+    // We redirect to index.html with the path in the URL, and the script in root.tsx will fix it
+    // Note: this 404.html file must be at least 512 bytes for some browsers to accept it.
+    
+    var l = window.location;
+    var path = l.pathname;
+    var search = l.search || '';
+    var hash = l.hash || '';
+    
+    // Check if this is already a ?/ redirect (from old script version)
+    if (l.search && l.search.length > 1 && l.search[1] === '/') {
+      // Reverse the ?/ pattern back to normal path
+      var decoded = l.search.slice(1).split('&').map(function(s) {
+        return s.replace(/~and~/g, '&');
+      }).join('?');
+      var cleanPath = decoded.split('?')[0];
+      path = cleanPath.startsWith('/') ? cleanPath : '/' + cleanPath;
+      search = '';
+    }
+    
+    // Only redirect if not already on index.html or root
+    if (path !== '/index.html' && path !== '/') {
+      var baseUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '');
+      // Redirect to index.html with the path as a query parameter
+      // The script in root.tsx will convert it back to a normal path
+      var redirectPath = '/?/' + path.slice(1).replace(/&/g, '~and~') + (search ? '&' + search.slice(1).replace(/&/g, '~and~') : '');
+      l.replace(baseUrl + redirectPath + hash);
+    } else {
+      // Already on index.html or root, just reload to let React Router handle it
+      l.reload();
+    }
+  </script>
+</head>
+<body>
+  <!-- This comment ensures the file is at least 512 bytes for browser compatibility -->
+  <p>If you are seeing this page, the redirect script may not be working. Please check your browser's console for errors.</p>
+  <p>Redirecting to index.html...</p>
+  <p>This is a single-page application. If you are not redirected automatically, please <a href="/index.html">click here</a>.</p>
+  <noscript>
+    <p>JavaScript is required for this application. Please enable JavaScript and refresh the page.</p>
+  </noscript>
+</body>
+</html>
+

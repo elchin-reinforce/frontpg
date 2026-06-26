@@ -1,0 +1,50 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" width="2400" height="1260" font-family="Arial, Helvetica, sans-serif">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <text x="600" y="80" text-anchor="middle" font-size="48" font-weight="800" fill="#0f172a">Same score.</text>
+  <text x="600" y="135" text-anchor="middle" font-size="48" font-weight="800" fill="#0f172a">Completely different failures.</text>
+
+  <text x="600" y="178" text-anchor="middle" font-size="20" fill="#475569">Two AI safety reports. Same pass rate. Two completely different problems.</text>
+
+  <rect x="100" y="220" width="440" height="340" rx="20" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="320" y="262" text-anchor="middle" font-size="16" font-weight="700" fill="#64748b" letter-spacing="3">MODEL A</text>
+  <text x="320" y="370" text-anchor="middle" font-size="110" font-weight="800" fill="#0f172a">80%</text>
+  <text x="320" y="402" text-anchor="middle" font-size="18" fill="#64748b">pass rate</text>
+
+  <g transform="translate(176, 428)">
+    <rect x="0" y="0" width="44" height="32" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="22" y="23" text-anchor="middle" font-size="18" font-weight="700" fill="#64748b">?</text>
+    <rect x="56" y="0" width="44" height="32" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="78" y="23" text-anchor="middle" font-size="18" font-weight="700" fill="#64748b">?</text>
+    <rect x="112" y="0" width="44" height="32" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="2.5"/>
+    <text x="134" y="23" text-anchor="middle" font-size="18" font-weight="700" fill="#b91c1c">?</text>
+    <rect x="168" y="0" width="44" height="32" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="190" y="23" text-anchor="middle" font-size="18" font-weight="700" fill="#64748b">?</text>
+    <rect x="224" y="0" width="44" height="32" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="246" y="23" text-anchor="middle" font-size="18" font-weight="700" fill="#64748b">?</text>
+  </g>
+  <text x="320" y="500" text-anchor="middle" font-size="19" font-weight="700" fill="#0f172a">A wording problem</text>
+  <text x="320" y="528" text-anchor="middle" font-size="15" fill="#475569">Fails when users reword the question</text>
+
+  <text x="600" y="408" text-anchor="middle" font-size="84" font-weight="300" fill="#94a3b8">≠</text>
+
+  <rect x="660" y="220" width="440" height="340" rx="20" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="880" y="262" text-anchor="middle" font-size="16" font-weight="700" fill="#64748b" letter-spacing="3">MODEL B</text>
+  <text x="880" y="370" text-anchor="middle" font-size="110" font-weight="800" fill="#0f172a">80%</text>
+  <text x="880" y="402" text-anchor="middle" font-size="18" fill="#64748b">pass rate</text>
+
+  <g transform="translate(736, 428)">
+    <rect x="0" y="0" width="56" height="32" rx="6" fill="#dcfce7" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="28" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">low</text>
+    <rect x="60" y="0" width="56" height="32" rx="6" fill="#ecfccb" stroke="#94a3b8" stroke-width="1.5"/>
+    <rect x="120" y="0" width="56" height="32" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="2.5"/>
+    <text x="148" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#b91c1c">FAIL</text>
+    <rect x="180" y="0" width="56" height="32" rx="6" fill="#fed7aa" stroke="#94a3b8" stroke-width="1.5"/>
+    <rect x="240" y="0" width="56" height="32" rx="6" fill="#fecaca" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="268" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">high</text>
+  </g>
+  <text x="880" y="500" text-anchor="middle" font-size="19" font-weight="700" fill="#0f172a">A judgment problem</text>
+  <text x="880" y="528" text-anchor="middle" font-size="15" fill="#475569">Fails on ambiguous middle-ground prompts</text>
+
+  <text x="600" y="598" text-anchor="middle" font-size="17" font-style="italic" fill="#64748b">A pass rate can't tell you which one you're looking at.</text>
+</svg>
