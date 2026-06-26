@@ -58,7 +58,8 @@
   .demo-banner b { color: #fff; }
 
   /* ---------- header ---------- */
-  header.site { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  header.site { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--line); transition: background .25s ease, backdrop-filter .25s ease, box-shadow .25s ease, border-color .25s ease; }
+  header.site.scrolled { background: rgba(255,255,255,.7); -webkit-backdrop-filter: blur(12px) saturate(1.4); backdrop-filter: blur(12px) saturate(1.4); border-bottom-color: transparent; box-shadow: 0 6px 26px rgba(20,14,40,.08); }
   .nav-inner { max-width: var(--maxw); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 13px 24px; gap: 16px; }
   .nav-left { display: flex; align-items: center; gap: 30px; }
   .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; letter-spacing: -.3px; cursor: pointer; }
@@ -253,7 +254,7 @@
   .workshop .btn:hover { background: #efe9ff; }
 
   /* ---------- page hero (inner pages) ---------- */
-  .phero { position: relative; overflow: hidden; padding: 60px 24px 40px; text-align: center; border-top: 3px solid var(--brand); border-bottom: 1px solid var(--line); background: radial-gradient(900px 360px at 50% -160px, rgba(109,74,255,.12), transparent 60%); }
+  .phero { position: relative; overflow: hidden; padding: 60px 24px 40px; text-align: center; border-bottom: 1px solid var(--line); background: radial-gradient(900px 360px at 50% -160px, rgba(109,74,255,.12), transparent 60%); }
   .phero::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(30,25,70,.045) 1px, transparent 1.4px); background-size: 22px 22px; z-index: 0; pointer-events: none; }
   .phero > * { position: relative; z-index: 1; }
   .phero .sub { margin: 14px auto 0; }
@@ -709,26 +710,33 @@
     #page-data .ds-catalog { grid-template-columns: 1fr; }
   }
 
-  /* ---------- BLOGS page: clean horizontal carousel ---------- */
+  /* ---------- BLOGS page: editorial carousel ---------- */
   #page-blogs .bx-wrap { position: relative; margin-top: 34px; }
-  #page-blogs .bx-track { display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 2px 26px; scrollbar-width: none; }
+  #page-blogs .bx-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; padding-block: 8px 30px; padding-inline: max(2px, calc(50% - 190px)); scroll-padding-inline: max(2px, calc(50% - 190px)); scrollbar-width: none; }
   #page-blogs .bx-track::-webkit-scrollbar { display: none; }
-  #page-blogs .bx-card { scroll-snap-align: center; flex: 0 0 360px; max-width: 88vw; border: 1px solid var(--line); border-radius: 18px; background: #fff; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
-  #page-blogs .bx-card:hover { transform: translateY(-6px); box-shadow: 0 22px 48px rgba(60,40,140,.14); border-color: var(--brand-2); }
-  #page-blogs .bx-top { position: relative; height: 150px; display: flex; align-items: flex-end; padding: 16px 20px; background: linear-gradient(135deg, var(--brand) 0%, #8a6bff 55%, #b59bff 100%); overflow: hidden; }
-  #page-blogs .bx-top::after { content: ""; position: absolute; inset: 0; background: radial-gradient(420px 160px at 85% -20%, rgba(255,255,255,.35), transparent 70%); }
-  #page-blogs .bx-card:nth-child(3n+2) .bx-top { background: linear-gradient(135deg, #0f8b7d 0%, #2bb6a3 60%, #7ad6c8 100%); }
-  #page-blogs .bx-card:nth-child(3n) .bx-top { background: linear-gradient(135deg, #4a36c9 0%, #6d4aff 55%, #9d86ff 100%); }
-  #page-blogs .bx-num { position: absolute; top: 14px; right: 18px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.7); }
-  #page-blogs .bx-tag { position: relative; z-index: 1; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #fff; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35); padding: 5px 12px; border-radius: 999px; backdrop-filter: blur(4px); }
-  #page-blogs .bx-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
-  #page-blogs .bx-body h3 { font-size: 18px; line-height: 1.28; letter-spacing: -.2px; }
-  #page-blogs .bx-body p { color: var(--ink-2); font-size: 14px; line-height: 1.55; margin-top: 10px; flex: 1; }
-  #page-blogs .bx-body .learn { color: var(--brand); font-weight: 650; font-size: 14px; margin-top: 16px; }
+  #page-blogs .bx-card { scroll-snap-align: center; flex: 0 0 380px; max-width: 86vw; border: 1px solid var(--line); border-radius: 18px; background: #fff; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; transition: transform .28s cubic-bezier(.22,.61,.36,1), box-shadow .28s ease, border-color .28s ease; }
+  #page-blogs .bx-card:hover { transform: translateY(-7px); box-shadow: 0 26px 56px rgba(40,28,90,.16); border-color: var(--brand-2); }
+  #page-blogs .bx-media { position: relative; height: 150px; overflow: hidden; display: flex; align-items: flex-end; padding: 16px; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, #6d4aff 0%, #8a6bff 55%, #b59bff 100%); }
+  #page-blogs .bx-card:nth-child(3n+2) .bx-media { background: linear-gradient(135deg, #0f8b7d 0%, #2bb6a3 60%, #7ad6c8 100%); }
+  #page-blogs .bx-card:nth-child(3n) .bx-media { background: linear-gradient(135deg, #241d3d 0%, #4a36c9 70%, #6d4aff 100%); }
+  #page-blogs .bx-media::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.22) 1px, transparent 1.4px); background-size: 13px 13px; opacity: .55; }
+  #page-blogs .bx-ico { position: absolute; right: -14px; top: -18px; width: 118px; height: 118px; color: rgba(255,255,255,.26); transition: transform .5s cubic-bezier(.22,.61,.36,1); }
+  #page-blogs .bx-card:hover .bx-ico { transform: scale(1.08) rotate(-4deg); }
+  #page-blogs .bx-cat { position: relative; z-index: 2; font-size: 11.5px; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; color: var(--brand); background: #fff; border-radius: 999px; padding: 5px 12px; box-shadow: 0 4px 12px rgba(40,28,90,.22); }
+  #page-blogs .bx-card:nth-child(3n+2) .bx-cat { color: #0f8b7d; }
+  #page-blogs .bx-card:nth-child(3n) .bx-cat { color: var(--brand); }
+  #page-blogs .bx-body { padding: 20px 22px 20px; display: flex; flex-direction: column; flex: 1; }
+  #page-blogs .bx-body h3 { font-size: 19.5px; font-weight: 700; line-height: 1.3; letter-spacing: -.3px; color: var(--ink); display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  #page-blogs .bx-body p { color: var(--ink-2); font-size: 14.5px; line-height: 1.55; margin-top: 10px; flex: 1; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  #page-blogs .bx-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; padding-top: 15px; border-top: 1px solid var(--line); }
+  #page-blogs .bx-read { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: var(--ink-3); }
+  #page-blogs .bx-link { font-size: 14px; font-weight: 700; color: var(--brand); white-space: nowrap; }
+  #page-blogs .bx-card:hover .bx-link { text-decoration: underline; }
   #page-blogs .bx-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 6px; }
-  #page-blogs .bx-arrow { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: #fff; cursor: pointer; color: var(--ink-2); display: flex; align-items: center; justify-content: center; transition: border-color .15s, color .15s, transform .1s, box-shadow .15s; }
+  #page-blogs .bx-arrow { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: #fff; cursor: pointer; color: var(--ink-2); display: flex; align-items: center; justify-content: center; transition: border-color .15s, color .15s, transform .1s, box-shadow .15s, opacity .15s; }
   #page-blogs .bx-arrow:hover { border-color: var(--brand-2); color: var(--brand); box-shadow: 0 8px 20px rgba(109,74,255,.14); }
   #page-blogs .bx-arrow:active { transform: scale(.92); }
+  #page-blogs .bx-arrow[disabled] { opacity: .35; cursor: default; box-shadow: none; border-color: var(--line); color: var(--ink-3); }
   #page-blogs .bx-arrow svg { width: 20px; height: 20px; }
   #page-blogs .bx-dots { display: flex; gap: 9px; }
   #page-blogs .bx-dots button { width: 8px; height: 8px; padding: 0; border: none; border-radius: 999px; background: var(--line); cursor: pointer; transition: width .25s ease, background .25s ease; }
@@ -736,6 +744,12 @@
 
   /* ---------- PUBLICATIONS page: research showcase ---------- */
   #page-publications .phero { border-top-color: var(--brand); }
+  #page-publications .fstats { max-width: 860px; margin-left: auto; margin-right: auto; }
+  #page-publications .fstat { padding: 28px 18px; opacity: 0; transform: translateY(18px); transition: opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1), box-shadow .25s ease; }
+  #page-publications .fstat.in { opacity: 1; transform: none; }
+  #page-publications .fstat b { display: block; font-size: clamp(36px, 5.2vw, 50px); font-weight: 800; letter-spacing: -.02em; font-variant-numeric: tabular-nums; transform: scale(1); transition: transform .35s cubic-bezier(.34,1.56,.64,1); }
+  #page-publications .fstat b.pop { transform: scale(1.14); }
+  #page-publications .fstat span { font-size: 13.5px; margin-top: 8px; }
   #page-publications .pub-venues { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 22px; }
   #page-publications .pub-venue { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12.5px; font-weight: 600; letter-spacing: .03em; color: var(--ink-2); border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 7px 15px; }
   #page-publications .pub-feature { position: relative; overflow: hidden; border: 1px solid var(--brand-2); border-radius: 22px; background: linear-gradient(135deg, #fff 0%, var(--brand-soft) 100%); padding: 36px; margin-top: 30px; }
@@ -771,8 +785,8 @@
     </div>
     <div class="code-links">
       <a href="https://huggingface.co/reinforcelabs/datasets" target="_blank" rel="noopener" title="Open datasets on Hugging Face">Hugging Face datasets<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-      <a class="cl-internal" onclick="go('publications')" title="Peer-reviewed publications and conferences">Publications</a>
-      <a class="cl-internal" onclick="go('blogs')" title="Engineering and research notes from the team">Blogs</a>
+      <a class="cl-internal" onclick="go('publications')" title="Peer-reviewed publications and conferences">Publications<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      <a class="cl-internal" onclick="go('blogs')" title="Engineering and research notes from the team">Blogs<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
     </div>
   </div>
   <nav class="tabs-mobile">
@@ -1862,39 +1876,62 @@
 <div class="page" id="page-blogs">
   <div class="phero">
     <span class="pill">Blog</span>
-    <h1 style="font-size:clamp(30px,4vw,46px); margin-top:14px;">Deep dives for practitioners.</h1>
-    <p class="sub">Engineering and research notes from the team. Swipe through the latest posts.</p>
+    <h1 style="font-size:clamp(30px,4vw,46px); margin-top:14px;">See the work, up close.</h1>
+    <p class="sub">Engineering and research notes straight from the team building it. Swipe through how we find, fix, and guard the ways frontier AI fails.</p>
   </div>
 
   <section class="band">
     <div class="inner">
-      <div class="section-head"><span class="kicker">From the blog</span><h2>Latest writing.</h2></div>
       <div class="bx-wrap">
         <div class="bx-track" id="blogTrack">
-          <div class="bx-card" onclick="go('blog-multimodel')">
-            <div class="bx-top"><span class="bx-num">01</span><span class="bx-tag">Multimodal</span></div>
-            <div class="bx-body"><h3>Beyond Attack Detection: Why Multimodal Safety Is Fighting the Wrong Battle</h3><p>Not all multimodal attacks fail for the same reason. We map where today's safety systems hold and where they break down.</p><span class="learn">Read the post &rarr;</span></div>
-          </div>
-          <div class="bx-card" onclick="go('blog-flint')">
-            <div class="bx-top"><span class="bx-num">02</span><span class="bx-tag">Launch</span></div>
-            <div class="bx-body"><h3>Don't Ship That Chatbot (Until You Read This)</h3><p>Introducing Flint: automated multi-turn stress-testing that surfaces concrete policy violations before real users do.</p><span class="learn">Read the post &rarr;</span></div>
-          </div>
-          <div class="bx-card" onclick="go('blog-beyond')">
-            <div class="bx-top"><span class="bx-num">03</span><span class="bx-tag">Evaluation</span></div>
-            <div class="bx-body"><h3>Beyond Pass Rates: What AI Safety Tests Don't Tell You</h3><p>Two reports, same pass rate, failing completely differently. Flint maps <em>how</em> models fail, not just how often.</p><span class="learn">Read the post &rarr;</span></div>
-          </div>
-          <div class="bx-card" onclick="go('blog-charts')">
-            <div class="bx-top"><span class="bx-num">04</span><span class="bx-tag">Dataset</span></div>
-            <div class="bx-body"><h3>Stop Waiting on Labeled Data. Generate Your Evals Instead.</h3><p>A four-stage pipeline for synthetic chart-VQA data with verified answers and calibrated difficulty.</p><span class="learn">Read the post &rarr;</span></div>
-          </div>
-          <div class="bx-card" onclick="go('blog-multimodal')">
-            <div class="bx-top"><span class="bx-num">05</span><span class="bx-tag">Engineering</span></div>
-            <div class="bx-body"><h3>Building a Production-Grade Multimodal SFT Pipeline</h3><p>Generating image-prompt-response triples for multimodal safety fine-tuning: what worked, what didn't.</p><span class="learn">Read the post &rarr;</span></div>
-          </div>
-          <div class="bx-card" onclick="go('blog-judgment')">
-            <div class="bx-top"><span class="bx-num">06</span><span class="bx-tag">Partnership</span></div>
-            <div class="bx-body"><h3>Human Judgment at Scale</h3><p>How graded human annotations (our Centific partnership) feed back into Flint's learning loop.</p><span class="learn">Read the post &rarr;</span></div>
-          </div>
+          <article class="bx-card" onclick="go('blog-multimodel')">
+            <div class="bx-media"><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg><span class="bx-cat">Multimodal</span></div>
+            <div class="bx-body">
+              <h3>Beyond Attack Detection: Why Multimodal Safety Is Fighting the Wrong Battle</h3>
+              <p>Not all multimodal attacks fail for the same reason. We map where today's safety systems hold and where they break down.</p>
+              <div class="bx-foot"><span class="bx-read">7 min read</span><span class="bx-link">Read article &rarr;</span></div>
+            </div>
+          </article>
+          <article class="bx-card" onclick="go('blog-flint')">
+            <div class="bx-media"><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg><span class="bx-cat">Launch</span></div>
+            <div class="bx-body">
+              <h3>Don't Ship That Chatbot (Until You Read This)</h3>
+              <p>Introducing Flint: automated multi-turn stress-testing that surfaces concrete policy violations before real users do.</p>
+              <div class="bx-foot"><span class="bx-read">5 min read</span><span class="bx-link">Read article &rarr;</span></div>
+            </div>
+          </article>
+          <article class="bx-card" onclick="go('blog-beyond')">
+            <div class="bx-media"><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="9" width="3" height="9"/><rect x="12" y="5" width="3" height="13"/><rect x="17" y="12" width="3" height="6"/></svg><span class="bx-cat">Evaluation</span></div>
+            <div class="bx-body">
+              <h3>Beyond Pass Rates: What AI Safety Tests Don't Tell You</h3>
+              <p>Two reports, same pass rate, failing completely differently. Flint maps how models fail, not just how often.</p>
+              <div class="bx-foot"><span class="bx-read">6 min read</span><span class="bx-link">Read article &rarr;</span></div>
+            </div>
+          </article>
+          <article class="bx-card" onclick="go('blog-charts')">
+            <div class="bx-media"><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span class="bx-cat">Dataset</span></div>
+            <div class="bx-body">
+              <h3>Stop Waiting on Labeled Data. Generate Your Evals Instead.</h3>
+              <p>A four-stage pipeline for synthetic chart-VQA data with verified answers and calibrated difficulty.</p>
+              <div class="bx-foot"><span class="bx-read">8 min read</span><span class="bx-link">Read article &rarr;</span></div>
+            </div>
+          </article>
+          <article class="bx-card" onclick="go('blog-multimodal')">
+            <div class="bx-media"><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg><span class="bx-cat">Engineering</span></div>
+            <div class="bx-body">
+              <h3>Building a Production-Grade Multimodal SFT Pipeline</h3>
+              <p>Generating image-prompt-response triples for multimodal safety fine-tuning: what worked, what didn't.</p>
+              <div class="bx-foot"><span class="bx-read">9 min read</span><span class="bx-link">Read article &rarr;</span></div>
+            </div>
+          </article>
+          <article class="bx-card" onclick="go('blog-judgment')">
+            <div class="bx-media"><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5"/><path d="M16 5.5a3 3 0 0 1 0 5"/><path d="M21 20c0-2.2-1.4-3.8-3.5-4.4"/></svg><span class="bx-cat">Partnership</span></div>
+            <div class="bx-body">
+              <h3>Human Judgment at Scale</h3>
+              <p>How graded human annotations (our Centific partnership) feed back into Flint's learning loop.</p>
+              <div class="bx-foot"><span class="bx-read">5 min read</span><span class="bx-link">Read article &rarr;</span></div>
+            </div>
+          </article>
         </div>
         <div class="bx-nav">
           <button class="bx-arrow" id="blogPrev" aria-label="Previous posts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
@@ -1922,11 +1959,10 @@
 
   <section class="band">
     <div class="inner">
-      <div class="fstats">
-        <div class="fstat"><b>4</b><span>Top-tier venues</span></div>
-        <div class="fstat"><b>5</b><span>Papers &amp; invited talks</span></div>
-        <div class="fstat"><b>2</b><span>Peer-reviewed papers</span></div>
-        <div class="fstat"><b>2025&ndash;26</b><span>Active program</span></div>
+      <div class="fstats" id="pubStats">
+        <div class="fstat"><b class="pub-stat" data-target="5" data-suffix="+">0+</b><span>Papers &amp; invited talks</span></div>
+        <div class="fstat"><b class="pub-stat" data-target="4" data-suffix="+">0+</b><span>Top-tier venues</span></div>
+        <div class="fstat"><b class="pub-stat" data-target="6" data-suffix="+">0+</b><span>Partner labs &amp; institutions</span></div>
       </div>
     </div>
   </section>
@@ -2525,9 +2561,11 @@
     targets.forEach(function(t){ t.classList.add('reveal'); io.observe(t); });
   })();
 
-  // back-to-top visibility
+  // back-to-top visibility + glassy header once scrolled away from the very top
+  var siteHeader = document.querySelector('header.site');
   window.addEventListener('scroll', function(){
     document.getElementById('toTop').classList.toggle('show', window.scrollY > 600);
+    if (siteHeader) siteHeader.classList.toggle('scrolled', window.scrollY > 8);
   }, { passive: true });
 
   // resolve the page from the address bar (handles direct hits on /blogs/<slug>,
@@ -2791,7 +2829,9 @@
   })();
 </script>
 <script>
-  /* Blogs page: horizontal carousel with arrows + dot indicators. */
+  /* Blogs page: editorial carousel. Centers the active card via the track's own
+     scrollLeft (no scrollIntoView, so the page never jumps), active dot follows the
+     card nearest the track center, arrows disable at the ends. */
   (function () {
     var track = document.getElementById('blogTrack');
     if (!track) return;
@@ -2805,37 +2845,113 @@
       var b = document.createElement('button');
       b.type = 'button';
       b.setAttribute('aria-label', 'Go to post ' + (idx + 1));
-      b.addEventListener('click', function () { scrollToCard(idx); });
+      b.addEventListener('click', function () { goTo(idx); });
       dotsWrap.appendChild(b);
     });
     var dots = Array.prototype.slice.call(dotsWrap.children);
+    var active = 0;
 
-    function step() {
-      if (cards.length < 2) return track.clientWidth;
-      return cards[1].offsetLeft - cards[0].offsetLeft;
+    // Target scrollLeft that centers card i within the track (clamped to scroll range).
+    function targetFor(i) {
+      var c = cards[i];
+      var delta = c.getBoundingClientRect().left - track.getBoundingClientRect().left;
+      var raw = track.scrollLeft + delta - (track.clientWidth - c.offsetWidth) / 2;
+      var max = track.scrollWidth - track.clientWidth;
+      return Math.max(0, Math.min(max, raw));
     }
-    function current() {
-      return Math.round(track.scrollLeft / step());
-    }
-    function scrollToCard(i) {
+    function goTo(i) {
       i = Math.max(0, Math.min(cards.length - 1, i));
-      track.scrollTo({ left: i * step(), behavior: 'smooth' });
+      track.scrollTo({ left: targetFor(i), behavior: 'smooth' });
+    }
+    // Index of the card whose center is closest to the track's center.
+    function centeredIndex() {
+      var mid = track.getBoundingClientRect().left + track.clientWidth / 2;
+      var best = 0, bestD = Infinity;
+      cards.forEach(function (c, k) {
+        var r = c.getBoundingClientRect();
+        var d = Math.abs(r.left + r.width / 2 - mid);
+        if (d < bestD) { bestD = d; best = k; }
+      });
+      return best;
     }
     function paint() {
-      var i = current();
-      dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
+      active = centeredIndex();
+      var atStart = track.scrollLeft <= 2;
+      var atEnd = track.scrollLeft >= (track.scrollWidth - track.clientWidth - 2);
+      dots.forEach(function (d, k) { d.classList.toggle('on', k === active); });
+      if (prev) prev.disabled = atStart;
+      if (next) next.disabled = atEnd;
     }
 
-    prev && prev.addEventListener('click', function () { scrollToCard(current() - 1); });
-    next && next.addEventListener('click', function () { scrollToCard(current() + 1); });
+    prev && prev.addEventListener('click', function () { goTo(active - 1); });
+    next && next.addEventListener('click', function () { goTo(active + 1); });
 
     var raf = null;
     track.addEventListener('scroll', function () {
       if (raf) return;
       raf = requestAnimationFrame(function () { raf = null; paint(); });
     }, { passive: true });
+    window.addEventListener('resize', paint);
+
+    // Recompute once the page is actually shown (it starts as display:none).
+    var tabBtns = document.querySelectorAll('[onclick*="blogs"]');
+    tabBtns.forEach(function (b) { b.addEventListener('click', function () { setTimeout(paint, 60); }); });
 
     paint();
+  })();
+</script>
+<script>
+  /* Publications page: count-up the impact metrics the first time they scroll into view. */
+  (function () {
+    var wrap = document.getElementById('pubStats');
+    if (!wrap) return;
+    var nums = Array.prototype.slice.call(wrap.querySelectorAll('.pub-stat'));
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var done = false;
+
+    function easeOutExpo(p) { return p >= 1 ? 1 : 1 - Math.pow(2, -10 * p); }
+
+    function countUp(el, target, suffix) {
+      var dur = 1500, start = null, last = -1;
+      function tick(ts) {
+        if (start === null) start = ts;
+        var p = Math.min(1, (ts - start) / dur);
+        var val = Math.round(easeOutExpo(p) * target);
+        if (val !== last) { el.textContent = val + suffix; last = val; }
+        if (p < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          el.textContent = target + suffix;
+          el.classList.add('pop');
+          setTimeout(function () { el.classList.remove('pop'); }, 360);
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+
+    function run() {
+      if (done) return;
+      done = true;
+      nums.forEach(function (el, i) {
+        var target = parseInt(el.getAttribute('data-target'), 10) || 0;
+        var suffix = el.getAttribute('data-suffix') || '';
+        var card = el.parentNode;
+        if (reduce) { card.classList.add('in'); el.textContent = target + suffix; return; }
+        var delay = i * 140;
+        setTimeout(function () { card.classList.add('in'); }, delay);
+        // start the roll just after the card has begun rising in, so motion reads as one gesture
+        setTimeout(function () { countUp(el, target, suffix); }, delay + 220);
+      });
+    }
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { run(); io.disconnect(); } });
+      }, { threshold: 0.4 });
+      io.observe(wrap);
+    } else {
+      run();
+    }
   })();
 </script>
 </body>
