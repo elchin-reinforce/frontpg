@@ -375,11 +375,28 @@
   .section-head .sub { margin: 10px auto 0; }
 
   /* ---------- mobile nav strip ---------- */
-  .tabs-mobile { display: none; gap: 18px; overflow-x: auto; padding: 0 24px 11px; font-size: 14.5px; font-weight: 600; color: var(--ink-2); -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-  .tabs-mobile::-webkit-scrollbar { display: none; }
-  .tabs-mobile .mtab { white-space: nowrap; padding: 4px 0; border-bottom: 2px solid transparent; cursor: pointer; }
-  .tabs-mobile .mtab.active { color: var(--brand); border-bottom-color: var(--brand); }
-  @media (max-width: 980px) { .tabs-mobile { display: flex; } }
+  /* hamburger button (mobile only) */
+  .nav-burger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px; padding: 0 9px; border: 1px solid var(--line); border-radius: 11px; background: #fff; cursor: pointer; transition: border-color .18s ease, box-shadow .18s ease; }
+  .nav-burger:hover { border-color: var(--brand-2); }
+  .nav-burger span { display: block; height: 2px; width: 100%; border-radius: 2px; background: var(--ink); transition: transform .26s cubic-bezier(.22,.61,.36,1), opacity .2s ease; }
+  .nav-burger.open { border-color: var(--brand-2); box-shadow: 0 6px 16px rgba(109,74,255,.12); }
+  .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-burger.open span:nth-child(2) { opacity: 0; }
+  .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* slide-down mobile menu panel */
+  .mobile-menu { display: none; flex-direction: column; overflow: hidden; max-height: 0; opacity: 0; border-top: 1px solid transparent; background: #fff; transition: max-height .34s cubic-bezier(.22,.61,.36,1), opacity .26s ease, border-color .26s ease; }
+  .mobile-menu.open { max-height: 460px; opacity: 1; border-top-color: var(--line); box-shadow: 0 18px 30px rgba(20,14,40,.10); }
+  .mobile-menu .mm-item { display: flex; align-items: center; gap: 7px; padding: 14px 24px; font-size: 16px; font-weight: 600; color: var(--ink); cursor: pointer; border-left: 3px solid transparent; transition: background .16s ease, color .16s ease, border-color .16s ease; }
+  .mobile-menu .mm-item:active { background: var(--bg-2); }
+  .mobile-menu .mm-item.active { color: var(--brand); border-left-color: var(--brand); background: var(--brand-soft); }
+  .mobile-menu .mm-item.mm-ext { color: var(--ink-2); font-weight: 600; }
+  .mobile-menu .mm-item svg { width: 15px; height: 15px; color: var(--brand); }
+  .mobile-menu .mm-sep { height: 1px; margin: 6px 24px; background: var(--line); }
+  @media (max-width: 980px) {
+    .nav-burger { display: flex; }
+    .mobile-menu { display: flex; }
+  }
 
   /* ---------- carousel arrows ---------- */
   .carousel-nav { display: flex; gap: 10px; justify-content: center; margin-top: 8px; }
@@ -632,6 +649,31 @@
     #page-home .orbit-node .on-label { font-size: 11px; }
   }
 
+  /* ---- mobile: vertical timeline replaces the circular orbit ---- */
+  #page-home .orbit-timeline { display: none; list-style: none; margin: 30px auto 4px; padding: 0; max-width: 440px; text-align: left; }
+  #page-home .ot-row { position: relative; display: grid; grid-template-columns: 46px 1fr; gap: 14px; padding-bottom: 22px; cursor: pointer; }
+  #page-home .ot-row:last-child { padding-bottom: 0; }
+  /* connector line running through the dots */
+  #page-home .ot-mark { position: relative; display: flex; justify-content: center; }
+  #page-home .ot-mark::before { content: ""; position: absolute; top: 46px; bottom: -22px; left: 50%; width: 2px; transform: translateX(-50%); background: var(--line); }
+  #page-home .ot-row:last-child .ot-mark::before { display: none; }
+  #page-home .ot-mark::after { content: ""; position: absolute; top: 46px; bottom: -22px; left: 50%; width: 2px; transform: translateX(-50%) scaleY(0); transform-origin: top center; background: linear-gradient(180deg, var(--brand-2), var(--brand)); transition: transform .5s cubic-bezier(.22,.61,.36,1); }
+  #page-home .ot-row.done .ot-mark::after { transform: translateX(-50%) scaleY(1); }
+  #page-home .ot-dot { position: relative; z-index: 1; width: 46px; height: 46px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; color: var(--brand); box-shadow: 0 8px 18px rgba(60,40,140,.10); transition: transform .35s cubic-bezier(.2,1.3,.4,1), background .35s, color .35s, box-shadow .35s, border-color .35s; }
+  #page-home .ot-dot svg { width: 22px; height: 22px; }
+  #page-home .ot-row.last .ot-dot { color: #0f8b7d; }
+  #page-home .ot-body { padding-top: 2px; }
+  #page-home .ot-body b { display: block; font-size: 16px; letter-spacing: -.2px; color: var(--ink); transition: color .35s; }
+  #page-home .ot-body span { display: block; font-size: 13px; color: var(--ink-3); line-height: 1.5; margin-top: 4px; }
+  #page-home .ot-row.on .ot-dot { background: linear-gradient(140deg, var(--brand-2), var(--brand)); color: #fff; border-color: transparent; transform: scale(1.08); box-shadow: 0 14px 30px rgba(109,74,255,.34); }
+  #page-home .ot-row.last.on .ot-dot { background: linear-gradient(140deg, #36d6c3, var(--accent)); box-shadow: 0 14px 30px rgba(22,184,166,.32); }
+  #page-home .ot-row.on .ot-body b { color: var(--brand); }
+  #page-home .ot-row.last.on .ot-body b { color: #0f8b7d; }
+  @media (max-width: 600px) {
+    #page-home .orbit { display: none; }
+    #page-home .orbit-timeline { display: block; }
+  }
+
   @media (max-width: 840px) {
     #page-home .cred-rail { grid-template-columns: 1fr; gap: 12px; }
     #page-home .cred-rail.s1, #page-home .cred-rail.s2, #page-home .cred-rail.s3 { margin-left: 0; }
@@ -788,14 +830,18 @@
       <a href="https://huggingface.co/reinforcelabs/datasets" target="_blank" rel="noopener" title="Open datasets on Hugging Face">Hugging Face datasets<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
       <a class="cl-internal" onclick="go('publications')" title="Peer-reviewed publications and conferences">Publications<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
     </div>
+    <button type="button" class="nav-burger" id="navBurger" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <nav class="tabs-mobile">
-    <span class="mtab" data-page="products" onclick="go('products')">Past Work</span>
-    <span class="mtab" data-page="evaluation" onclick="go('evaluation')">Product</span>
-    <span class="mtab" data-page="enterprise" onclick="go('enterprise')">Enterprise FDE</span>
-    <span class="mtab" onclick="window.open('https://huggingface.co/reinforcelabs/datasets','_blank')">Hugging Face datasets</span>
-    <span class="mtab" data-page="publications" onclick="go('publications')">Publications</span>
-    <span class="mtab" data-page="blogs" onclick="go('blogs')">Blogs</span>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+    <span class="mm-item" data-page="products" onclick="go('products')">Past Work</span>
+    <span class="mm-item" data-page="evaluation" onclick="go('evaluation')">Product</span>
+    <span class="mm-item" data-page="enterprise" onclick="go('enterprise')">Enterprise FDE</span>
+    <span class="mm-item" data-page="blogs" onclick="go('blogs')">Blogs</span>
+    <span class="mm-sep" aria-hidden="true"></span>
+    <a class="mm-item mm-ext" href="https://huggingface.co/reinforcelabs/datasets" target="_blank" rel="noopener">Hugging Face datasets<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+    <span class="mm-item mm-ext" data-page="publications" onclick="go('publications')">Publications<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
   </nav>
 </header>
 
@@ -1031,6 +1077,30 @@
             <span class="on-label">Guardrails</span>
           </button>
         </div>
+
+        <!-- mobile equivalent: vertical animated timeline (driven by the same loop) -->
+        <ol class="orbit-timeline" id="orbitTimeline" aria-hidden="true">
+          <li class="ot-row" data-i="0">
+            <span class="ot-mark"><span class="ot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></span></span>
+            <span class="ot-body"><b>Build</b><span>Agent, prompts, tools, and RAG &mdash; your team or ours.</span></span>
+          </li>
+          <li class="ot-row" data-i="1">
+            <span class="ot-mark"><span class="ot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span></span>
+            <span class="ot-body"><b>Evaluate</b><span>Adversarial sim across models, chatbots, and agents finds the failures.</span></span>
+          </li>
+          <li class="ot-row" data-i="2">
+            <span class="ot-mark"><span class="ot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.3 2.3-2-2 2.3-2.3z"/></svg></span></span>
+            <span class="ot-body"><b>Fix</b><span>Failure-derived, taxonomy-covered datasets and applied fixes close the gaps.</span></span>
+          </li>
+          <li class="ot-row" data-i="3">
+            <span class="ot-mark"><span class="ot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></span></span>
+            <span class="ot-body"><b>Deploy</b><span>Ship the hardened agent &mdash; applied fixes, not just suggestions.</span></span>
+          </li>
+          <li class="ot-row last" data-i="4">
+            <span class="ot-mark"><span class="ot-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg></span></span>
+            <span class="ot-body"><b>Guardrails</b><span>The same scorers run live: protect traffic, feed the next loop.</span></span>
+          </li>
+        </ol>
       </div>
 
       <p class="deploy kick reveal" style="display:block;">Runs on <b>Reinforce Cloud</b> or <b>self-hosted</b> in your own environment, with data residency by design. <b>Model-agnostic</b> across Claude, GPT, and open-weight.</p>
@@ -2519,8 +2589,10 @@
         (t.dataset.page === 'evaluation' && PRODUCT_GROUP.indexOf(page) >= 0) ||
         (t.dataset.page === 'blogs' && page.indexOf('blog-') === 0));
     });
-    document.querySelectorAll('.tabs-mobile .mtab').forEach(function(t){
-      t.classList.toggle('active', t.dataset.page === page);
+    document.querySelectorAll('.mobile-menu .mm-item').forEach(function(t){
+      t.classList.toggle('active', t.dataset.page === page ||
+        (t.dataset.page === 'evaluation' && PRODUCT_GROUP.indexOf(page) >= 0) ||
+        (t.dataset.page === 'blogs' && page.indexOf('blog-') === 0));
     });
 
     // reveal everything on the freshly shown page (IO may not fire for display:none -> block)
@@ -2530,6 +2602,28 @@
     // pushState (not replaceState) so the browser Back/Forward buttons move between tabs;
     // blog pages keep their original /blogs/<slug> URL so old links stay valid
     if (!fromPop && history.pushState) history.pushState({ page: page }, '', urlForPage(page));
+    closeMobileMenu();
+  }
+
+  // mobile hamburger menu
+  var navBurger = document.getElementById('navBurger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  function closeMobileMenu() {
+    if (!navBurger || !mobileMenu) return;
+    navBurger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    navBurger.setAttribute('aria-expanded', 'false');
+  }
+  if (navBurger && mobileMenu) {
+    navBurger.addEventListener('click', function () {
+      var open = !mobileMenu.classList.contains('open');
+      navBurger.classList.toggle('open', open);
+      mobileMenu.classList.toggle('open', open);
+      navBurger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    mobileMenu.querySelectorAll('.mm-ext[href]').forEach(function (a) {
+      a.addEventListener('click', closeMobileMenu);
+    });
   }
 
   // navigate to a page, then scroll to a section anchor on it (used by the Resources dropdown)
@@ -2720,6 +2814,7 @@
     if (!orbit) return;
     var reduceM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var nodes = Array.prototype.slice.call(orbit.querySelectorAll('.orbit-node'));
+    var tlRows = Array.prototype.slice.call(document.querySelectorAll('#orbitTimeline .ot-row'));
     var center = document.getElementById('orbitCenter');
     var ttl = center.querySelector('.oc-title');
     var desc = center.querySelector('.oc-desc');
@@ -2744,6 +2839,7 @@
     function paint(i) {
       cur = i;
       nodes.forEach(function (n, k) { n.classList.toggle('on', k === i); });
+      tlRows.forEach(function (r, k) { r.classList.toggle('on', k === i); r.classList.toggle('done', k < i); });
       pips.forEach(function (p, k) { p.classList.toggle('on', k === i); });
       step.textContent = 'Step 0' + (i + 1) + ' / 0' + N;
       ttl.textContent = steps[i].t;
@@ -2793,16 +2889,22 @@
       n.addEventListener('click', function () { jumpTo(i); });
       n.addEventListener('focus', function () { jumpTo(i); });
     });
+    tlRows.forEach(function (r, i) {
+      r.addEventListener('click', function () { jumpTo(i); });
+    });
 
     paint(0);
     if (reduceM) { fillSector(0, false); return; }
     if (lit) { lit.style.transition = 'none'; lit.setAttribute('transform', 'rotate(0 50 50)'); lit.style.strokeDashoffset = C.toFixed(2); }
 
     if ('IntersectionObserver' in window) {
+      // observe the always-visible wrapper so the loop also runs when the
+      // circle is hidden and the mobile timeline is shown (display:none never intersects)
+      var watch = orbit.closest('.loop-strip') || orbit;
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) { e.isIntersecting ? start() : stop(); });
-      }, { threshold: 0.3 });
-      io.observe(orbit);
+      }, { threshold: 0.2 });
+      io.observe(watch);
     } else { start(); }
   })();
 </script>
