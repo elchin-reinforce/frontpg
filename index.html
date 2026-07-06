@@ -753,7 +753,7 @@
   #page-data .ds-stats span { display: block; margin-top: 5px; font-size: 12px; color: var(--ink-3); }
   @media (max-width: 640px) { #page-data .ds-stats { grid-template-columns: repeat(2, 1fr); } }
   #page-data .ds-catalog { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 30px; }
-  #page-data .ds-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 24px; transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+  #page-data .ds-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 24px; transition: border-color .5s ease, box-shadow .5s ease, transform .5s ease; }
   #page-data .ds-card:hover { border-color: var(--brand-2); box-shadow: 0 16px 40px rgba(60,40,140,.10); transform: translateY(-2px); }
   #page-data .ds-card h3 { font-size: 18px; letter-spacing: -.3px; }
   #page-data .ds-card .ds-tagline { margin-top: 3px; font-size: 13.5px; color: var(--ink-3); }
@@ -800,7 +800,7 @@
   #page-data .ds-cot p { margin-top: 8px; font-size: 13px; line-height: 1.55; color: var(--ink-2); white-space: pre-line; }
   #page-data .ds-tex .katex { font-size: 1em; }
   /* Sample block: hover-revealed first example + View samples button */
-  #page-data .ds-firstex { display: grid; grid-template-rows: 0fr; opacity: 0; margin-top: 0; transition: grid-template-rows .55s cubic-bezier(.22,1,.36,1), opacity .45s ease, margin-top .55s cubic-bezier(.22,1,.36,1); }
+  #page-data .ds-firstex { display: grid; grid-template-rows: 0fr; opacity: 0; margin-top: 0; transition: grid-template-rows 1.3s cubic-bezier(.22,1,.36,1), opacity 1s ease, margin-top 1.3s cubic-bezier(.22,1,.36,1); }
   #page-data .ds-card:hover .ds-firstex, #page-data .ds-card:focus-within .ds-firstex { grid-template-rows: 1fr; opacity: 1; margin-top: 14px; }
   #page-data .ds-firstex-inner { overflow: hidden; min-height: 0; }
   #page-data .ds-firstex-label { margin: 0 0 2px; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-3); }
@@ -837,10 +837,12 @@
   }
 
   /* ---------- BLOGS page: editorial carousel ---------- */
-  #page-blogs .bx-wrap { position: relative; margin-top: 34px; }
-  #page-blogs .bx-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; padding-block: 8px 30px; padding-inline: max(2px, calc(50% - 190px)); scroll-padding-inline: max(2px, calc(50% - 190px)); scrollbar-width: none; }
+  #page-blogs .bx-wrap { position: relative; margin-top: 34px; padding-inline: 0; }
+  #page-blogs .bx-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; padding-block: 8px 4px; padding-inline: 4px; scroll-padding-inline: 4px; scrollbar-width: none; }
   #page-blogs .bx-track::-webkit-scrollbar { display: none; }
-  #page-blogs .bx-card { scroll-snap-align: center; flex: 0 0 380px; max-width: 86vw; border: 1px solid var(--line); border-radius: 18px; background: #fff; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; transition: transform .28s cubic-bezier(.22,.61,.36,1), box-shadow .28s ease, border-color .28s ease; }
+  #page-blogs .bx-card { scroll-snap-align: center; flex: 0 0 calc((100% - 48px) / 3); max-width: none; border: 1px solid var(--line); border-radius: 18px; background: #fff; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; transition: transform .28s cubic-bezier(.22,.61,.36,1), box-shadow .28s ease, border-color .28s ease; }
+  @media (max-width: 900px) { #page-blogs .bx-card { flex: 0 0 calc((100% - 24px) / 2); } }
+  @media (max-width: 640px) { #page-blogs .bx-track { gap: 16px; } #page-blogs .bx-card { flex: 0 0 88%; } }
   #page-blogs .bx-card:hover { transform: translateY(-7px); box-shadow: 0 26px 56px rgba(40,28,90,.16); border-color: var(--brand-2); }
   #page-blogs .bx-media { position: relative; height: 150px; overflow: hidden; display: flex; align-items: flex-end; padding: 16px; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, #6941c6 0%, #8a6bff 55%, #b59bff 100%); }
   #page-blogs .bx-card:nth-child(3n+2) .bx-media { background: linear-gradient(135deg, #4a3fb0 0%, #6d63d6 60%, #8b9be8 100%); }
@@ -858,15 +860,21 @@
   #page-blogs .bx-read { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: var(--ink-3); }
   #page-blogs .bx-link { font-size: 14px; font-weight: 700; color: var(--brand); white-space: nowrap; }
   #page-blogs .bx-card:hover .bx-link { text-decoration: underline; }
-  #page-blogs .bx-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 6px; }
+  #page-blogs .bx-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 22px; }
   #page-blogs .bx-arrow { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: #fff; cursor: pointer; color: var(--ink-2); display: flex; align-items: center; justify-content: center; transition: border-color .15s, color .15s, transform .1s, box-shadow .15s, opacity .15s; }
-  #page-blogs .bx-arrow:hover { border-color: var(--brand-2); color: var(--brand); box-shadow: 0 8px 20px rgba(105,65,198,.14); }
+  #page-blogs .bx-arrow:hover { border-color: var(--brand-2); color: var(--brand); box-shadow: 0 10px 24px rgba(105,65,198,.16); }
   #page-blogs .bx-arrow:active { transform: scale(.92); }
-  #page-blogs .bx-arrow[disabled] { opacity: .35; cursor: default; box-shadow: none; border-color: var(--line); color: var(--ink-3); }
+  #page-blogs .bx-arrow[disabled] { opacity: .3; cursor: default; box-shadow: none; border-color: var(--line); color: var(--ink-3); }
   #page-blogs .bx-arrow svg { width: 20px; height: 20px; }
-  #page-blogs .bx-dots { display: flex; gap: 9px; }
-  #page-blogs .bx-dots button { width: 8px; height: 8px; padding: 0; border: none; border-radius: 999px; background: var(--line); cursor: pointer; transition: width .25s ease, background .25s ease; }
-  #page-blogs .bx-dots button.on { width: 26px; background: var(--brand); }
+  /* side arrows: floated on the left/right edges of the carousel, vertically centered on the cards */
+  #page-blogs .bx-side { position: absolute; top: 44%; z-index: 5; box-shadow: 0 12px 30px rgba(40,28,90,.18); }
+  #page-blogs .bx-side:active { transform: translate(var(--tx, 0), -50%) scale(.92); }
+  #page-blogs .bx-prev { left: 0; transform: translate(-50%, -50%); --tx: -50%; }
+  #page-blogs .bx-next { right: 0; transform: translate(50%, -50%); --tx: 50%; }
+  #page-blogs .bx-dots { display: flex; gap: 12px; }
+  #page-blogs .bx-dots button { width: 9px; height: 9px; padding: 0; border: none; border-radius: 999px; background: var(--line); cursor: pointer; transition: width .25s ease, background .25s ease; }
+  #page-blogs .bx-dots button.on { width: 32px; background: var(--brand); }
+  @media (max-width: 640px) { #page-blogs .bx-side { display: none; } }
 
   /* ---------- PUBLICATIONS page: research showcase ---------- */
   #page-publications .phero { border-top-color: var(--brand); }
@@ -2250,6 +2258,8 @@
   <section class="band">
     <div class="inner">
       <div class="bx-wrap">
+        <button class="bx-arrow bx-side bx-prev" id="blogPrev" aria-label="Previous posts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="bx-arrow bx-side bx-next" id="blogNext" aria-label="More posts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
         <div class="bx-track" id="blogTrack">
           <article class="bx-card" onclick="go('blog-retail')">
             <div class="bx-media"><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/><path d="m9 12 2 2 4-4"/></svg><span class="bx-cat">Agents</span></div>
@@ -2309,9 +2319,7 @@
           </article>
         </div>
         <div class="bx-nav">
-          <button class="bx-arrow" id="blogPrev" aria-label="Previous posts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
           <div class="bx-dots" id="blogDots"></div>
-          <button class="bx-arrow" id="blogNext" aria-label="More posts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
         </div>
       </div>
     </div>
