@@ -751,6 +751,14 @@
   #page-data .ds-stats > div { background: #fff; padding: 22px 16px; text-align: center; }
   #page-data .ds-stats b { display: block; font-size: 26px; font-weight: 700; letter-spacing: -.02em; color: var(--ink); }
   #page-data .ds-stats span { display: block; margin-top: 5px; font-size: 12px; color: var(--ink-3); }
+  /* staggered entrance for the hero stats (replays whenever the data page is shown) */
+  #page-data .ds-stats > div { opacity: 0; animation: ds-stat-in .62s cubic-bezier(.22,.9,.32,1) both; }
+  #page-data .ds-stats > div:nth-child(1) { animation-delay: .12s; }
+  #page-data .ds-stats > div:nth-child(2) { animation-delay: .24s; }
+  #page-data .ds-stats > div:nth-child(3) { animation-delay: .36s; }
+  #page-data .ds-stats > div:nth-child(4) { animation-delay: .48s; }
+  @keyframes ds-stat-in { from { opacity: 0; transform: translateY(16px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  @media (prefers-reduced-motion: reduce) { #page-data .ds-stats > div { opacity: 1; animation: none; } }
   @media (max-width: 640px) { #page-data .ds-stats { grid-template-columns: repeat(2, 1fr); } }
   #page-data .ds-catalog { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 30px; }
   #page-data .ds-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 24px; transition: border-color .5s ease, box-shadow .5s ease, transform .5s ease; }
