@@ -33,17 +33,17 @@
 -->
 <style>
   :root {
-    --ink: #16131f;
-    --ink-2: #4b465c;
-    --ink-3: #767185;
-    --line: #e7e4ee;
+    --ink: #241c33;
+    --ink-2: #524a66;
+    --ink-3: #8983a0;
+    --line: #e6e3f2;
     --bg: #ffffff;
-    --bg-2: #f7f6fa;
-    --brand: #6d4aff;
-    --brand-2: #9d7bff;
-    --brand-soft: #f1ecff;
-    --accent: #16b8a6;
-    --accent-soft: #e6f7f4;
+    --bg-2: #fafafd;
+    --brand: #6941c6;
+    --brand-2: #8b9be8;
+    --brand-soft: #e8ecfb;
+    --accent: #8b9be8;
+    --accent-soft: #e8ecfb;
     --warn: #b45309;
     --radius: 14px;
     --maxw: 1140px;
@@ -73,13 +73,13 @@
   nav.tabs .tab:active { transform: scale(.96); }
   .code-links { display: flex; align-items: center; gap: 8px; }
   .code-links a { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 8px; padding: 7px 11px; font-size: 13px; font-weight: 600; color: var(--ink-2); background: #fff; transition: border-color .18s ease, color .18s ease, transform .18s ease, box-shadow .18s ease; }
-  .code-links a:hover { border-color: var(--brand-2); color: var(--brand); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(109,74,255,.12); }
+  .code-links a:hover { border-color: var(--brand-2); color: var(--brand); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(105,65,198,.12); }
   .code-links a:active { transform: scale(.97); }
   .code-links a.cl-internal { cursor: pointer; }
   .code-links svg { width: 14px; height: 14px; color: var(--brand); transition: transform .18s ease; }
   .code-links a:hover svg { transform: translate(2px, -2px); }
   .nav-cta { background: var(--brand); color: #fff; padding: 9px 16px; border-radius: 9px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background .15s; white-space: nowrap; }
-  .nav-cta:hover { background: #5a39e0; }
+  .nav-cta:hover { background: #57339e; }
 
   /* ---------- layout primitives ---------- */
   .page { display: none; }
@@ -108,18 +108,18 @@
   @media (max-width: 600px) { .g2, .g4 { grid-template-columns: 1fr; } }
   .card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
   .card.clickable { cursor: pointer; transition: transform .15s, box-shadow .15s, border-color .15s; }
-  .card.clickable:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(109,74,255,.10); border-color: var(--brand-2); }
+  .card.clickable:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(105,65,198,.10); border-color: var(--brand-2); }
   .card .one-liner { color: var(--ink-2); font-size: 15px; margin-top: 8px; }
   .card .learn { color: var(--brand); font-weight: 600; font-size: 14px; margin-top: 14px; display: inline-block; }
   .btn { display: inline-block; background: var(--brand); color: #fff; padding: 13px 24px; border-radius: 10px; font-weight: 650; font-size: 15px; cursor: pointer; transition: background .18s ease, transform .18s ease, box-shadow .18s ease; border: none; }
-  .btn:hover { background: #5a39e0; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(109,74,255,.24); }
+  .btn:hover { background: #57339e; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(105,65,198,.24); }
   .btn:active { transform: translateY(0) scale(.98); }
   .btn.ghost { background: transparent; color: var(--brand); border: 1.5px solid var(--brand); box-shadow: none; }
-  .btn.ghost:hover { background: var(--brand-soft); box-shadow: 0 8px 20px rgba(109,74,255,.12); }
+  .btn.ghost:hover { background: var(--brand-soft); box-shadow: 0 8px 20px rgba(105,65,198,.12); }
   .btn.accent { background: var(--brand); }
-  .btn.accent:hover { background: #5a39e0; }
+  .btn.accent:hover { background: #57339e; }
   .pill { display: inline-block; background: var(--brand-soft); color: var(--brand); font-size: 12.5px; font-weight: 650; border-radius: 999px; padding: 4px 12px; }
-  .pill.accent { background: var(--accent-soft); color: #0f8b7d; }
+  .pill.accent { background: var(--accent-soft); color: #6941c6; }
   ul.checks { list-style: none; margin-top: 14px; }
   ul.checks li { position: relative; padding-left: 26px; margin: 9px 0; color: var(--ink-2); font-size: 15px; }
   ul.checks li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 800; }
@@ -127,9 +127,9 @@
   /* ---------- hero ---------- */
   .hero { padding: 70px 24px 54px; text-align: center; position: relative; overflow: hidden; isolation: isolate; }
   .hero .aurora { position: absolute; inset: -20% -10%; z-index: -2; pointer-events: none; background:
-    radial-gradient(640px 360px at 22% 18%, rgba(109,74,255,.22), transparent 60%),
-    radial-gradient(560px 320px at 82% 12%, rgba(22,184,166,.16), transparent 60%),
-    radial-gradient(700px 460px at 60% 90%, rgba(157,123,255,.16), transparent 62%);
+    radial-gradient(640px 360px at 22% 18%, rgba(105,65,198,.22), transparent 60%),
+    radial-gradient(560px 320px at 82% 12%, rgba(139,155,232,.16), transparent 60%),
+    radial-gradient(700px 460px at 60% 90%, rgba(139,155,232,.16), transparent 62%);
     filter: blur(6px); animation: aurora-drift 18s ease-in-out infinite alternate; }
   @keyframes aurora-drift {
     0%   { transform: translate3d(-2%, -1%, 0) scale(1); }
@@ -149,7 +149,7 @@
   .cred-bubble:hover { border-color: var(--brand-2); transform: translateY(-2px); box-shadow: 0 10px 26px rgba(80,60,180,.10); }
   .cred-bubble .ico { width: 40px; height: 40px; border-radius: 11px; background: var(--brand-soft); color: var(--brand); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
   .cred-bubble .ico svg { width: 20px; height: 20px; }
-  .cred-bubble.research .ico { background: var(--accent-soft); color: #0f8b7d; }
+  .cred-bubble.research .ico { background: var(--accent-soft); color: #6941c6; }
   .cred-bubble h3 { font-size: 16px; margin-bottom: 6px; }
   .cred-bubble p { font-size: 13.5px; color: var(--ink-2); line-height: 1.5; }
   .cred-bubble .learn { display: inline-block; margin-top: 12px; font-size: 13px; font-weight: 700; color: var(--brand); }
@@ -186,7 +186,7 @@
   .carousel::-webkit-scrollbar { height: 8px; }
   .carousel::-webkit-scrollbar-thumb { background: var(--line); border-radius: 99px; }
   .pcard { scroll-snap-align: start; flex: 0 0 320px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; transition: transform .15s, box-shadow .15s, border-color .15s; }
-  .pcard:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(109,74,255,.12); border-color: var(--brand-2); }
+  .pcard:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(105,65,198,.12); border-color: var(--brand-2); }
   .pcard .viz { height: 168px; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
   .pcard .pbody { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
   .pcard .rank { font-size: 11.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--brand); }
@@ -197,11 +197,11 @@
 
   /* mini CSS visualizations inside product cards */
   .viz-fde { background: linear-gradient(135deg, #efe9ff, #faf8ff); }
-  .viz-eval { background: linear-gradient(135deg, #e9f6ff, #f6fcff); }
-  .viz-data { background: linear-gradient(135deg, #eafaf4, #f7fdfb); }
-  .viz-guard { background: linear-gradient(135deg, #fff0ea, #fff8f5); }
+  .viz-eval { background: linear-gradient(135deg, #eef0fc, #f7f8fe); }
+  .viz-data { background: linear-gradient(135deg, #e8ecfb, #f6f7fe); }
+  .viz-guard { background: linear-gradient(135deg, #efedfb, #f8f9fe); }
   .viz-flow { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 8px; }
-  .viz-node { background: #fff; border: 1.5px solid var(--brand-2); color: var(--brand); border-radius: 8px; padding: 7px 10px; font-size: 11px; font-weight: 700; box-shadow: 0 4px 10px rgba(109,74,255,.08); }
+  .viz-node { background: #fff; border: 1.5px solid var(--brand-2); color: var(--brand); border-radius: 8px; padding: 7px 10px; font-size: 11px; font-weight: 700; box-shadow: 0 4px 10px rgba(105,65,198,.08); }
   .viz-arrow { color: var(--brand-2); font-weight: 800; font-size: 13px; }
   .viz-bars { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; gap: 9px; padding: 22px 18px; }
   .viz-bar { width: 22px; border-radius: 5px 5px 0 0; background: linear-gradient(180deg, var(--brand-2), var(--brand)); }
@@ -218,7 +218,7 @@
   /* ---------- close-the-loop cycle (native) ---------- */
   .cycle { display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; gap: 0; margin-top: 34px; }
   .cycle-step { flex: 1 1 190px; max-width: 230px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 22px 18px; text-align: center; transition: transform .15s, box-shadow .15s, border-color .15s; }
-  .cycle-step:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(109,74,255,.10); border-color: var(--brand-2); }
+  .cycle-step:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(105,65,198,.10); border-color: var(--brand-2); }
   .cycle-step .cs-ico { width: 46px; height: 46px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; border-radius: 13px; background: var(--brand-soft); font-size: 21px; }
   .cycle-step.last .cs-ico { background: var(--accent-soft); }
   .cycle-step b { display: block; font-size: 16px; letter-spacing: -.2px; }
@@ -234,7 +234,7 @@
   .cycle-meta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 22px; }
   .cycle-gate { flex: 1 1 360px; max-width: 560px; background: var(--brand-soft); border: 1px solid var(--brand-2); border-radius: 12px; padding: 14px 18px; font-size: 13.5px; color: var(--ink-2); text-align: left; }
   .cycle-gate b { color: var(--brand); }
-  .cycle-proof { flex: 1 1 280px; max-width: 360px; background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 12px; padding: 14px 18px; font-size: 13px; color: #0f6b60; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; display: flex; align-items: center; }
+  .cycle-proof { flex: 1 1 280px; max-width: 360px; background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 12px; padding: 14px 18px; font-size: 13px; color: #6941c6; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; display: flex; align-items: center; }
 
   /* ---------- deployment band ---------- */
   .deploy { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -254,18 +254,18 @@
   .workshop .btn:hover { background: #efe9ff; }
 
   /* ---------- page hero (inner pages) ---------- */
-  .phero { position: relative; overflow: hidden; padding: 60px 24px 40px; text-align: center; border-bottom: 1px solid var(--line); background: radial-gradient(900px 360px at 50% -160px, rgba(109,74,255,.12), transparent 60%); }
+  .phero { position: relative; overflow: hidden; padding: 60px 24px 40px; text-align: center; border-bottom: 1px solid var(--line); background: radial-gradient(900px 360px at 50% -160px, rgba(105,65,198,.12), transparent 60%); }
   .phero::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(30,25,70,.045) 1px, transparent 1.4px); background-size: 22px 22px; z-index: 0; pointer-events: none; }
   .phero > * { position: relative; z-index: 1; }
   .phero .sub { margin: 14px auto 0; }
   /* per-tab header textures so pages feel distinct */
-  #page-products .phero  { border-top-color:#6d4aff; background: radial-gradient(900px 360px at 50% -160px, rgba(109,74,255,.14), transparent 60%); }
-  #page-evaluation .phero{ border-top-color:#0e96b4; background: radial-gradient(900px 360px at 50% -160px, rgba(14,150,180,.15), transparent 60%); }
-  #page-data .phero      { border-top-color:#16a378; background: radial-gradient(900px 360px at 50% -160px, rgba(22,163,120,.15), transparent 60%); }
-  #page-guardrails .phero{ border-top-color:#d79a2b; background: radial-gradient(900px 360px at 50% -160px, rgba(215,154,43,.16), transparent 60%); }
-  #page-enterprise .phero{ border-top-color:#4660d6; background: radial-gradient(900px 360px at 50% -160px, rgba(70,96,214,.15), transparent 60%); }
-  #page-resources .phero { border-top-color:#7a6fb4; background: radial-gradient(900px 360px at 50% -160px, rgba(122,111,180,.14), transparent 60%); }
-  #page-contact .phero   { border-top-color:#6d4aff; background: radial-gradient(900px 360px at 50% -160px, rgba(109,74,255,.12), transparent 60%); }
+  #page-products .phero  { border-top-color:#6941c6; background: radial-gradient(900px 360px at 50% -160px, rgba(105,65,198,.14), transparent 60%); }
+  #page-evaluation .phero{ border-top-color:var(--brand); background: radial-gradient(900px 360px at 50% -160px, rgba(105,65,198,.13), transparent 60%); }
+  #page-data .phero      { border-top-color:var(--brand); background: radial-gradient(900px 360px at 50% -160px, rgba(105,65,198,.13), transparent 60%); }
+  #page-guardrails .phero{ border-top-color:var(--brand); background: radial-gradient(900px 360px at 50% -160px, rgba(105,65,198,.13), transparent 60%); }
+  #page-enterprise .phero{ border-top-color:var(--brand-2); background: radial-gradient(900px 360px at 50% -160px, rgba(139,155,232,.16), transparent 60%); }
+  #page-resources .phero { border-top-color:var(--brand); background: radial-gradient(900px 360px at 50% -160px, rgba(105,65,198,.13), transparent 60%); }
+  #page-contact .phero   { border-top-color:#6941c6; background: radial-gradient(900px 360px at 50% -160px, rgba(105,65,198,.12), transparent 60%); }
 
   /* ---------- tables ---------- */
   table.t { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 14.5px; }
@@ -282,6 +282,10 @@
   .lb .barcell { width: 42%; }
   .lb .bar { height: 9px; border-radius: 99px; background: linear-gradient(90deg, var(--accent), var(--brand)); }
   .lb .num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 650; }
+  /* homepage leaderboard: bars grow in on scroll */
+  #home-leaderboard .lb .bar { width: 0; transition: width 1.1s cubic-bezier(.22,.61,.36,1); }
+  #home-leaderboard.lb-in .lb .bar { width: var(--w); }
+  @media (prefers-reduced-motion: reduce) { #home-leaderboard .lb .bar { transition: none; } }
 
   /* ---------- use case cards ---------- */
   .uc { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #fff; }
@@ -296,10 +300,10 @@
   .report { background: #fbfaff; border: 1px solid var(--line); border-radius: 12px; padding: 22px; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; color: var(--ink-2); }
   .report .sev-crit { color: #c0392b; font-weight: 700; }
   .report .sev-mod { color: var(--warn); font-weight: 700; }
-  .report .ok { color: #0f8b7d; font-weight: 700; }
+  .report .ok { color: #6941c6; font-weight: 700; }
   pre.code { background: #1c1830; color: #e7e2f5; border-radius: 12px; padding: 20px 22px; overflow-x: auto; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; line-height: 1.7; }
   pre.code .k { color: #b39dff; }
-  pre.code .s { color: #8fe3c8; }
+  pre.code .s { color: #a9b8ff; }
   pre.code .c { color: #6f6a86; }
 
   /* ---------- jobs ---------- */
@@ -342,6 +346,26 @@
   .article th, .article td { border:1px solid var(--line); padding: 10px 12px; text-align:left; vertical-align: top; }
   .article th { background: var(--bg-2); font-size:12.5px; text-transform:uppercase; letter-spacing:.04em; color: var(--ink-3); }
   .article .formula { background: var(--brand-soft); border:1px solid var(--brand-2); border-radius:10px; padding: 14px 18px; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size:15px; color: var(--ink); margin: 18px 0; text-align:center; }
+  .before-after-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:14px 0; }
+  @media (max-width:600px) { .before-after-cols { grid-template-columns:1fr; } }
+  .task-card { border:1px solid var(--line); border-radius:12px; overflow:hidden; margin:24px 0; }
+  .task-card-header { background:#241c33; padding:13px 18px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  .task-card-header .tc-name { color:#fff; font-weight:700; font-size:15px; }
+  .task-card-header .tc-mode { color:#b7c1f2; font-size:13px; font-weight:400; }
+  .task-card-req { padding:13px 18px; background:var(--bg-2); border-bottom:1px solid var(--line); }
+  .task-card-req .tc-req-label { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-3); font-weight:600; margin:0 0 5px; }
+  .task-card-req .tc-req-body { font-size:15px; color:var(--ink-2); margin:0; line-height:1.55; }
+  .task-card-cols { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--line); }
+  .task-col { min-width:0; }
+  .task-col + .task-col { border-left:1px solid var(--line); }
+  .task-col-header { padding:10px 14px; }
+  .task-col-header span { color:#fff; font-weight:700; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; }
+  .task-col-body { padding:13px 14px; font-size:14.5px; color:var(--ink-2); line-height:1.6; }
+  .task-col-body .tc-label-small { display:block; font-style:italic; color:var(--ink-3); font-size:13px; margin:10px 0 4px; }
+  .task-col-body .tc-quote { display:block; font-style:italic; color:#b4453c; font-size:14px; margin:0 0 8px; }
+  .tc-code { display:block; background:var(--bg-2); border:1px solid var(--line); border-radius:6px; padding:8px 10px; font-family:'JetBrains Mono',ui-monospace,monospace; font-size:13px; word-break:break-all; overflow-wrap:anywhere; white-space:pre-wrap; margin:4px 0 0; color:var(--ink); }
+  .task-card-why { padding:13px 18px; border-top:1px solid var(--line); border-left:4px solid var(--accent); font-size:14px; color:var(--ink-2); line-height:1.6; }
+  @media (max-width:600px) { .task-card-cols { grid-template-columns:1fr; } .task-col + .task-col { border-left:none; border-top:1px solid var(--line); } }
   .article .vqa { border:1px solid var(--line); border-radius:14px; padding: 20px 22px; margin: 26px 0; background:#fff; }
   .article .vqa .q { font-size:15px; }
   .article .vqa .q b { color: var(--ink); }
@@ -354,7 +378,7 @@
   .form textarea { min-height: 110px; resize: vertical; }
 
   /* ---------- asset note (review aid) ---------- */
-  .anote { border: 1px dashed #c9b8ff; background: #f7f3ff; color: #5a39e0; border-radius: 8px; padding: 3px 9px; font-size: 11.5px; font-weight: 600; display: inline-block; }
+  .anote { border: 1px dashed #c9b8ff; background: #f7f3ff; color: #57339e; border-radius: 8px; padding: 3px 9px; font-size: 11.5px; font-weight: 600; display: inline-block; }
 
   /* ---------- product screenshots (real assets) ---------- */
   .shot { width: 100%; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 14px 40px rgba(22,19,31,.10); display: block; }
@@ -379,7 +403,7 @@
   .nav-burger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px; padding: 0 9px; border: 1px solid var(--line); border-radius: 11px; background: #fff; cursor: pointer; transition: border-color .18s ease, box-shadow .18s ease; }
   .nav-burger:hover { border-color: var(--brand-2); }
   .nav-burger span { display: block; height: 2px; width: 100%; border-radius: 2px; background: var(--ink); transition: transform .26s cubic-bezier(.22,.61,.36,1), opacity .2s ease; }
-  .nav-burger.open { border-color: var(--brand-2); box-shadow: 0 6px 16px rgba(109,74,255,.12); }
+  .nav-burger.open { border-color: var(--brand-2); box-shadow: 0 6px 16px rgba(105,65,198,.12); }
   .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-burger.open span:nth-child(2) { opacity: 0; }
   .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -410,16 +434,16 @@
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
   /* ---------- back to top ---------- */
-  #toTop { position: fixed; right: 22px; bottom: 22px; width: 46px; height: 46px; border-radius: 50%; border: none; background: var(--brand); color: #fff; font-size: 20px; cursor: pointer; box-shadow: 0 8px 24px rgba(109,74,255,.32); opacity: 0; pointer-events: none; transition: opacity .2s, transform .15s; z-index: 60; }
+  #toTop { position: fixed; right: 22px; bottom: 22px; width: 46px; height: 46px; border-radius: 50%; border: none; background: var(--brand); color: #fff; font-size: 20px; cursor: pointer; box-shadow: 0 8px 24px rgba(105,65,198,.32); opacity: 0; pointer-events: none; transition: opacity .2s, transform .15s; z-index: 60; }
   #toTop.show { opacity: 1; pointer-events: auto; }
-  #toTop:hover { background: #5a39e0; transform: translateY(-2px); }
+  #toTop:hover { background: #57339e; transform: translateY(-2px); }
 
   /* ============================================================ HOME (frontpg) — scoped to #page-home ============================================================ */
   #page-home .reveal { transition-delay: var(--d, 0ms); }
   #page-home .hero { padding: 96px 24px 64px; }
   #page-home .hero h1 { margin-top: 6px; line-height: 1.05; }
   #page-home .hero h1 .word { display: inline-block; opacity: 0; transform: translateY(28px) rotate(2deg); animation: word-up .8s cubic-bezier(.2,.7,.3,1) forwards; animation-delay: var(--wd, 0ms); }
-  #page-home .hero h1 .grad { background: linear-gradient(100deg, #221d44 0%, #4733b5 42%, #6d4aff 64%, #221d44 100%); background-size: 220% 100%; background-position: 0% 50%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: word-up .8s cubic-bezier(.2,.7,.3,1) var(--wd, 0ms) forwards, grad-sheen 8s ease-in-out 1.2s infinite; }
+  #page-home .hero h1 .grad { background: linear-gradient(100deg, #221d44 0%, #4733b5 42%, #6941c6 64%, #221d44 100%); background-size: 220% 100%; background-position: 0% 50%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: word-up .8s cubic-bezier(.2,.7,.3,1) var(--wd, 0ms) forwards, grad-sheen 8s ease-in-out 1.2s infinite; }
   @keyframes grad-sheen { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
   @keyframes word-up { to { opacity: 1; transform: none; } }
   #page-home .hero .mission { margin: 22px auto 0; color: var(--ink-2); font-size: 18px; max-width: 660px; opacity: 0; animation: word-up .8s ease forwards; animation-delay: .5s; }
@@ -436,7 +460,7 @@
   #page-home .cred-tag:hover { background: rgba(255,255,255,.82); border-color: var(--line); box-shadow: 0 10px 26px rgba(80,60,180,.10); }
   #page-home .cred-ico { flex: none; width: 40px; height: 40px; border-radius: 11px; background: var(--brand-soft); color: var(--brand); display: flex; align-items: center; justify-content: center; }
   #page-home .cred-ico svg { width: 20px; height: 20px; }
-  #page-home .cred-rail.s2 .cred-ico { background: var(--accent-soft); color: #0f8b7d; }
+  #page-home .cred-rail.s2 .cred-ico { background: var(--accent-soft); color: #6941c6; }
   #page-home .cred-tag b { font-size: 15px; font-weight: 700; letter-spacing: -.2px; display: block; }
   #page-home .cred-tag i { font-style: normal; display: block; font-size: 12.5px; color: var(--ink-2); margin-top: 2px; line-height: 1.42; }
   #page-home .cred-tag .learn { display: inline-flex; align-items: center; gap: 5px; margin-top: 7px; font-size: 12.5px; font-weight: 700; color: var(--brand); }
@@ -446,11 +470,11 @@
   #page-home .cred-rail.s2 .marquee-track { animation-duration: 44s; animation-direction: reverse; }
   #page-home .cred-rail.s3 .marquee-track { animation-duration: 50s; }
   #page-home .logo-chip { display: inline-flex; align-items: center; gap: 9px; min-width: 0; height: 52px; padding: 0 18px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink-2); font-weight: 650; font-size: 14.5px; letter-spacing: -.2px; white-space: nowrap; box-shadow: 0 2px 8px rgba(22,19,31,.03); transition: border-color .2s, transform .2s, box-shadow .2s; }
-  #page-home .logo-chip:hover { border-color: var(--brand-2); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(109,74,255,.10); }
+  #page-home .logo-chip:hover { border-color: var(--brand-2); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(105,65,198,.10); }
   #page-home .logo-chip .lc-ico { flex: none; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; color: var(--brand); }
   #page-home .logo-chip .lc-ico svg { width: 22px; height: 22px; }
   #page-home .logo-chip .yr { font-size: 11.5px; font-weight: 700; color: var(--ink-3); }
-  #page-home .cred-rail.s2 .logo-chip .lc-ico { color: #0f8b7d; }
+  #page-home .cred-rail.s2 .logo-chip .lc-ico { color: #6941c6; }
   #page-home .cred-rail.s3 .logo-chip .lc-ico { color: var(--brand); }
 
   /* walls */
@@ -459,7 +483,7 @@
   #page-home .wall-card .barrier { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; z-index: 2; background: repeating-linear-gradient(180deg, var(--brand) 0 10px, var(--brand-2) 10px 20px); }
   #page-home .wall-card .tag { margin-top: 4px; font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
   #page-home .wall-num { position: absolute; right: 18px; top: 14px; font-size: 46px; font-weight: 800; letter-spacing: -2px; color: var(--brand); opacity: .07; line-height: 1; z-index: 1; }
-  #page-home .wall-card .proj { position: absolute; top: 50%; left: 12px; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, var(--brand)); box-shadow: 0 2px 10px rgba(109,74,255,.55); opacity: 0; z-index: 1; animation: wall-hit 3.6s cubic-bezier(.45,0,.2,1) infinite; animation-delay: var(--hd, 0ms); }
+  #page-home .wall-card .proj { position: absolute; top: 50%; left: 12px; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, var(--brand)); box-shadow: 0 2px 10px rgba(105,65,198,.55); opacity: 0; z-index: 1; animation: wall-hit 3.6s cubic-bezier(.45,0,.2,1) infinite; animation-delay: var(--hd, 0ms); }
   #page-home .wall-card .burst { position: absolute; top: 50%; left: 6px; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; border: 2px solid var(--brand); opacity: 0; z-index: 2; animation: wall-burst 3.6s ease-out infinite; animation-delay: var(--hd, 0ms); }
   #page-home .wall-card .crack { position: absolute; top: 50%; left: 3px; width: 48px; height: 64px; margin-top: -32px; color: var(--brand); opacity: 0; z-index: 2; animation: wall-crack 3.6s ease-out infinite; animation-delay: var(--hd, 0ms); }
   #page-home .wall-card .crack svg { width: 100%; height: 100%; }
@@ -479,7 +503,7 @@
   #page-home .sol-card .learn { color: var(--brand); font-weight: 600; font-size: 14px; margin-top: 16px; display: inline-flex; gap: 5px; align-items: center; }
   #page-home .sol-card .learn .arr { transition: transform .2s; }
   #page-home .sol-card:hover .learn .arr { transform: translateX(4px); }
-  #page-home .sol-card.active { box-shadow: 0 18px 42px rgba(109,74,255,.16); border-color: var(--brand); transform: translateY(-4px); }
+  #page-home .sol-card.active { box-shadow: 0 18px 42px rgba(105,65,198,.16); border-color: var(--brand); transform: translateY(-4px); }
   #page-home .sol-controls { display: none; }
   #page-home .sol-dots { display: flex; gap: 8px; justify-content: center; margin-top: 22px; }
   #page-home .sol-dots button { width: 9px; height: 9px; border-radius: 50%; border: none; background: var(--line); cursor: pointer; padding: 0; transition: background .2s, transform .2s, width .2s; }
@@ -494,7 +518,7 @@
   }
 
   /* loop */
-  #page-home .loop-strip { margin-top: 44px; padding: 36px 32px 40px; border: 1px solid var(--line); border-radius: 18px; background: #fff; text-align: center; position: relative; overflow: hidden; }
+  #page-home .loop-strip { margin-top: 44px; padding: 30px 30px 32px; border: 1px solid var(--line); border-radius: 18px; background: #fff; text-align: center; position: relative; overflow: hidden; }
   #page-home .flow { position: relative; margin-top: 30px; padding: 8px 0 4px; }
   #page-home .flow-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: visible; }
   #page-home .flow-path { fill: none; stroke: var(--line); stroke-width: 2; }
@@ -504,12 +528,12 @@
   #page-home .cycle-step { flex: 1 1 0; min-width: 0; max-width: none; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 12px; text-align: center; transition: transform .25s, box-shadow .25s, border-color .25s; }
   #page-home .cycle-step .cs-ico { width: 44px; height: 44px; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; border-radius: 13px; background: var(--brand-soft); color: var(--brand); font-size: 0; transition: transform .3s, background .3s; }
   #page-home .cycle-step .cs-ico svg { width: 22px; height: 22px; }
-  #page-home .cycle-step.last .cs-ico { background: var(--accent-soft); color: #0f8b7d; }
+  #page-home .cycle-step.last .cs-ico { background: var(--accent-soft); color: #6941c6; }
   #page-home .cycle-step b { display: block; font-size: 15px; letter-spacing: -.2px; }
   #page-home .cycle-step span { display: block; color: var(--ink-3); font-size: 12.5px; margin-top: 6px; line-height: 1.45; }
-  #page-home .cycle-step.hot { border-color: var(--brand); box-shadow: 0 14px 32px rgba(109,74,255,.16); transform: translateY(-5px); }
+  #page-home .cycle-step.hot { border-color: var(--brand); box-shadow: 0 14px 32px rgba(105,65,198,.16); transform: translateY(-5px); }
   #page-home .cycle-step.hot .cs-ico { transform: scale(1.12) rotate(-4deg); background: var(--brand); color: #fff; }
-  #page-home .cycle-step.last.hot { border-color: var(--accent); box-shadow: 0 14px 32px rgba(22,184,166,.18); }
+  #page-home .cycle-step.last.hot { border-color: var(--accent); box-shadow: 0 14px 32px rgba(139,155,232,.18); }
   #page-home .cycle-step.last.hot .cs-ico { background: var(--accent); color: #fff; }
   #page-home .cycle-arrow { align-self: center; color: var(--brand-2); font-size: 18px; font-weight: 800; padding: 0 4px; flex: 0 0 auto; }
   @media (max-width: 760px) {
@@ -523,25 +547,25 @@
   #page-home .deploy.kick { display: block; text-align: center; margin-top: 28px; color: var(--ink-2); font-size: 15px; font-style: italic; }
 
   /* workshop */
-  #page-home .workshop { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--ink), #2a2440); color: #fff; border-radius: 18px; padding: 40px 44px; display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap; border: 1px solid rgba(157,123,255,.18); transition: transform .25s, box-shadow .25s; }
+  #page-home .workshop { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--ink), #2a2440); color: #fff; border-radius: 18px; padding: 40px 44px; display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap; border: 1px solid rgba(139,155,232,.18); transition: transform .25s, box-shadow .25s; }
   #page-home .workshop:hover { transform: translateY(-3px); box-shadow: 0 26px 60px rgba(45,30,110,.35); }
-  #page-home .workshop::before { content: ""; position: absolute; top: 0; left: -60%; width: 45%; height: 100%; background: linear-gradient(100deg, transparent, rgba(157,123,255,.18), transparent); transform: skewX(-18deg); animation: sheen 6.5s ease-in-out infinite; pointer-events: none; }
-  #page-home .workshop::after { content: ""; position: absolute; right: -80px; top: -80px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(22,184,166,.22), transparent 65%); pointer-events: none; }
+  #page-home .workshop::before { content: ""; position: absolute; top: 0; left: -60%; width: 45%; height: 100%; background: linear-gradient(100deg, transparent, rgba(139,155,232,.18), transparent); transform: skewX(-18deg); animation: sheen 6.5s ease-in-out infinite; pointer-events: none; }
+  #page-home .workshop::after { content: ""; position: absolute; right: -80px; top: -80px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(139,155,232,.22), transparent 65%); pointer-events: none; }
   @keyframes sheen { 0%,18% { left: -60%; } 55%,100% { left: 130%; } }
   #page-home .workshop .ws-left { position: relative; z-index: 1; flex: 1 1 520px; }
   #page-home .workshop h2 { color: #fff; margin-bottom: 6px; }
   #page-home .workshop p { color: #cfc8e6; font-size: 15.5px; max-width: 580px; }
-  #page-home .workshop .pill.accent { background: rgba(22,184,166,.18); color: #7ce7d6; }
+  #page-home .workshop .pill.accent { background: rgba(139,155,232,.18); color: #b7c1f2; }
   #page-home .ws-perks { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
   #page-home .ws-perk { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: #e7e2f5; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 999px; padding: 6px 12px; }
-  #page-home .ws-perk svg { width: 14px; height: 14px; color: #7ce7d6; flex: none; }
+  #page-home .ws-perk svg { width: 14px; height: 14px; color: #b7c1f2; flex: none; }
   #page-home .ws-cta { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: stretch; gap: 10px; flex: 0 0 auto; min-width: 230px; }
   #page-home .workshop .btn { background: linear-gradient(180deg, #fff, #f2eeff); color: var(--ink); position: relative; z-index: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 26px; font-size: 15.5px; box-shadow: 0 10px 26px rgba(0,0,0,.25); }
-  #page-home .workshop .btn:hover { background: #efe9ff; transform: translateY(-2px); box-shadow: 0 16px 34px rgba(124,231,214,.25); }
+  #page-home .workshop .btn:hover { background: #efe9ff; transform: translateY(-2px); box-shadow: 0 16px 34px rgba(139,155,232,.25); }
   #page-home .workshop .btn .arr { transition: transform .2s; }
   #page-home .workshop .btn:hover .arr { transform: translateX(5px); }
-  #page-home .workshop .btn .ring { position: absolute; inset: 0; border-radius: 10px; box-shadow: 0 0 0 0 rgba(124,231,214,.5); animation: cta-ring 2.6s ease-out infinite; pointer-events: none; }
-  @keyframes cta-ring { 0% { box-shadow: 0 0 0 0 rgba(124,231,214,.5); } 70% { box-shadow: 0 0 0 12px rgba(124,231,214,0); } 100% { box-shadow: 0 0 0 0 rgba(124,231,214,0); } }
+  #page-home .workshop .btn .ring { position: absolute; inset: 0; border-radius: 10px; box-shadow: 0 0 0 0 rgba(139,155,232,.5); animation: cta-ring 2.6s ease-out infinite; pointer-events: none; }
+  @keyframes cta-ring { 0% { box-shadow: 0 0 0 0 rgba(139,155,232,.5); } 70% { box-shadow: 0 0 0 12px rgba(139,155,232,0); } 100% { box-shadow: 0 0 0 0 rgba(139,155,232,0); } }
   @media (max-width: 640px) { #page-home .ws-cta { width: 100%; } }
 
   /* ---- dart & dartboard (problem -> solution), one-time throw ---- */
@@ -559,7 +583,7 @@
   #page-home .dart-cards { display: flex; flex-direction: column; gap: 14px; }
   #page-home .dart-card { border: 1px solid var(--line); border-left: 3px solid var(--brand); border-radius: 14px; padding: 16px 18px; background: #fff; opacity: 0; transform: translateY(18px) scale(.96); transition: opacity .5s cubic-bezier(.22,.61,.36,1), transform .5s cubic-bezier(.22,.61,.36,1), box-shadow .25s ease; }
   #page-home .dart-card.show { opacity: 1; transform: none; }
-  #page-home .dart-card:hover { box-shadow: 0 14px 32px rgba(109,74,255,.12); }
+  #page-home .dart-card:hover { box-shadow: 0 14px 32px rgba(105,65,198,.12); }
   #page-home .dc-top { display: flex; align-items: center; gap: 10px; }
   #page-home .dc-num { flex: none; font-size: 13px; font-weight: 800; color: var(--brand); opacity: .5; }
   #page-home .dc-top b { flex: 1 1 auto; min-width: 0; font-size: 15.5px; letter-spacing: -.2px; }
@@ -576,9 +600,9 @@
       radial-gradient(circle at 50% 50%, #fff 0 7%, var(--brand) 7% 8.5%, #f3efff 8.5% 23%, var(--brand-soft) 23% 24.5%, #fff 24.5% 39%, var(--brand) 39% 40.5%, #f3efff 40.5% 55%, var(--brand-soft) 55% 56.5%, #fff 56.5% 71%, var(--brand) 71% 72.5%, #efe9ff 72.5% 100%);
     box-shadow: 0 30px 70px rgba(60,40,140,.22), inset 0 0 0 10px #2a2440, inset 0 0 44px rgba(71,51,181,.18); }
   #page-home .dart-board .db-rings { position: absolute; inset: 0; border-radius: 50%; pointer-events: none; background: repeating-conic-gradient(from 0deg, transparent 0 28deg, rgba(42,36,64,.05) 28deg 30deg); }
-  #page-home .dart-board .db-bull { position: absolute; left: 50%; top: 50%; width: 8%; height: 8%; transform: translate(-50%,-50%); border-radius: 50%; background: radial-gradient(circle, var(--brand-2), var(--brand)); box-shadow: 0 0 14px rgba(109,74,255,.7); z-index: 2; }
+  #page-home .dart-board .db-bull { position: absolute; left: 50%; top: 50%; width: 8%; height: 8%; transform: translate(-50%,-50%); border-radius: 50%; background: radial-gradient(circle, var(--brand-2), var(--brand)); box-shadow: 0 0 14px rgba(105,65,198,.7); z-index: 2; }
   #page-home .dart-board .db-center-label { position: absolute; left: 50%; bottom: 12%; transform: translateX(-50%); font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--brand); background: rgba(255,255,255,.86); padding: 3px 10px; border-radius: 999px; z-index: 2; white-space: nowrap; }
-  #page-home .db-pin { position: absolute; left: var(--tx); top: var(--ty); width: 15px; height: 15px; margin: -7.5px 0 0 -7.5px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, var(--brand)); box-shadow: 0 0 0 4px rgba(109,74,255,.18), 0 2px 8px rgba(60,40,140,.5); opacity: 0; transform: scale(.2); transition: opacity .2s ease, transform .35s cubic-bezier(.2,1.5,.4,1); z-index: 3; }
+  #page-home .db-pin { position: absolute; left: var(--tx); top: var(--ty); width: 15px; height: 15px; margin: -7.5px 0 0 -7.5px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, var(--brand)); box-shadow: 0 0 0 4px rgba(105,65,198,.18), 0 2px 8px rgba(60,40,140,.5); opacity: 0; transform: scale(.2); transition: opacity .2s ease, transform .35s cubic-bezier(.2,1.5,.4,1); z-index: 3; }
   #page-home .db-pin.hit { opacity: 1; transform: scale(1); }
   /* outer = horizontal travel (decelerates into the board) + fade */
   #page-home .db-dart { position: absolute; left: var(--tx); top: var(--ty); width: 110px; height: 55px; margin: -27.5px 0 0 -104px; opacity: 0; z-index: 4; transform: translateX(-960px); will-change: transform, opacity; }
@@ -610,12 +634,12 @@
   }
 
   /* ---- continuous loop as circular orbit ---- */
-  #page-home .orbit { position: relative; width: min(480px, 92vw); aspect-ratio: 1; margin: 44px auto 4px; }
+  #page-home .orbit { position: relative; width: min(440px, 92vw); aspect-ratio: 1; margin: 6px auto; }
   #page-home .orbit-ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); overflow: visible; }
   #page-home .orbit-base { fill: none; stroke: var(--line); stroke-width: 1; }
-  #page-home .orbit-track { fill: none; stroke: rgba(109,74,255,.10); stroke-width: 4.5; }
-  #page-home .orbit-guide { fill: none; stroke: rgba(109,74,255,.12); stroke-width: 1; stroke-dasharray: 2 5; }
-  #page-home .orbit-lit { fill: none; stroke: url(#orbitgrad); stroke-width: 4.5; stroke-linecap: round; filter: drop-shadow(0 0 5px rgba(109,74,255,.55)); will-change: stroke-dashoffset; }
+  #page-home .orbit-track { fill: none; stroke: rgba(105,65,198,.10); stroke-width: 4.5; }
+  #page-home .orbit-guide { fill: none; stroke: rgba(105,65,198,.12); stroke-width: 1; stroke-dasharray: 2 5; }
+  #page-home .orbit-lit { fill: none; stroke: url(#orbitgrad); stroke-width: 4.5; stroke-linecap: round; filter: drop-shadow(0 0 5px rgba(105,65,198,.55)); will-change: stroke-dashoffset; }
 
   /* center hub */
   #page-home .orbit-center { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 53%; aspect-ratio: 1; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 7%; background: radial-gradient(circle at 50% 38%, #ffffff 0 55%, #f8f5ff 100%); border: 1px solid var(--line); box-shadow: 0 20px 54px rgba(60,40,140,.14), inset 0 0 0 7px rgba(255,255,255,.7); }
@@ -634,7 +658,7 @@
   #page-home .orbit-node .on-dot::after { content: ""; position: absolute; inset: -5px; border-radius: 50%; border: 2px solid var(--brand); opacity: 0; }
   #page-home .orbit-node .on-dot svg { width: 23px; height: 23px; }
   #page-home .orbit-node .on-label { font-size: 12.5px; font-weight: 700; color: var(--ink-2); transition: color .35s; }
-  #page-home .orbit-node.on .on-dot { background: linear-gradient(140deg, var(--brand-2), var(--brand)); color: #fff; border-color: transparent; transform: scale(1.16); box-shadow: 0 16px 34px rgba(109,74,255,.38); }
+  #page-home .orbit-node.on .on-dot { background: linear-gradient(140deg, var(--brand-2), var(--brand)); color: #fff; border-color: transparent; transform: scale(1.16); box-shadow: 0 16px 34px rgba(105,65,198,.38); }
   #page-home .orbit-node.on .on-dot::after { animation: node-pulse 1.7s ease-out infinite; }
   #page-home .orbit-node.on .on-label { color: var(--brand); }
   #page-home .orbit-node:hover .on-dot { border-color: var(--brand-2); transform: scale(1.09); }
@@ -661,16 +685,41 @@
   #page-home .ot-row.done .ot-mark::after { transform: translateX(-50%) scaleY(1); }
   #page-home .ot-dot { position: relative; z-index: 1; width: 46px; height: 46px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; color: var(--brand); box-shadow: 0 8px 18px rgba(60,40,140,.10); transition: transform .35s cubic-bezier(.2,1.3,.4,1), background .35s, color .35s, box-shadow .35s, border-color .35s; }
   #page-home .ot-dot svg { width: 22px; height: 22px; }
-  #page-home .ot-row.last .ot-dot { color: #0f8b7d; }
+  #page-home .ot-row.last .ot-dot { color: #6941c6; }
   #page-home .ot-body { padding-top: 2px; }
   #page-home .ot-body b { display: block; font-size: 16px; letter-spacing: -.2px; color: var(--ink); transition: color .35s; }
   #page-home .ot-body span { display: block; font-size: 13px; color: var(--ink-3); line-height: 1.5; margin-top: 4px; }
-  #page-home .ot-row.on .ot-dot { background: linear-gradient(140deg, var(--brand-2), var(--brand)); color: #fff; border-color: transparent; transform: scale(1.08); box-shadow: 0 14px 30px rgba(109,74,255,.34); }
-  #page-home .ot-row.last.on .ot-dot { background: linear-gradient(140deg, #36d6c3, var(--accent)); box-shadow: 0 14px 30px rgba(22,184,166,.32); }
+  #page-home .ot-row.on .ot-dot { background: linear-gradient(140deg, var(--brand-2), var(--brand)); color: #fff; border-color: transparent; transform: scale(1.08); box-shadow: 0 14px 30px rgba(105,65,198,.34); }
+  #page-home .ot-row.last.on .ot-dot { background: linear-gradient(140deg, #8b9be8, var(--accent)); box-shadow: 0 14px 30px rgba(139,155,232,.32); }
   #page-home .ot-row.on .ot-body b { color: var(--brand); }
-  #page-home .ot-row.last.on .ot-body b { color: #0f8b7d; }
+  #page-home .ot-row.last.on .ot-body b { color: #6941c6; }
+  /* ---- desktop two-column loop: copy + synced legend beside the circle ---- */
+  #page-home .loop-grid { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(340px, 460px); gap: 46px; align-items: center; text-align: left; }
+  #page-home .loop-copy { min-width: 0; }
+  #page-home .loop-copy h3 { letter-spacing: -.4px; }
+  #page-home .loop-copy .sub { max-width: 430px; }
+  #page-home .loop-orbit { display: flex; justify-content: center; min-width: 0; }
+  #page-home .orbit-legend { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+  #page-home .ol-row { display: grid; grid-template-columns: 34px 1fr; gap: 13px; align-items: start; padding: 10px 12px; border-radius: 12px; border: 1px solid transparent; cursor: pointer; transition: background .35s ease, border-color .35s ease, transform .35s cubic-bezier(.22,.61,.36,1); }
+  #page-home .ol-row:hover { background: var(--brand-soft); }
+  #page-home .ol-mark { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 9px; background: var(--brand-soft); color: var(--brand); font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; font-weight: 600; transition: background .35s ease, color .35s ease, transform .35s cubic-bezier(.2,1.3,.4,1), box-shadow .35s ease; }
+  #page-home .ol-body b { display: block; font-size: 14.5px; letter-spacing: -.2px; color: var(--ink); transition: color .35s ease; }
+  #page-home .ol-body span { display: block; font-size: 12.5px; line-height: 1.5; color: var(--ink-3); margin-top: 2px; }
+  #page-home .ol-row.on { background: var(--brand-soft); border-color: var(--brand-2); transform: translateX(3px); }
+  #page-home .ol-row.on .ol-mark { background: linear-gradient(140deg, var(--brand-2), var(--brand)); color: #fff; transform: scale(1.06); box-shadow: 0 10px 22px rgba(105,65,198,.30); }
+  #page-home .ol-row.on .ol-body b { color: var(--brand); }
+  #page-home .ol-row.last.on { border-color: var(--accent); }
+  #page-home .ol-row.last.on .ol-mark { background: linear-gradient(140deg, #8b9be8, var(--accent)); color: #fff; box-shadow: 0 10px 22px rgba(139,155,232,.30); }
+  #page-home .ol-row.done .ol-mark { color: var(--brand); }
+  @media (max-width: 860px) {
+    #page-home .loop-grid { grid-template-columns: 1fr; gap: 22px; text-align: center; }
+    #page-home .loop-copy .sub { max-width: 540px; margin-left: auto; margin-right: auto; }
+    #page-home .orbit-legend { max-width: 460px; margin-left: auto; margin-right: auto; text-align: left; }
+  }
   @media (max-width: 600px) {
     #page-home .orbit { display: none; }
+    #page-home .loop-orbit { display: none; }
+    #page-home .orbit-legend { display: none; }
     #page-home .orbit-timeline { display: block; }
   }
 
@@ -723,7 +772,7 @@
   #page-data .ds-samples { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 16px; }
   #page-data .ds-samples > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 7px; width: 100%; background: var(--brand); color: #fff; border-radius: 10px; padding: 11px 16px; font-size: 14px; font-weight: 650; transition: background .18s ease; }
   #page-data .ds-samples > summary::-webkit-details-marker { display: none; }
-  #page-data .ds-samples > summary:hover { background: #5a39e0; }
+  #page-data .ds-samples > summary:hover { background: #57339e; }
   #page-data .ds-samples[open] > summary { margin-bottom: 14px; }
   #page-data .ds-samples > summary .open-label { display: none; }
   #page-data .ds-samples[open] > summary .open-label { display: inline; }
@@ -742,12 +791,47 @@
   #page-data .ds-sample pre { background: #faf9ff; border: 1px solid var(--line); border-radius: 9px; padding: 12px; margin-top: 6px; overflow-x: auto; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; line-height: 1.5; color: var(--ink); white-space: pre; }
   #page-data .ds-fieldlabel { display: block; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-3); margin-top: 12px; }
   #page-data .ds-img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; margin: 4px 0 2px; }
+  #page-data .ds-video { display: block; width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 10px; margin: 4px 0 2px; background: #000; object-fit: cover; }
+  #page-data .ds-audio { display: block; width: 100%; margin: 6px 0 2px; }
   #page-data .ds-cot { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 11px; }
   #page-data .ds-cot summary { list-style: none; cursor: pointer; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-3); }
   #page-data .ds-cot summary::-webkit-details-marker { display: none; }
   #page-data .ds-cot[open] summary { color: var(--brand); }
   #page-data .ds-cot p { margin-top: 8px; font-size: 13px; line-height: 1.55; color: var(--ink-2); white-space: pre-line; }
   #page-data .ds-tex .katex { font-size: 1em; }
+  /* Sample block: hover-revealed first example + View samples button */
+  #page-data .ds-firstex { display: grid; grid-template-rows: 0fr; opacity: 0; margin-top: 0; transition: grid-template-rows .55s cubic-bezier(.22,1,.36,1), opacity .45s ease, margin-top .55s cubic-bezier(.22,1,.36,1); }
+  #page-data .ds-card:hover .ds-firstex, #page-data .ds-card:focus-within .ds-firstex { grid-template-rows: 1fr; opacity: 1; margin-top: 14px; }
+  #page-data .ds-firstex-inner { overflow: hidden; min-height: 0; }
+  #page-data .ds-firstex-label { margin: 0 0 2px; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-3); }
+  #page-data .ds-firstex .ds-sample { margin-top: 8px; }
+  #page-data .ds-view { margin-top: auto; padding-top: 16px; }
+  #page-data .ds-view button { cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 7px; width: 100%; background: var(--brand); color: #fff; border: none; border-radius: 10px; padding: 11px 16px; font: inherit; font-size: 14px; font-weight: 650; transition: background .18s ease, transform .18s ease; }
+  #page-data .ds-view button:hover { background: #57339e; transform: translateY(-1px); }
+  #page-data .ds-view button:active { transform: translateY(0); }
+  #page-data .ds-view button svg { width: 15px; height: 15px; }
+  @media (hover: none) {
+    #page-data .ds-firstex { grid-template-rows: 1fr; opacity: 1; margin-top: 14px; }
+  }
+  /* View-samples modal */
+  #ds-modal { position: fixed; inset: 0; z-index: 300; display: none; align-items: center; justify-content: center; padding: 20px; }
+  #ds-modal.open { display: flex; }
+  #ds-modal .ds-modal-backdrop { position: absolute; inset: 0; background: rgba(24,16,48,.46); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); opacity: 0; transition: opacity .45s ease; }
+  #ds-modal.in .ds-modal-backdrop { opacity: 1; }
+  #ds-modal .ds-modal-card { position: relative; display: flex; flex-direction: column; width: min(680px, 100%); max-height: 88vh; background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 30px 80px rgba(24,16,48,.28); overflow: hidden; opacity: 0; transform: translateY(22px) scale(.975); transition: opacity .4s ease, transform .55s cubic-bezier(.16,1,.3,1); }
+  #ds-modal.in .ds-modal-card { opacity: 1; transform: none; }
+  #ds-modal .ds-modal-head { display: flex; align-items: flex-start; gap: 12px; padding: 18px 22px; border-bottom: 1px solid var(--line); }
+  #ds-modal .ds-modal-htext { flex: 1; min-width: 0; }
+  #ds-modal .ds-modal-title { display: flex; align-items: center; gap: 9px; font-size: 16px; font-weight: 650; color: var(--ink); }
+  #ds-modal .ds-modal-count { border-radius: 999px; background: var(--brand-soft); color: var(--brand); padding: 2px 10px; font-size: 12px; font-weight: 600; }
+  #ds-modal .ds-modal-sub { margin-top: 4px; font-size: 12px; color: var(--ink-3); }
+  #ds-modal .ds-modal-close { flex: none; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink-2); cursor: pointer; transition: background .18s ease, color .18s ease; }
+  #ds-modal .ds-modal-close:hover { background: var(--brand-soft); color: var(--brand); }
+  #ds-modal .ds-modal-body { overflow-y: auto; padding: 6px 22px 22px; }
+  #ds-modal .ds-modal-body .ds-sample:first-child { margin-top: 14px; }
+  @media (prefers-reduced-motion: reduce) {
+    #page-data .ds-firstex, #ds-modal .ds-modal-backdrop, #ds-modal .ds-modal-card { transition: none; }
+  }
   @media (max-width: 820px) {
     #page-data .ds-catalog { grid-template-columns: 1fr; }
   }
@@ -758,14 +842,14 @@
   #page-blogs .bx-track::-webkit-scrollbar { display: none; }
   #page-blogs .bx-card { scroll-snap-align: center; flex: 0 0 380px; max-width: 86vw; border: 1px solid var(--line); border-radius: 18px; background: #fff; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; transition: transform .28s cubic-bezier(.22,.61,.36,1), box-shadow .28s ease, border-color .28s ease; }
   #page-blogs .bx-card:hover { transform: translateY(-7px); box-shadow: 0 26px 56px rgba(40,28,90,.16); border-color: var(--brand-2); }
-  #page-blogs .bx-media { position: relative; height: 150px; overflow: hidden; display: flex; align-items: flex-end; padding: 16px; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, #6d4aff 0%, #8a6bff 55%, #b59bff 100%); }
-  #page-blogs .bx-card:nth-child(3n+2) .bx-media { background: linear-gradient(135deg, #0f8b7d 0%, #2bb6a3 60%, #7ad6c8 100%); }
-  #page-blogs .bx-card:nth-child(3n) .bx-media { background: linear-gradient(135deg, #241d3d 0%, #4a36c9 70%, #6d4aff 100%); }
+  #page-blogs .bx-media { position: relative; height: 150px; overflow: hidden; display: flex; align-items: flex-end; padding: 16px; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, #6941c6 0%, #8a6bff 55%, #b59bff 100%); }
+  #page-blogs .bx-card:nth-child(3n+2) .bx-media { background: linear-gradient(135deg, #4a3fb0 0%, #6d63d6 60%, #8b9be8 100%); }
+  #page-blogs .bx-card:nth-child(3n) .bx-media { background: linear-gradient(135deg, #241d3d 0%, #4a36c9 70%, #6941c6 100%); }
   #page-blogs .bx-media::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.22) 1px, transparent 1.4px); background-size: 13px 13px; opacity: .55; }
   #page-blogs .bx-ico { position: absolute; right: -14px; top: -18px; width: 118px; height: 118px; color: rgba(255,255,255,.26); transition: transform .5s cubic-bezier(.22,.61,.36,1); }
   #page-blogs .bx-card:hover .bx-ico { transform: scale(1.08) rotate(-4deg); }
   #page-blogs .bx-cat { position: relative; z-index: 2; font-size: 11.5px; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; color: var(--brand); background: #fff; border-radius: 999px; padding: 5px 12px; box-shadow: 0 4px 12px rgba(40,28,90,.22); }
-  #page-blogs .bx-card:nth-child(3n+2) .bx-cat { color: #0f8b7d; }
+  #page-blogs .bx-card:nth-child(3n+2) .bx-cat { color: #4a3fb0; }
   #page-blogs .bx-card:nth-child(3n) .bx-cat { color: var(--brand); }
   #page-blogs .bx-body { padding: 20px 22px 20px; display: flex; flex-direction: column; flex: 1; }
   #page-blogs .bx-body h3 { font-size: 19.5px; font-weight: 700; line-height: 1.3; letter-spacing: -.3px; color: var(--ink); display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
@@ -776,7 +860,7 @@
   #page-blogs .bx-card:hover .bx-link { text-decoration: underline; }
   #page-blogs .bx-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 6px; }
   #page-blogs .bx-arrow { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: #fff; cursor: pointer; color: var(--ink-2); display: flex; align-items: center; justify-content: center; transition: border-color .15s, color .15s, transform .1s, box-shadow .15s, opacity .15s; }
-  #page-blogs .bx-arrow:hover { border-color: var(--brand-2); color: var(--brand); box-shadow: 0 8px 20px rgba(109,74,255,.14); }
+  #page-blogs .bx-arrow:hover { border-color: var(--brand-2); color: var(--brand); box-shadow: 0 8px 20px rgba(105,65,198,.14); }
   #page-blogs .bx-arrow:active { transform: scale(.92); }
   #page-blogs .bx-arrow[disabled] { opacity: .35; cursor: default; box-shadow: none; border-color: var(--line); color: var(--ink-3); }
   #page-blogs .bx-arrow svg { width: 20px; height: 20px; }
@@ -795,7 +879,7 @@
   #page-publications .pub-venues { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 22px; }
   #page-publications .pub-venue { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12.5px; font-weight: 600; letter-spacing: .03em; color: var(--ink-2); border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 7px 15px; }
   #page-publications .pub-feature { position: relative; overflow: hidden; border: 1px solid var(--brand-2); border-radius: 22px; background: linear-gradient(135deg, #fff 0%, var(--brand-soft) 100%); padding: 36px; margin-top: 30px; }
-  #page-publications .pub-feature::before { content: ""; position: absolute; right: -80px; top: -80px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(109,74,255,.16), transparent 65%); }
+  #page-publications .pub-feature::before { content: ""; position: absolute; right: -80px; top: -80px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(105,65,198,.16), transparent 65%); }
   #page-publications .pub-feature .pf-inner { position: relative; z-index: 1; max-width: 760px; }
   #page-publications .pub-feature .pf-badges { display: flex; flex-wrap: wrap; gap: 8px; }
   #page-publications .pub-feature h3 { font-size: clamp(22px, 3vw, 30px); line-height: 1.18; letter-spacing: -.4px; margin-top: 16px; }
@@ -803,7 +887,7 @@
   #page-publications .pub-feature .pf-meta { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 20px; font-size: 13.5px; color: var(--ink-3); }
   #page-publications .pub-feature .pf-meta b { color: var(--ink); font-weight: 650; }
   #page-publications .badge-venue { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; letter-spacing: .03em; color: #fff; background: var(--brand); border-radius: 999px; padding: 5px 12px; }
-  #page-publications .badge-venue.teal { background: #0f8b7d; }
+  #page-publications .badge-venue.teal { background: #7b6ad4; }
   #page-publications .badge-venue.ink { background: var(--ink); }
   #page-publications .pub-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 24px; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
   #page-publications .pub-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(60,40,140,.1); border-color: var(--brand-2); }
@@ -1031,16 +1115,26 @@
 
       <!-- How it runs: continuous loop as a circular orbit -->
       <div class="loop-strip reveal">
-        <span class="kicker">How it runs</span>
-        <h3 style="margin-top:6px;">It is one continuous loop.</h3>
-        <p class="sub" style="margin:10px auto 0;">Build, evaluate, fix, deploy, guard &mdash; then around again. Each pass is cheaper than the last.</p>
-
+        <div class="loop-grid">
+          <div class="loop-copy">
+            <span class="kicker">How it runs</span>
+            <h3 style="margin-top:8px;">One continuous loop, not a one-off audit.</h3>
+            <p class="sub" style="margin:12px 0 0;">Five stages, always running. Every pass makes your agent measurably safer &mdash; and each one costs less than the last.</p>
+            <ul class="orbit-legend" id="orbitLegend">
+              <li class="ol-row" data-i="0"><span class="ol-mark">01</span><span class="ol-body"><b>Build</b><span>Agent, prompts, tools, and RAG &mdash; your team or ours.</span></span></li>
+              <li class="ol-row" data-i="1"><span class="ol-mark">02</span><span class="ol-body"><b>Evaluate</b><span>Adversarial sim across models, chatbots, and agents finds the failures.</span></span></li>
+              <li class="ol-row" data-i="2"><span class="ol-mark">03</span><span class="ol-body"><b>Fix</b><span>Failure-derived, taxonomy-covered datasets and applied fixes close the gaps.</span></span></li>
+              <li class="ol-row" data-i="3"><span class="ol-mark">04</span><span class="ol-body"><b>Deploy</b><span>Ship the hardened agent &mdash; applied fixes, not just suggestions.</span></span></li>
+              <li class="ol-row last" data-i="4"><span class="ol-mark">05</span><span class="ol-body"><b>Guardrails</b><span>The same scorers run live: protect traffic, feed the next loop.</span></span></li>
+            </ul>
+          </div>
+          <div class="loop-orbit">
         <div class="orbit" id="orbit">
           <svg class="orbit-ring" viewBox="0 0 100 100" aria-hidden="true">
             <defs>
               <linearGradient id="orbitgrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#9d7bff"/>
-                <stop offset="100%" stop-color="#6d4aff"/>
+                <stop offset="0%" stop-color="#8b9be8"/>
+                <stop offset="100%" stop-color="#6941c6"/>
               </linearGradient>
             </defs>
             <circle class="orbit-guide" cx="50" cy="50" r="30"/>
@@ -1077,6 +1171,8 @@
             <span class="on-label">Guardrails</span>
           </button>
         </div>
+          </div>
+        </div>
 
         <!-- mobile equivalent: vertical animated timeline (driven by the same loop) -->
         <ol class="orbit-timeline" id="orbitTimeline" aria-hidden="true">
@@ -1104,6 +1200,28 @@
       </div>
 
       <p class="deploy kick reveal" style="display:block;">Runs on <b>Reinforce Cloud</b> or <b>self-hosted</b> in your own environment, with data residency by design. <b>Model-agnostic</b> across Claude, GPT, and open-weight.</p>
+    </div>
+  </section>
+
+  <!-- Model leaderboard -->
+  <section class="band alt" id="home-leaderboard">
+    <div class="inner">
+      <div class="section-head reveal"><span class="kicker">Model leaderboard</span><h2>Same tests. Very different models.</h2><p class="sub" style="margin:10px auto 0;">An identical severity-weighted battery (EvoFlint) across 16 frontier models. The spread between safest and weakest is not subtle. <span style="color:var(--ink-3); font-size:13px;">Snapshot from our live leaderboard.</span></p></div>
+      <table class="lb reveal">
+        <thead><tr><th>#</th><th>Model</th><th class="barcell">Severity-weighted ASR (lower = safer)</th><th class="num">Score</th></tr></thead>
+        <tbody>
+          <tr><td class="rank">1</td><td class="model">Claude Opus 4.6</td><td class="barcell"><div class="bar" style="--w:3%"></div></td><td class="num">1.0%</td></tr>
+          <tr><td class="rank">2</td><td class="model">Claude Sonnet 4.6</td><td class="barcell"><div class="bar" style="--w:3%"></div></td><td class="num">1.0%</td></tr>
+          <tr><td class="rank">3</td><td class="model">Grok 4.1 Fast</td><td class="barcell"><div class="bar" style="--w:5%"></div></td><td class="num">2.0%</td></tr>
+          <tr><td class="rank">4</td><td class="model">GPT-5.2</td><td class="barcell"><div class="bar" style="--w:10%"></div></td><td class="num">4.0%</td></tr>
+          <tr><td class="rank">5</td><td class="model">Kimi K2 Thinking</td><td class="barcell"><div class="bar" style="--w:32%"></div></td><td class="num">13.0%</td></tr>
+          <tr><td class="rank">…</td><td class="model" style="color:var(--ink-3);">7 more models</td><td class="barcell"><div class="bar" style="--w:55%; opacity:.45"></div></td><td class="num" style="color:var(--ink-3);">…</td></tr>
+          <tr><td class="rank">14</td><td class="model">Qwen3-Coder 480B</td><td class="barcell"><div class="bar" style="--w:66%"></div></td><td class="num">27.0%</td></tr>
+          <tr><td class="rank">15</td><td class="model">Gemma 3 27B</td><td class="barcell"><div class="bar" style="--w:85%"></div></td><td class="num">35.0%</td></tr>
+          <tr><td class="rank">16</td><td class="model">Mistral Large</td><td class="barcell"><div class="bar" style="--w:100%"></div></td><td class="num">41.0%</td></tr>
+        </tbody>
+      </table>
+      <p class="reveal" style="text-align:center; margin-top:18px;"><span class="stat" style="font-size:34px;">41×</span> <span class="stat-label" style="display:inline; margin-left:8px;">spread between safest (1.0%) and weakest (41.0%), identical battery</span></p>
     </div>
   </section>
 
@@ -1310,24 +1428,6 @@
     </div>
   </section>
 
-  <section class="band">
-    <div class="inner">
-      <div class="section-head"><span class="kicker">Worked examples</span><h2>Real, judge-confirmed failures.</h2><p class="sub" style="margin:10px auto 0;">Models side by side, actionable payloads withheld.</p></div>
-      <div class="grid g2" style="margin-top:26px;">
-        <div class="shot-wrap">
-          <img class="shot" src="/asset-worked-finance.png" alt="Worked example: financial services structural mimicry, four models compared">
-          <span class="conf-tag">Confidential · redacted</span>
-          <p class="shot-cap">Financial services · structural mimicry: a planted demo makes the model paste a compliance action onto a benign customer. 3 of 4 models failed.</p>
-        </div>
-        <div class="shot-wrap">
-          <img class="shot" src="/asset-worked-multimodal.png" alt="Worked example: multi-modal jailbreak via image plus text">
-          <span class="conf-tag">Confidential · redacted</span>
-          <p class="shot-cap">Multi-modal: an innocent-looking image + innocuous text smuggles a banned request past the safety layer. 12/12 goals breached across three frontier models.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- the ONLY leaderboard, relocated here -->
   <section class="band alt">
     <div class="inner">
@@ -1368,9 +1468,9 @@
         <span class="btn ghost" onclick="go('contact')">Request a sample pack</span>
       </div>
       <dl class="ds-stats">
-        <div><b>66k+</b><span>Verified tasks</span></div>
-        <div><b>9</b><span>Domains</span></div>
-        <div><b>Lean 4</b><span>Formal proofs</span></div>
+        <div><b>10</b><span>Datasets</span></div>
+        <div><b>33M+</b><span>EHR patients</span></div>
+        <div><b>Multimodal</b><span>Text · image · video · audio</span></div>
         <div><b>Frontier</b><span>Model-benchmarked</span></div>
       </dl>
     </div>
@@ -1380,6 +1480,188 @@
     <div class="inner">
       <span class="kicker">The catalog</span>
       <div class="ds-catalog">
+
+        <!-- Physical AI Factory -->
+        <div class="ds-card">
+          <h3>Physical AI Factory</h3>
+          <p class="ds-tagline">Egocentric manipulation from real production floors</p>
+          <code class="ds-label">egocentric-manipulation</code>
+          <p class="ds-desc">First-person video of skilled manual work captured on real factory and workshop floors, each clip densely annotated with 21-keypoint hand pose for both hands, hand-visibility state, per-hand detection confidence, and frame-accurate contact and release events. Built for the embodied models that learn manipulation from how people actually use their hands.</p>
+          <div class="ds-fit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Vision-language-action training, manipulation policy learning, and embodied world models.</div>
+          <dl class="ds-meta">
+            <div><dt>Volume</dt><dd>8,000 <span class="u">clips</span></dd></div>
+            <div><dt>Fields</dt><dd class="mono">6 columns</dd></div>
+          </dl>
+          <div class="ds-chips"><span class="ds-chip">data_id</span><span class="ds-chip">environment</span><span class="ds-chip">video</span><span class="ds-chip">hand_pose</span><span class="ds-chip">contact_events</span><span class="ds-chip">task_label</span></div>
+          <details class="ds-samples">
+            <summary><span class="shut-label">View 3 samples</span><span class="open-label">Hide samples</span></summary>
+            <p class="ds-sub">Representative records. Full corpus contains 8,000 clips.</p>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">01</span><span class="ds-pill mono">FAC-01</span><span class="ds-pill line">Abrasive finishing</span></div>
+              <video class="ds-video" controls muted playsinline preload="metadata" poster="/factory/factory-01-poster.png"><source src="/factory/factory-01.mp4" type="video/mp4"></video>
+              <p class="ds-q"><span class="lbl">task</span>Bimanual disc finishing &mdash; one hand holds a metal disc against the fixture while the other drives an abrasive tool across its face, including the brief release moment where both hands leave the workpiece.</p>
+              <div class="ds-ans"><span class="lbl">labels</span><b>Per-frame 21-keypoint hand pose for both hands, a hand-visibility state ('None / Left only / Right only / Both'), and tool-contact transitions with 'hands off' release windows timed to a tenth of a second.</b></div>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">02</span><span class="ds-pill mono">FAC-02</span><span class="ds-pill line">Pipe &amp; fitting assembly</span></div>
+              <video class="ds-video" controls muted playsinline preload="metadata" poster="/factory/factory-02-poster.png"><source src="/factory/factory-02.mp4" type="video/mp4"></video>
+              <p class="ds-q"><span class="lbl">task</span>Two-handed handling of a metal pipe and machined fittings at a workbench, seating parts into a housing while both hands stay in frame.</p>
+              <div class="ds-ans"><span class="lbl">labels</span><b>Both hands tracked with 21-keypoint skeletons and per-hand detection confidence (e.g. Left 0.99 / Right 0.97), plus grasp and contact state for each hand.</b></div>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">03</span><span class="ds-pill mono">FAC-03</span><span class="ds-pill line">Precision parts assembly</span></div>
+              <video class="ds-video" controls muted playsinline preload="metadata" poster="/factory/factory-03-poster.png"><source src="/factory/factory-03.mp4" type="video/mp4"></video>
+              <p class="ds-q"><span class="lbl">task</span>Gloved manipulation of a machined flange among bearing and hub components laid out on a fixture board, with one hand momentarily leaving the part.</p>
+              <div class="ds-ans"><span class="lbl">labels</span><b>Keypoint hand pose that stays stable under work gloves and occlusion, hand-visibility labels, and one-hand-off contact transitions timed to a fifth of a second.</b></div>
+            </div>
+          </details>
+        </div>
+
+        <!-- Voice & Speech -->
+        <div class="ds-card">
+          <h3>Voice &amp; Speech</h3>
+          <p class="ds-tagline">Expressive speech across tone, accent, and identity</p>
+          <code class="ds-label">expressive-speech-safety</code>
+          <p class="ds-desc">Recorded and synthetic speech annotated along the dimensions that matter for audio models: emotional tone and prosody, regional and non-native accents, speaker identity with paired real and cloned voices for impersonation detection, scenario intent including fraud and social-engineering red-team content, code-switching, and acoustic environment. Every clip ships with a verified transcript and per-dimension labels.</p>
+          <div class="ds-fit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Speech safety classifiers, deepfake and spoof detection, TTS and voice-clone evaluation, and ASR robustness.</div>
+          <dl class="ds-meta">
+            <div><dt>Volume</dt><dd>25,000 <span class="u">clips</span></dd></div>
+            <div><dt>Fields</dt><dd class="mono">8 columns</dd></div>
+          </dl>
+          <div class="ds-chips"><span class="ds-chip">data_id</span><span class="ds-chip">audio</span><span class="ds-chip">transcript</span><span class="ds-chip">tone</span><span class="ds-chip">accent</span><span class="ds-chip">impersonation</span><span class="ds-chip">provenance</span><span class="ds-chip">intent</span></div>
+          <details class="ds-samples">
+            <summary><span class="shut-label">View first example</span><span class="open-label">Hide example</span></summary>
+            <p class="ds-sub">Representative record. Full corpus contains 25,000 clips.</p>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">01</span><span class="ds-pill mono">VOX-01</span><span class="ds-pill line">Impersonation red-team</span></div>
+              <p class="ds-q"><span class="lbl">scenario</span>Voice-clone impersonation of a public figure delivering a cryptocurrency giveaway pitch &mdash; a negative example for training and evaluating audio deepfake and scam-call detectors.</p>
+              <audio class="ds-audio" controls preload="metadata"><source src="/voice/voice-01.mp3" type="audio/mpeg"></audio>
+              <dl class="ds-meta">
+                <div><dt>Impersonation</dt><dd>Public figure &mdash; Barack Obama (cloned voice)</dd></div>
+                <div><dt>Provenance</dt><dd>Synthetic &mdash; TTS voice clone</dd></div>
+                <div><dt>Tone</dt><dd>Measured, authoritative, persuasive</dd></div>
+                <div><dt>Accent</dt><dd>General American</dd></div>
+                <div><dt>Intent</dt><dd>Fraud &mdash; crypto giveaway scam</dd></div>
+                <div><dt>Audio</dt><dd class="mono">Mono, 44.1 kHz, 14 s</dd></div>
+              </dl>
+            </div>
+          </details>
+        </div>
+
+        <!-- STEM Reasoning Traces -->
+        <div class="ds-card">
+          <h3>STEM Reasoning Traces</h3>
+          <p class="ds-tagline">Step-verified derivations for scientific reasoning</p>
+          <code class="ds-label">verified-reasoning-traces</code>
+          <p class="ds-desc">Graduate-level physics and STEM problems paired with complete, step-checked reasoning traces: explicit givens, a numbered derivation with every intermediate value verified, a unique machine-checkable answer, and an independent sanity check. Items that reduce to one-line arithmetic, leak the answer in the prompt, or whose derivation doesn't land on the stated answer are filtered out in QA.</p>
+          <div class="ds-fit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Process-reward models, verifier training, and chain-of-thought SFT for scientific reasoning.</div>
+          <dl class="ds-meta">
+            <div><dt>Volume</dt><dd>10,000 <span class="u">tasks</span></dd></div>
+            <div><dt>Fields</dt><dd class="mono">6 columns</dd></div>
+          </dl>
+          <div class="ds-chips"><span class="ds-chip">problem</span><span class="ds-chip">givens</span><span class="ds-chip">trace_steps</span><span class="ds-chip">final_answer</span><span class="ds-chip">sanity_check</span><span class="ds-chip">area</span></div>
+          <details class="ds-samples">
+            <summary><span class="shut-label">View 2 samples</span><span class="open-label">Hide samples</span></summary>
+            <p class="ds-sub">Representative records. Full corpus contains 10,000 tasks.</p>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">01</span><span class="ds-pill">Quantum Field Theory</span><span class="ds-pill line">QCD coupling</span></div>
+              <p class="ds-q">With b&#8320; = 11 &minus; (2/3)n_f and leading-order running 1/&alpha;_s(Q) = 1/&alpha;_s(M_Z) + (b&#8320;/2&pi;)&middot;ln(Q/M_Z), evaluate &alpha;_s at Q = 500 GeV. Report to two decimal places.</p>
+              <span class="ds-fieldlabel">given</span>
+              <pre>&alpha;_s(M_Z) = 0.118    M_Z = 91.2 GeV    Q = 500 GeV    n_f = 5</pre>
+              <details class="ds-cot"><summary>Show reasoning trace (6 steps)</summary><p>1 &middot; Beta-function coefficient: b&#8320; = 11 &minus; (2/3)(5) = 23/3 &asymp; 7.667
+2 &middot; Invert the coupling: 1/&alpha;_s(M_Z) = 1/0.118 = 8.475
+3 &middot; Running coefficient: b&#8320;/(2&pi;) = 7.667 / 6.2832 = 1.220
+4 &middot; Energy logarithm: ln(Q/M_Z) = ln(500/91.2) = ln(5.482) = 1.702
+5 &middot; Evolve the inverse coupling: 1/&alpha;_s(Q) = 8.475 + (1.220)(1.702) = 10.551
+6 &middot; Invert back: &alpha;_s(500 GeV) = 1/10.551 = 0.0948, rounded to two decimals.</p></details>
+              <div class="ds-ans"><span class="lbl">verified answer</span><b>0.09</b></div>
+              <p class="ds-q" style="margin-top:12px;"><span class="lbl">sanity check</span>Coupling fell from 0.118 &rarr; 0.095 as energy rose &mdash; the correct direction for asymptotic freedom, confirming the sign convention was applied right.</p>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">02</span><span class="ds-pill">High Energy Physics</span><span class="ds-pill line">Higgs partial width</span></div>
+              <p class="ds-q">&Gamma; = [3 G_F m_H m_b&sup2; / (4&radic;2 &pi;)] &times; (1 &minus; 4m_b&sup2;/m_H&sup2;)^(3/2). Compute &Gamma; in MeV to one significant figure.</p>
+              <span class="ds-fieldlabel">given</span>
+              <pre>G_F = 1.166&times;10&#8315;&#8309; GeV&#8315;&sup2;    m_H = 125 GeV    m_b = 4.18 GeV</pre>
+              <details class="ds-cot"><summary>Show reasoning trace (6 steps)</summary><p>1 &middot; Bottom-quark mass squared: m_b&sup2; = 4.18&sup2; = 17.47 GeV&sup2;
+2 &middot; Prefactor numerator (3 G_F m_H m_b&sup2;): 3(1.166&times;10&#8315;&#8309;)(125)(17.47) = 0.07641 GeV &nbsp;(units: GeV&#8315;&sup2;&middot;GeV&middot;GeV&sup2; = GeV &check;)
+3 &middot; Prefactor denominator (4&radic;2 &pi;): 4(1.4142)(3.1416) = 17.77
+4 &middot; Assemble the prefactor: 0.07641 / 17.77 = 4.300&times;10&#8315;&sup3; GeV
+5 &middot; Phase-space suppression: 4m_b&sup2;/m_H&sup2; = 0.004473 &rarr; (1 &minus; 0.004473)^(3/2) = 0.9933 &nbsp;(only a ~0.7% cut, since m_b &#8810; m_H)
+6 &middot; Combine: &Gamma; = 4.300&times;10&#8315;&sup3; &times; 0.9933 = 4.27&times;10&#8315;&sup3; GeV = 4.27 MeV, rounded to one significant figure.</p></details>
+              <div class="ds-ans"><span class="lbl">verified answer</span><b>4 MeV</b></div>
+              <p class="ds-q" style="margin-top:12px;"><span class="lbl">sanity check</span>Tree-level width using the pole mass. Physical &Gamma;(H&rarr;bb&#772;) is ~2.4 MeV once the running mass and QCD corrections are included &mdash; but the problem fixes this exact formula and pole mass, so 4 MeV is correct as posed.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Medical AI Data Infrastructure -->
+        <div class="ds-card">
+          <h3>Medical AI Data Infrastructure</h3>
+          <p class="ds-tagline">Longitudinal EHR and clinical conversations at population scale</p>
+          <code class="ds-label">longitudinal-ehr</code>
+          <p class="ds-desc">Longitudinal electronic health records spanning visits, diagnoses, medications, and lab series, shipped as verified reasoning tasks over the raw records: multi-hop temporal QA, clinical entity extraction, and longitudinal aggregation, each with a step-by-step evidence-grounded trace, a programmatically checked gold answer, and label-quality flags. Alongside the records: 6,000+ hours of doctor-patient conversations with transcripts available on demand. All datasets can be structured, filtered, de-identified, annotated, and quality-reviewed to the partner's use case, specialty, language, modality, and compliance requirements.</p>
+          <div class="ds-fit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Longitudinal clinical reasoning, disease progression and risk prediction, patient history summarisation, care-gap identification, medical scribing and SOAP note generation, and healthcare copilot evaluation.</div>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:16px; border:1px solid var(--line); border-radius:12px; overflow:hidden; background:var(--line);">
+            <div style="background:#fff; padding:14px 10px; text-align:center;"><b style="display:block; font-size:19px; font-weight:700; color:var(--ink);">6M+</b><span style="font-size:11px; color:var(--ink-3);">patients &gt;1yr history</span></div>
+            <div style="background:#fff; padding:14px 10px; text-align:center;"><b style="display:block; font-size:19px; font-weight:700; color:var(--ink);">27M+</b><span style="font-size:11px; color:var(--ink-3);">patients &lt;1yr history</span></div>
+            <div style="background:#fff; padding:14px 10px; text-align:center;"><b style="display:block; font-size:19px; font-weight:700; color:var(--ink);">6,000+</b><span style="font-size:11px; color:var(--ink-3);">hrs conversations</span></div>
+          </div>
+          <dl class="ds-meta">
+            <div><dt>Volume</dt><dd>33M+ <span class="u">patients</span></dd></div>
+            <div><dt>Fields</dt><dd class="mono">7 columns</dd></div>
+          </dl>
+          <div class="ds-chips"><span class="ds-chip">patient_id</span><span class="ds-chip">context</span><span class="ds-chip">question</span><span class="ds-chip">reasoning_trace</span><span class="ds-chip">final_answer</span><span class="ds-chip">verification</span><span class="ds-chip">quality_flags</span></div>
+          <details class="ds-samples">
+            <summary><span class="shut-label">View 3 samples</span><span class="open-label">Hide samples</span></summary>
+            <p class="ds-sub">Representative records. 33M+ patients; 6,000+ hours of conversations available on demand.</p>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">01</span><span class="ds-pill mono">EHR-TRACE-001</span><span class="ds-pill line">Multi-hop temporal QA</span></div>
+              <p class="ds-q"><span class="lbl">q</span>Rosuvastatin was newly initiated for this patient at one visit (medicine_status = 'entry'). What was the change in LDL cholesterol from the last reading before that visit to the first reading after it? Report the initiation date, both readings, and the absolute change in mg/dL.</p>
+              <details class="ds-cot"><summary>Show reasoning trace (4 steps)</summary><p>1 &middot; locate_medication_event &mdash; scan medication records for rosuvastatin with status = 'entry'. Initiation visit = V00214, dated 2025-04-02.
+2 &middot; partition_lab_series &mdash; sort the LDL series and split around 2025-04-02. Last before: 120 mg/dL (2025-03-31). First after: 65 mg/dL (2025-05-17).
+3 &middot; compute_delta &mdash; 65 &minus; 120 = &minus;55 mg/dL (&minus;45.8% relative change).
+4 &middot; sanity_check &mdash; a high-intensity statin (rosuvastatin 40 mg) initiation is typically followed by a large LDL drop within 4&ndash;6 weeks; the 46-day gap fits. Answer accepted.</p></details>
+              <dl class="ds-meta">
+                <div><dt>Initiation date</dt><dd>2025-04-02</dd></div>
+                <div><dt>Absolute change</dt><dd>&minus;55 mg/dL</dd></div>
+                <div><dt>Last LDL before</dt><dd>120 mg/dL &middot; 2025-03-31</dd></div>
+                <div><dt>First LDL after</dt><dd>65 mg/dL &middot; 2025-05-17</dd></div>
+              </dl>
+              <p class="ds-q" style="margin-top:12px;"><span class="lbl">verification</span>Programmatic exact match &mdash; recompute from source JSON: filter meds by (generic~rosuvastatin, status=entry); partition sorted LDL readings around visit_date; assert delta == &minus;55.0.</p>
+              <p class="ds-q" style="margin-top:8px;"><span class="lbl">quality flag</span>Same visit V00214 maps raw text 'kco ald with old pancreatitis' to diagnosis 'adrenoleukodystrophy'; clinical context (pancreatitis, Indian shorthand) strongly suggests 'alcoholic liver disease'. Ontology-mapping defect &mdash; excluded from this task's context but relevant for dataset QA.</p>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">02</span><span class="ds-pill mono">EHR-TRACE-002</span><span class="ds-pill line">Clinical entity extraction</span></div>
+              <p class="ds-q"><span class="lbl">q</span>Extract the normalized diagnosis entities from raw_diagnosis. For each entity output the canonical diagnosis name, is_negated, and is_family. Expand clinical abbreviations, deduplicate repeated mentions, and exclude procedure/finding strings that do not map to a diagnosis concept.</p>
+              <details class="ds-cot"><summary>Show reasoning trace (5 steps)</summary><p>1 &middot; tokenize_raw_strings &mdash; raw_diagnosis has 5 strings; 'cld - nash decompensated' appears twice, so there are 4 unique candidate strings (visit_list[V00067].raw_diagnosis: "cld - nash decompensated &middot; residual non bandable varices &middot; bleed - post evl status &middot; no melena").
+2 &middot; expand_abbreviations &mdash; 'cld' = chronic liver disease; 'nash' = nonalcoholic steatohepatitis; 'evl' = endoscopic variceal ligation. 'cld - nash decompensated' encodes two co-occurring concepts: chronic liver disease (decompensated) and NASH as etiology.
+3 &middot; detect_negation &mdash; 'no melena': the trigger 'no' directly scopes 'melena', so it is an explicitly negated finding, not an active diagnosis. melena &rarr; is_negated = true.
+4 &middot; check_family_history &mdash; no family-history cues ('f/h', 'mother', 'father', 'kco family') in any string. is_family = false for all entities.
+5 &middot; map_to_ontology_and_filter &mdash; 'residual non bandable varices' and 'bleed - post evl status' describe procedure status/anatomical findings rather than mappable diagnosis concepts, so they are excluded; deduplicate the repeated 'cld - nash decompensated'.</p></details>
+              <dl class="ds-meta">
+                <div><dt>chronic liver disease</dt><dd>positive</dd></div>
+                <div><dt>nonalcoholic steatohepatitis</dt><dd>positive</dd></div>
+                <div><dt>melena</dt><dd>negated</dd></div>
+              </dl>
+              <p class="ds-q" style="margin-top:12px;"><span class="lbl">verification</span>Structured set match &mdash; order-insensitive equality of {diagnosis, is_negated, is_family} tuples against gold from source JSON.</p>
+              <p class="ds-q" style="margin-top:8px;"><span class="lbl">quality flag</span>Gold drops 'residual non bandable varices' (esophageal varices IS an ontology-mappable concept in most clinical vocabularies) &mdash; candidate under-extraction; worth expert adjudication before training on this visit.</p>
+            </div>
+            <div class="ds-sample">
+              <div class="ds-sample-head"><span class="ds-num">03</span><span class="ds-pill mono">EHR-TRACE-003</span><span class="ds-pill line">Longitudinal aggregation QA</span></div>
+              <p class="ds-q"><span class="lbl">q</span>For this patient with type 2 diabetes: (a) what was the highest recorded HbA1c and on what date, and (b) is the most recent HbA1c below the 6.5% diagnostic threshold?</p>
+              <details class="ds-cot"><summary>Show reasoning trace (4 steps)</summary><p>1 &middot; sort_series &mdash; parse all 5 HbA1c readings to floats and sort by date; normalize numerically, not lexically (test_list['hba1c'].readings: "2022-12-22: 5.5 | 2024-02-03: 6.6 | 2025-08-14: 6.95 | 2025-12-31: 6.40 | 2026-04-27: 5.8").
+2 &middot; find_maximum &mdash; max over parsed values = 6.95, dated 2025-08-14. Peak HbA1c = 6.95% on 2025-08-14.
+3 &middot; assess_latest_vs_threshold &mdash; most recent reading is 2026-04-27 = 5.8; compare against 6.5: 5.8 &lt; 6.5, so the latest HbA1c is below threshold.
+4 &middot; trajectory_note &mdash; rise from 5.5 (2022) to peak 6.95 (mid-2025), then decline over the two subsequent readings, consistent with intervening treatment intensification (glimepiride / azulix among continuing medications).</p></details>
+              <dl class="ds-meta">
+                <div><dt>peak HbA1c</dt><dd>6.95% &middot; 2025-08-14</dd></div>
+                <div><dt>latest HbA1c</dt><dd>5.8% &middot; 2026-04-27</dd></div>
+                <div><dt>latest below 6.5%</dt><dd>true &check;</dd></div>
+              </dl>
+              <p class="ds-q" style="margin-top:12px;"><span class="lbl">verification</span>Programmatic exact match &mdash; recompute max and latest from source series; assert (6.95, '2025-08-14', 5.8, True).</p>
+            </div>
+          </details>
+        </div>
 
         <!-- MATH Core -->
         <div class="ds-card">
@@ -1751,6 +2033,20 @@
   </section>
 
   <section class="band" style="text-align:center;"><div class="inner"><span class="btn" onclick="go('contact')">Request a sample pack</span></div></section>
+
+  <div id="ds-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="ds-modal-backdrop" onclick="closeSamples()"></div>
+    <div class="ds-modal-card" role="document">
+      <div class="ds-modal-head">
+        <div class="ds-modal-htext">
+          <div class="ds-modal-title"><span class="ds-modal-name"></span><span class="ds-modal-count"></span></div>
+          <p class="ds-modal-sub"></p>
+        </div>
+        <button class="ds-modal-close" type="button" aria-label="Close samples" onclick="closeSamples()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      </div>
+      <div class="ds-modal-body"></div>
+    </div>
+  </div>
 </div>
 
 <!-- ===================================================================== GUARDRAILS -->
@@ -1908,6 +2204,7 @@
     <div class="inner">
       <div class="section-head"><span class="kicker">From the blog</span><h2>Deep dives for practitioners.</h2><p class="sub" style="margin:10px auto 0;">Engineering and research notes from the team. Each card opens the full post on our blog.</p></div>
       <div class="blog-grid" style="margin-top:28px;">
+        <div class="blogcard" onclick="go('blog-retail')"><div class="bbody"><span class="tag">Agents</span><h3>Closing the Loop: Finding and Fixing a Customer-Service Agent's Failure Modes</h3><p>We found exactly where a retail agent failed, built verifiable data against it, and lifted first-try success from 42.5% to 75%.</p><span class="learn">Read the post &rarr;</span></div></div>
         <div class="blogcard" onclick="go('blog-multimodel')"><div class="bbody"><span class="tag">Multimodal</span><h3>Beyond Attack Detection: Why Multimodal Safety Is Fighting the Wrong Battle</h3><p>Not all multimodal attacks fail for the same reason. We map where today's safety systems hold and where they break down.</p><span class="learn">Read the post &rarr;</span></div></div>
         <div class="blogcard" onclick="go('blog-flint')"><div class="bbody"><span class="tag">Launch</span><h3>Don't Ship That Chatbot (Until You Read This)</h3><p>Introducing Flint: automated multi-turn stress-testing that surfaces concrete policy violations before real users do.</p><span class="learn">Read the post &rarr;</span></div></div>
         <div class="blogcard" onclick="go('blog-beyond')"><div class="bbody"><span class="tag">Evaluation</span><h3>Beyond Pass Rates: What AI Safety Tests Don't Tell You</h3><p>Two reports, same pass rate, failing completely differently. Flint maps <em>how</em> models fail, not just how often.</p><span class="learn">Read the post &rarr;</span></div></div>
@@ -1954,6 +2251,14 @@
     <div class="inner">
       <div class="bx-wrap">
         <div class="bx-track" id="blogTrack">
+          <article class="bx-card" onclick="go('blog-retail')">
+            <div class="bx-media"><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/><path d="m9 12 2 2 4-4"/></svg><span class="bx-cat">Agents</span></div>
+            <div class="bx-body">
+              <h3>Closing the Loop: Finding and Fixing a Customer-Service Agent's Failure Modes</h3>
+              <p>We found exactly where a retail agent failed, built verifiable data against it, and lifted first-try success from 42.5% to 75% on an eval it can't game.</p>
+              <div class="bx-foot"><span class="bx-read">8 min read</span><span class="bx-link">Read article &rarr;</span></div>
+            </div>
+          </article>
           <article class="bx-card" onclick="go('blog-multimodel')">
             <div class="bx-media"><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg><span class="bx-cat">Multimodal</span></div>
             <div class="bx-body">
@@ -2101,6 +2406,133 @@
 </div>
 
 <!-- ===================================================================== BLOG: FLINT LAUNCH -->
+<!-- ===================================================================== BLOG: RETAIL AGENT EVAL + TRAINING -->
+<div class="page" id="page-blog-retail">
+  <div class="article-hero">
+    <span class="back" onclick="goSection('resources','res-blogs')">&larr; Back to blog</span>
+    <div class="tags"><span class="pill">Research</span><span class="pill accent">Agents</span></div>
+    <h1>Closing the Loop: Finding and Fixing a Customer-Service Agent's Failure Modes</h1>
+    <p class="meta">July 1, 2026 &middot; Reinforce Labs</p>
+    <p class="lead">We assessed exactly where a retail customer-service agent failed, built verifiable data against those failures, and lifted first-try success from 42.5% to 75% on an eval it can't game.</p>
+  </div>
+  <article class="article">
+    <p>Customer-service agents are moving into production, where every action mutates a live order database and moves real money. "Sounds right" isn't the bar; being right is. We took a small baseline agent, assessed exactly where it failed, generated verifiable data aimed at those failures, trained on it, and re-measured against the same ground truth. The loop holds because every task is graded by deterministic logic, never authored by a model. The reward can't be gamed; the only way to earn it is to solve the task.</p>
+    <p>Two data pipelines supply the tasks, depending on what's available: (1) synthesize them from a grounded retail world when there are no successful trajectories to learn from, or (2) curate and verify existing ones when there are. Both feed a short post-training run.</p>
+    <p>Fabrication and tool-misreads largely collapse. Plan adherence is the honest residual a deterministic eval refuses to hide.</p>
+
+    <h2>Assess first, then fix</h2>
+    <p>A retail support agent acts for one logged-in customer, and its actions are real: it edits the order database, issues refunds, changes payment methods. When something goes wrong, the cost is concrete: a refund that shouldn't have gone out, a payment moved to the wrong card. A good agent should be clear and pleasant to deal with. On top of that, what we measure is whether it completes the task correctly, and does so reliably rather than in one lucky run.</p>
+    <p>The approach is simple: you can't fix a failure you haven't pinned down. We ran the baseline retail agent in an environment that matches the stakes of production, studied where and how it broke, built training data targeting those failures, and retrained to close them. Every task is scored against the real state of the world at the end, so a convincing but wrong answer earns nothing.</p>
+    <figure style="margin:24px 0;">
+      <img src="/closing-the-loop-pipeline.png" alt="Diagram of the training loop: the user simulator and agent converse, the agent acts on tools against the retail environment's order database, and the evaluator's reward updates the agent." onerror="this.style.display='none'">
+    </figure>
+
+    <h2>Gap analysis</h2>
+    <p>We started with a baseline model pointed at our retail environment. Before doing anything else, we ran it through a set of tasks to understand where it fails before trying to fix it. Three failure modes showed up consistently:</p>
+    <ul>
+      <li><strong>Plan-adherence failure.</strong> The agent agrees to a plan, then doesn't follow through: authentication skipped, a write never issued, a confirmed action that never touched the database.</li>
+      <li><strong>Invention / hallucination.</strong> The agent introduces facts that came from nowhere (a fabricated order total, a made-up tracking number) and then acts on them. This is the dangerous one: the invented value becomes the argument to a write action.</li>
+      <li><strong>Tool-output misinterpretation.</strong> The agent misreads what the tools returned and acts on a wrong state. A delivered order is treated as pending, then a cancellation is attempted on it, an illegal transition that traces back to a single misread.</li>
+    </ul>
+    <p>These three failure modes became our target and gave clarity on what data we needed to curate.</p>
+
+    <h2>What gets checked, and who plays the customer</h2>
+    <p>Grading runs in two layers, split by what's deterministically checkable. Static code checks the boring, verifiable stuff (legal transitions, dollar ceilings, tool-call counts, the final database state) and per-task checks pin the exact outcome (which order was cancelled, which item swapped, what the new address is). A language model judges only the genuinely soft half: was the customer's "yes" actually clear, did the agent read back the right order, was a refusal grounded in real policy. Anything a computer can verify is never handed to a model to judge.</p>
+    <p>The customer is a strong model working from a script, but it talks like a person and reacts in real time. We kept it plain on purpose: personas are simple (terse, chatty, formal, anxious) and chosen the same way every time, and intent stays honest. Real requests, no jailbreaks, no trick questions. The difficulty comes from normal messes, not attacks: a vague item, a forgotten email, a mid-conversation "oh, can you also." A hard customer, not a hostile one.</p>
+
+    <h2>Two experiments, one principle</h2>
+    <p>We ran two experiments to close the gaps, each designed for a different starting point: one for when you have no existing data to learn from, one for when you do. Both are built on the same idea: the correct answer is always computed from the world state, never generated by a model.</p>
+    <figure style="margin:24px 0;">
+      <img src="/closing-the-loop-experiments.png" alt="Diagram showing the grounded retail world feeding two pipelines — Experiment 1 (synthetic data) and Experiment 2 (curation) — into one trained retail agent, with pass¹ rising from 42.5% to 75%." onerror="this.style.display='none'">
+      <figcaption style="font-size:13px; color:var(--ink-3); margin-top:8px;"><strong>Figure 1.</strong> Both training pipelines feed one trained agent.</figcaption>
+    </figure>
+    <h3>Experiment 1: Synthetic data generation</h3>
+    <p>Now that we know what the model gets wrong, we can generate data that specifically targets those gaps. The generator maintains a taxonomy of templates that guarantees coverage. Given a failure mode and a template, it generates new tasks focused on that failure mode, with adjustable difficulty parameters. The key design decision: the gold output is still verifiable.</p>
+    <p>Every generated task goes through a cascade of LLM judges that check executability, validity, and policy adherence. This matters because it means the reward can't be gamed. The only way to earn it is to actually solve the task. We then trained the model on these synthetic tasks, and pass&sup1; went from 42.5% to 75%.</p>
+    <h3>Experiment 2: Data curation</h3>
+    <p>The second experiment starts from a different place: what if you already have trajectories? We had roughly 6,000 successful trajectories. The question was which ones are actually worth training on. If the model already solves a task easily, training on it is just rehearsal. If the task is too far outside what the model can do, it doesn't learn well from it either. The signal lives in between: the tasks the model sometimes gets right and sometimes gets wrong.</p>
+    <p>So we curated a mix: tasks the model succeeds on (to anchor existing skills) and tasks it fails on (to target the gaps). Getting that ratio right is the lever. We landed on roughly 1,200 carefully selected samples. As a yardstick, we also trained on the full 6,000-trajectory set; the curated 1,200 matched it, reaching the same benchmark performance from one-fifth the data. Beyond the targeted subset, extra volume is mostly rehearsal. Volume isn't the bottleneck. Targeting is.</p>
+
+    <h2>Results</h2>
+    <p>The pass&sup1; lift is the headline: an average attempt now succeeds about three times in four, up from fewer than one in two. The pass&#8308; lift is the point. pass&#8308; counts only the tasks the agent solves on all four independent attempts, and it nearly doubled, from 27.5% to 52.5%. So the agent didn't just get luckier on average; it got steadier. That distinction is the whole game in production: a live agent serves one customer, once, and has to get that interaction right. It doesn't get to be correct "on average." After training, more than half the benchmark is solved every single time.</p>
+    <figure style="margin:24px 0;">
+      <img src="/closing-the-loop-pass-rates.png" alt="Bar charts showing pass-rate-at-1 by experiment on the left, and pass-rate-at-k reliability across k attempts on the right." onerror="this.style.display='none'">
+      <figcaption style="font-size:13px; color:var(--ink-3); margin-top:8px;"><strong>Figure 2.</strong> Pass&sup1; by experiment (left) and pass<sup>k</sup> reliability across k attempts (right). Both experiments consistently beat baseline.</figcaption>
+    </figure>
+    <h3>Where the gaps close</h3>
+    <p>The two grounding failures collapse. Invention, where the agent makes up a value and feeds it to a write, fell from 17.5% of the benchmark to 5%. That's the mode we most wanted gone: a fabricated order total or payment id isn't just a wrong sentence, it becomes the argument to an action that moves money. Training pushed the agent to act on what the tools actually returned, and tool-output misreads more than halved for the same reason.</p>
+    <p>Plan adherence is the stubborn one. Invention and misreads are perception problems; the fix is getting the model to attend to what's already in front of it. Plan adherence is a follow-through problem: the agent has to hold a commitment across many turns (confirm the change, then issue the write) without getting pulled into the customer's next request. That's harder to instill by imitation, and it's the failure a deterministic eval refuses to hide. The transcript reads fine and the agent "said" it would update the address, but the database never changed. A judge reading the words would pass it; a check on the final state will not. So it's our largest remaining gap, and the mode we generate against next.</p>
+    <figure style="margin:24px 0;">
+      <img src="/closing-the-loop-failure-modes.png" alt="Bar chart showing the share of the 40-task benchmark failing per failure mode, by training stage." onerror="this.style.display='none'">
+      <figcaption style="font-size:13px; color:var(--ink-3); margin-top:8px;"><strong>Figure 3.</strong> Share of the 40-task benchmark failing per failure mode, by training stage (lower is better).</figcaption>
+    </figure>
+
+    <h2>Before and after: two failures, fixed</h2>
+    <p>Aggregate numbers persuade managers. Trajectory-level diffs persuade people who build evals. Here are two, lifted from the benchmark, each showing the exact tool call that flips the outcome.</p>
+    <div class="task-card">
+      <div class="task-card-header"><span class="tc-name">Task 1 &middot; multi-order session</span><span class="tc-mode">failure mode: Instruction / plan adherence</span></div>
+      <div class="task-card-req">
+        <p class="tc-req-label">What the task required</p>
+        <p class="tc-req-body">Verify the account, then update the shipping address on order #W8294633 to the default on file, confirm, and proceed to several other changes. The gold trajectory must include a real address-modify write.</p>
+      </div>
+      <div class="task-card-cols">
+        <div class="task-col">
+          <div class="task-col-header" style="background:#8b3030;"><span>Before &middot; Baseline &middot; Step 14</span></div>
+          <div class="task-col-body">
+            The agent confirmed the change, said it would update the address, then jumped to processing returns. It never issued the address-modify call, so the required write was skipped (<code>db_match = false</code>).
+            <span class="tc-label-small">What it said:</span>
+            <span class="tc-quote">"The shipping address for #W8294633 will be updated to your default address on file."</span>
+            <span class="tc-label-small">Tool call at the address step:</span>
+            <code class="tc-code">(none)  &rarr;  return_delivered_order_items</code>
+          </div>
+        </div>
+        <div class="task-col">
+          <div class="task-col-header" style="background:#4a3aa0;"><span>After &middot; Trained &middot; Step 16</span></div>
+          <div class="task-col-body">
+            The trained model confirms, reads back both addresses so the user can catch a mistake, then actually executes the write.
+            <span class="tc-label-small">Tool call at the address step:</span>
+            <code class="tc-code">modify_pending_order_address("#W8294633", "1120 Southside Blvd, Unit 7B, Jacksonville, FL 32256")</code>
+          </div>
+        </div>
+      </div>
+      <div class="task-card-why"><strong>Why it convinces:</strong> the failure is not a wording slip. The baseline's prose is correct; its action set is empty. Only a check on final DB state catches a confident promise that was never executed.</div>
+    </div>
+    <div class="task-card">
+      <div class="task-card-header"><span class="tc-name">Task 2 &middot; payment-method update</span><span class="tc-mode">failure mode: Invention of new info</span></div>
+      <div class="task-card-req">
+        <p class="tc-req-label">What the task required</p>
+        <p class="tc-req-body">Customer wants to switch order #W7536109 to a credit card. The gold uses the real card on file; any other id is wrong.</p>
+      </div>
+      <div class="task-card-cols">
+        <div class="task-col">
+          <div class="task-col-header" style="background:#8b3030;"><span>Before &middot; Baseline &middot; Step 18</span></div>
+          <div class="task-col-body">
+            The agent fabricated a payment-method id that appears in no tool output and passed it to the write. The call failed with "payment method not found" and the reward was zero.
+            <span class="tc-label-small">Tool call issued:</span>
+            <code class="tc-code">modify_pending_order_payment({"order_id": "#W7536109", "payment_method_id": "credit_card_0000000"})</code>
+            <span class="tc-label-small">(invented id, not in any read)</span>
+          </div>
+        </div>
+        <div class="task-col">
+          <div class="task-col-header" style="background:#4a3aa0;"><span>After &middot; Trained &middot; Step 18</span></div>
+          <div class="task-col-body">
+            The trained model uses the real instrument returned by the read (Visa ending 1554). The write succeeds.
+            <span class="tc-label-small">Tool call issued:</span>
+            <code class="tc-code">modify_pending_order_payment({"order_id": "#W7536109", "payment_method_id": "credit_card_1654161"})</code>
+            <span class="tc-label-small">(real id, read from world state)</span>
+          </div>
+        </div>
+      </div>
+      <div class="task-card-why"><strong>Why it convinces:</strong> invention is most dangerous when the invented token becomes a write argument. The id is well-formed and plausible, so nothing short of executing it against the real world reveals the error. Act on what the tools returned, not on what looks right.</div>
+    </div>
+
+    <h2>Closing the loop</h2>
+    <p>Start to finish, this is one loop. The eval named the three failure modes. We generated data aimed at exactly those modes, with gold no model authored. Training on that data moved the numbers, and the same eval confirms the close. Because augmentation conditioned each task on the measured failures, a small targeted set beat raw volume: a few hundred synthetic trajectories, or replay-verified curated tasks, took pass&sup1; from 42.5% to 75%. And the gains landed where we aimed: invention dropped from 17.5% of the benchmark to 5%, and tool-output misreads more than halved. The modes the data targeted are the modes that closed, which is the signature of a loop that is actually closing rather than a model that got luckier.</p>
+    <p>The takeaway: next time you're improving an agent, don't start by adding data or training longer. Find where it actually fails first, then generate data targeted at those gaps, graded against ground truth no model can author. Measure, target, train, re-measure. That's the loop we run at Reinforce Labs, and plan-adherence is where we point it next.</p>
+    <p>If you're putting agents into production and want to know where yours is quietly failing, <a onclick="go('contact')" style="cursor:pointer; color:var(--brand); font-weight:600;">let's talk</a>.</p>
+  </article>
+</div>
+
 <div class="page" id="page-blog-flint">
   <div class="article-hero">
     <span class="back" onclick="goSection('resources','res-blogs')">&larr; Back to blog</span>
@@ -2489,7 +2921,7 @@
     <div class="inner">
       <div class="grid g2" style="max-width:760px; margin:0 auto 30px;">
         <div class="card clickable" style="text-align:center; border-color:var(--brand-2);" onclick="pickInterest('Book a demo')"><h3 style="color:var(--brand);">Book a Demo</h3><p class="one-liner">See evaluation, data, and guardrails on your use case.</p></div>
-        <div class="card clickable" style="text-align:center; border-color:var(--accent);" onclick="pickInterest('Free Agent Workshop')"><h3 style="color:#0f8b7d;">Free Agent Workshop</h3><p class="one-liner">2-hour virtual session. Leave with the playbook + checklists.</p></div>
+        <div class="card clickable" style="text-align:center; border-color:var(--accent);" onclick="pickInterest('Free Agent Workshop')"><h3 style="color:#6941c6;">Free Agent Workshop</h3><p class="one-liner">2-hour virtual session. Leave with the playbook + checklists.</p></div>
       </div>
       <form class="form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="6d96bb12-7b21-4d45-aa8e-42a5fe45d1e5">
@@ -2550,7 +2982,8 @@
     'blog-multimodal': 'multimodal-sft-pipeline',
     'blog-beyond': 'beyond-pass-rates',
     'blog-charts': 'stop-waiting-labeled-data-generate-evals',
-    'blog-multimodel': 'multimodel-attack-analysis'
+    'blog-multimodel': 'multimodel-attack-analysis',
+    'blog-retail': 'retail-agent-eval-training'
   };
   // every slug that resolves to an article: clean slugs + the original dated ones
   // (so links already shared with the date keep working)
@@ -2560,7 +2993,8 @@
     'multimodal-sft-pipeline': 'blog-multimodal', 'multimodal-sft-pipeline-2026-04-17': 'blog-multimodal',
     'beyond-pass-rates': 'blog-beyond', 'beyond-pass-rates-2026-05-14': 'blog-beyond',
     'stop-waiting-labeled-data-generate-evals': 'blog-charts', 'stop-waiting-labeled-data-generate-evals-2026-05-18': 'blog-charts',
-    'multimodel-attack-analysis': 'blog-multimodel', 'multimodal-attack-analysis': 'blog-multimodel'
+    'multimodel-attack-analysis': 'blog-multimodel', 'multimodal-attack-analysis': 'blog-multimodel',
+    'retail-agent-eval-training': 'blog-retail'
   };
 
   // canonical address-bar URL for a page (clean paths, no hash; blogs keep their /blogs/<slug> path)
@@ -2654,6 +3088,18 @@
       entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     targets.forEach(function(t){ t.classList.add('reveal'); io.observe(t); });
+  })();
+
+  // homepage leaderboard: animate the bars growing when the section scrolls into view
+  (function(){
+    var lb = document.getElementById('home-leaderboard');
+    if (!lb) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) { lb.classList.add('lb-in'); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting){ lb.classList.add('lb-in'); io.disconnect(); } });
+    }, { threshold: 0.25 });
+    io.observe(lb);
   })();
 
   // back-to-top visibility + glassy header once scrolled away from the very top
@@ -2815,6 +3261,7 @@
     var reduceM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var nodes = Array.prototype.slice.call(orbit.querySelectorAll('.orbit-node'));
     var tlRows = Array.prototype.slice.call(document.querySelectorAll('#orbitTimeline .ot-row'));
+    var legRows = Array.prototype.slice.call(document.querySelectorAll('#orbitLegend .ol-row'));
     var center = document.getElementById('orbitCenter');
     var ttl = center.querySelector('.oc-title');
     var desc = center.querySelector('.oc-desc');
@@ -2840,6 +3287,7 @@
       cur = i;
       nodes.forEach(function (n, k) { n.classList.toggle('on', k === i); });
       tlRows.forEach(function (r, k) { r.classList.toggle('on', k === i); r.classList.toggle('done', k < i); });
+      legRows.forEach(function (r, k) { r.classList.toggle('on', k === i); r.classList.toggle('done', k < i); });
       pips.forEach(function (p, k) { p.classList.toggle('on', k === i); });
       step.textContent = 'Step 0' + (i + 1) + ' / 0' + N;
       ttl.textContent = steps[i].t;
@@ -2892,6 +3340,10 @@
     tlRows.forEach(function (r, i) {
       r.addEventListener('click', function () { jumpTo(i); });
     });
+    legRows.forEach(function (r, i) {
+      r.addEventListener('mouseenter', function () { jumpTo(i); });
+      r.addEventListener('click', function () { jumpTo(i); });
+    });
 
     paint(0);
     if (reduceM) { fillSector(0, false); return; }
@@ -2929,6 +3381,92 @@
         if (renderData() || ++tries > 40) clearInterval(t);
       }, 100);
     }
+  })();
+</script>
+<script>
+  /* Data page: turn each inline sample list into a hover-revealed "first example"
+     plus a "View samples" modal, mirroring the deployment but smoother/slower. */
+  (function () {
+    var page = document.getElementById('page-data');
+    var modal = document.getElementById('ds-modal');
+    if (!page || !modal) return;
+
+    var mName = modal.querySelector('.ds-modal-name');
+    var mCount = modal.querySelector('.ds-modal-count');
+    var mSub = modal.querySelector('.ds-modal-sub');
+    var mBody = modal.querySelector('.ds-modal-body');
+    var closeTimer = null;
+    var arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+    Array.prototype.forEach.call(page.querySelectorAll('.ds-samples'), function (det) {
+      var card = det.closest('.ds-card');
+      if (!card) return;
+      var samples = Array.prototype.slice.call(det.querySelectorAll('.ds-sample'));
+      if (!samples.length) return;
+
+      var name = (card.querySelector('h3') || {}).textContent || '';
+      var isLean = /lean/i.test(name);
+      var subEl = det.querySelector('.ds-sub');
+      var volume = '';
+      if (subEl) { var m = subEl.textContent.match(/contains\s+(.+?)\.?\s*$/i); volume = m ? m[1] : ''; }
+
+      var store = document.createElement('div');
+      store.className = 'ds-allsamples';
+      store.hidden = true;
+      store.setAttribute('data-name', name);
+      store.setAttribute('data-count', String(samples.length));
+      store.setAttribute('data-volume', volume);
+      samples.forEach(function (s) { store.appendChild(s); });
+
+      var firstex = document.createElement('div');
+      firstex.className = 'ds-firstex';
+      var inner = document.createElement('div');
+      inner.className = 'ds-firstex-inner';
+      var lbl = document.createElement('p');
+      lbl.className = 'ds-firstex-label';
+      lbl.textContent = 'First example';
+      inner.appendChild(lbl);
+      inner.appendChild(store.firstElementChild.cloneNode(true));
+      firstex.appendChild(inner);
+
+      var view = document.createElement('div');
+      view.className = 'ds-view';
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.innerHTML = (isLean ? 'Request to see samples' : 'View samples') + arrow;
+      btn.addEventListener('click', function () { openModal(store); });
+      view.appendChild(btn);
+
+      card.insertBefore(firstex, det);
+      card.insertBefore(view, det);
+      card.insertBefore(store, det);
+      card.removeChild(det);
+    });
+
+    function openModal(store) {
+      if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+      mName.textContent = store.getAttribute('data-name');
+      mCount.textContent = store.getAttribute('data-count') + ' samples';
+      var vol = store.getAttribute('data-volume');
+      mSub.textContent = vol ? ('Representative records. Full corpus contains ' + vol + '.') : 'Representative records.';
+      mBody.innerHTML = store.innerHTML;
+      mBody.scrollTop = 0;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      requestAnimationFrame(function () { requestAnimationFrame(function () { modal.classList.add('in'); }); });
+      document.body.style.overflow = 'hidden';
+    }
+
+    window.closeSamples = function () {
+      modal.classList.remove('in');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      closeTimer = setTimeout(function () { modal.classList.remove('open'); mBody.innerHTML = ''; }, 560);
+    };
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) window.closeSamples();
+    });
   })();
 </script>
 <script>
