@@ -138,6 +138,23 @@
   }
   .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: radial-gradient(rgba(30,25,70,.045) 1px, transparent 1.4px); background-size: 22px 22px; -webkit-mask-image: radial-gradient(1000px 520px at 50% 30%, #000, transparent 80%); mask-image: radial-gradient(1000px 520px at 50% 30%, #000, transparent 80%); }
   @media (prefers-reduced-motion: reduce) { .hero .aurora { animation: none; } }
+  /* shared top-of-page aurora glow, applied to every other page's hero */
+  .phero, #page-data .ds-hero-section { position: relative; overflow: hidden; isolation: isolate; }
+  .phero::after, #page-data .ds-hero-section::after {
+    content: ""; position: absolute; inset: -22% -10%; z-index: -1; pointer-events: none; background:
+    radial-gradient(640px 360px at 22% 18%, rgba(105,65,198,.22), transparent 60%),
+    radial-gradient(560px 320px at 82% 12%, rgba(139,155,232,.16), transparent 60%),
+    radial-gradient(700px 460px at 60% 90%, rgba(139,155,232,.16), transparent 62%);
+    filter: blur(8px); animation: aurora-drift 18s ease-in-out infinite alternate; }
+  /* blog-article hero: narrow column, so span the glow full viewport width behind it */
+  .article-hero { position: relative; }
+  .article-hero::after {
+    content: ""; position: absolute; top: -30px; left: calc(50% - 50vw); width: 100vw; height: calc(100% + 60px); z-index: -1; pointer-events: none; background:
+    radial-gradient(640px 360px at 22% 18%, rgba(105,65,198,.22), transparent 60%),
+    radial-gradient(560px 320px at 82% 12%, rgba(139,155,232,.16), transparent 60%),
+    radial-gradient(700px 460px at 60% 90%, rgba(139,155,232,.16), transparent 62%);
+    filter: blur(8px); animation: aurora-drift 18s ease-in-out infinite alternate; }
+  @media (prefers-reduced-motion: reduce) { .phero::after, #page-data .ds-hero-section::after, .article-hero::after { animation: none; } }
   .hero .hero-logo { width: 64px; height: 64px; object-fit: contain; margin: 0 auto 22px; display: block; }
   .hero .tagline { margin-top: 18px; font-size: 19px; font-weight: 650; color: var(--ink); letter-spacing: -.2px; }
   .hero .mission { margin: 12px auto 0; color: var(--ink-2); font-size: 17px; max-width: 660px; }
