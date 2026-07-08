@@ -340,8 +340,8 @@
 
   /* ---------- blog article reader ---------- */
   .article-hero { padding: 46px 24px 0; max-width: 820px; margin: 0 auto; }
-  .article-hero .back { display:inline-block; color: var(--brand); font-weight:600; font-size:14px; cursor:pointer; margin-bottom:22px; }
-  .article-hero .back:hover { text-decoration: underline; }
+  .article-hero .back { position: fixed; top: 84px; left: max(20px, calc((100vw - 760px) / 2 - 180px)); z-index: 60; display: inline-flex; align-items: center; gap: 6px; color: var(--brand); font-weight: 600; font-size: 13px; cursor: pointer; background: rgba(255,255,255,.82); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px; box-shadow: 0 6px 18px rgba(40,28,90,.10); transition: background .2s ease, box-shadow .2s ease, transform .2s ease; }
+  .article-hero .back:hover { text-decoration: none; background: #fff; transform: translateY(-1px); box-shadow: 0 10px 24px rgba(40,28,90,.16); }
   .article-hero .tags { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
   .article-hero h1 { font-size: clamp(28px,4.2vw,44px); letter-spacing:-1px; line-height:1.12; }
   .article-hero .meta { color: var(--ink-3); font-size:14px; margin-top:14px; }
@@ -386,6 +386,65 @@
   .article .vqa { border:1px solid var(--line); border-radius:14px; padding: 20px 22px; margin: 26px 0; background:#fff; }
   .article .vqa .q { font-size:15px; }
   .article .vqa .q b { color: var(--ink); }
+
+  /* ---------- series article: floating glass parts navigator (scoped to eval-safe post) ---------- */
+  /* Article stays centered in the page; the rail floats in the left gutter so it never eats into the text column. */
+  #page-blog-evalsafe .article-apple { display: block; width: 132px; height: auto; border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 26px rgba(40,28,90,.12); margin: 30px 0 4px; }
+  #page-blog-evalsafe .series-layout { position: relative; }
+  #page-blog-evalsafe .series-layout .article { margin: 0 auto; padding: 12px 24px 72px; }
+  #page-blog-evalsafe .series-nav { position: fixed; top: 50%; transform: translateY(-50%); right: max(20px, calc((100vw - 760px) / 2 - 262px)); width: 166px; max-height: calc(100vh - 130px); overflow-y: auto; padding: 22px 16px; border-radius: 20px; border: 1px solid rgba(105,65,198,.16); background: linear-gradient(160deg, rgba(255,255,255,.72), rgba(139,155,232,.10)); -webkit-backdrop-filter: blur(16px) saturate(1.3); backdrop-filter: blur(16px) saturate(1.3); box-shadow: 0 24px 60px rgba(60,40,140,.10), inset 0 1px 0 rgba(255,255,255,.6); }
+  #page-blog-evalsafe .series-nav::before { content: ""; position: absolute; inset: 0; border-radius: 20px; padding: 1px; background: linear-gradient(160deg, rgba(139,155,232,.5), rgba(105,65,198,0) 45%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+  #page-blog-evalsafe .series-kicker { display: block; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--brand); margin-bottom: 20px; }
+  #page-blog-evalsafe .series-list { list-style: none; margin: 0; padding: 0; position: relative; }
+  #page-blog-evalsafe .series-list::before { content: ""; position: absolute; left: 17px; top: 14px; bottom: 14px; width: 2px; background: linear-gradient(var(--brand-2), rgba(139,155,232,.25)); }
+  #page-blog-evalsafe .series-item { position: relative; display: flex; align-items: center; gap: 13px; padding: 13px 12px; border-radius: 13px; margin-bottom: 6px; transition: background .25s ease, transform .25s ease, box-shadow .25s ease; }
+  #page-blog-evalsafe .series-num { position: relative; z-index: 1; flex: none; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; background: #fff; border: 2px solid var(--brand-2); color: var(--ink-2); transition: background .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease; }
+  #page-blog-evalsafe .series-txt { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
+  #page-blog-evalsafe .series-txt b { font-size: 13.5px; color: var(--ink); font-weight: 700; white-space: nowrap; }
+  #page-blog-evalsafe .series-txt small { font-size: 12px; color: var(--ink-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #page-blog-evalsafe .series-item.active { cursor: pointer; background: rgba(105,65,198,.09); }
+  #page-blog-evalsafe .series-item.active .series-num { background: var(--brand); border-color: var(--brand); color: #fff; box-shadow: 0 0 0 5px rgba(105,65,198,.14), 0 6px 16px rgba(105,65,198,.32); }
+  #page-blog-evalsafe .series-item.active .series-txt small { color: var(--brand); }
+  #page-blog-evalsafe .series-item.active:hover { transform: translateX(-3px); box-shadow: 0 10px 26px rgba(60,40,140,.12); }
+  #page-blog-evalsafe .series-item.locked { cursor: not-allowed; opacity: .78; }
+  #page-blog-evalsafe .series-item.locked .series-num { background: var(--bg-2); border-color: var(--line); color: var(--ink-3); }
+  #page-blog-evalsafe .series-item.locked .series-txt b { color: var(--ink-3); font-weight: 650; }
+  #page-blog-evalsafe .series-lock { margin-left: auto; flex: none; width: 15px; height: 15px; color: var(--ink-3); opacity: .85; }
+  @media (max-width: 1219px) {
+    #page-blog-evalsafe .series-nav { display: none; }
+  }
+  #page-blog-evalsafe .article .cta-highlight { background: linear-gradient(135deg, var(--brand-soft), rgba(139,155,232,.14)); border: 1px solid var(--brand-2); border-left: 4px solid var(--brand); border-radius: 12px; padding: 18px 22px; margin: 28px 0; color: var(--ink); font-size: 17px; line-height: 1.62; }
+  #page-blog-evalsafe .article .cta-highlight a { color: var(--brand); font-weight: 700; }
+  #page-blog-evalsafe .article .series-next { margin-top: 6px; color: var(--ink-2); }
+  #page-blog-evalsafe .article .series-next strong { color: var(--brand); }
+  @media (prefers-reduced-motion: reduce) {
+    #page-blog-evalsafe .series-item, #page-blog-evalsafe .series-num { transition: none; }
+  }
+
+  /* ---------- blog: "keep reading" related posts (appended to every article) ---------- */
+  /* Cards are identical to the /blogs carousel cards (.bx-card), minus the description. */
+  .blog-more { position: relative; z-index: 1; }
+  .blog-more-inner { max-width: 920px; margin: 44px auto 0; padding: 44px 24px 64px; border-top: 1px solid var(--line); }
+  .blog-more-kicker { display: block; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--brand); margin-bottom: 20px; }
+  .blog-more-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .blog-more .bx-card { border: 1px solid var(--line); border-radius: 18px; background: #fff; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; transition: transform .28s cubic-bezier(.22,.61,.36,1), box-shadow .28s ease, border-color .28s ease; }
+  .blog-more .bx-card:hover { transform: translateY(-7px); box-shadow: 0 26px 56px rgba(40,28,90,.16); border-color: var(--brand-2); }
+  .blog-more .bx-media { position: relative; height: 150px; overflow: hidden; display: flex; align-items: flex-end; padding: 16px; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, #6941c6 0%, #8a6bff 55%, #b59bff 100%); }
+  .blog-more .bx-card:nth-child(3n+2) .bx-media { background: linear-gradient(135deg, #4a3fb0 0%, #6d63d6 60%, #8b9be8 100%); }
+  .blog-more .bx-card:nth-child(3n) .bx-media { background: linear-gradient(135deg, #241d3d 0%, #4a36c9 70%, #6941c6 100%); }
+  .blog-more .bx-media::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.22) 1px, transparent 1.4px); background-size: 13px 13px; opacity: .55; }
+  .blog-more .bx-ico { position: absolute; right: -14px; top: -18px; width: 118px; height: 118px; color: rgba(255,255,255,.26); transition: transform .5s cubic-bezier(.22,.61,.36,1); }
+  .blog-more .bx-card:hover .bx-ico { transform: scale(1.08) rotate(-4deg); }
+  .blog-more .bx-cat { position: relative; z-index: 2; font-size: 11.5px; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; color: var(--brand); background: #fff; border-radius: 999px; padding: 5px 12px; box-shadow: 0 4px 12px rgba(40,28,90,.22); }
+  .blog-more .bx-card:nth-child(3n+2) .bx-cat { color: #4a3fb0; }
+  .blog-more .bx-card:nth-child(3n) .bx-cat { color: var(--brand); }
+  .blog-more .bx-body { padding: 20px 22px; display: flex; flex-direction: column; flex: 1; }
+  .blog-more .bx-body h3 { font-size: 16px; font-weight: 700; line-height: 1.34; letter-spacing: -.2px; color: var(--ink); display: -webkit-box; -webkit-line-clamp: 4; line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+  .blog-more .bx-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); }
+  .blog-more .bx-read { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: var(--ink-3); }
+  .blog-more .bx-link { font-size: 14px; font-weight: 700; color: var(--brand); white-space: nowrap; }
+  .blog-more .bx-card:hover .bx-link { text-decoration: underline; }
+  @media (max-width: 860px) { .blog-more-grid { grid-template-columns: 1fr; } }
 
   /* ---------- form ---------- */
   .form { max-width: 560px; margin: 0 auto; }
@@ -900,6 +959,7 @@
   #page-blogs .bx-cat { position: relative; z-index: 2; font-size: 11.5px; font-weight: 750; letter-spacing: .05em; text-transform: uppercase; color: var(--brand); background: #fff; border-radius: 999px; padding: 5px 12px; box-shadow: 0 4px 12px rgba(40,28,90,.22); }
   #page-blogs .bx-card:nth-child(3n+2) .bx-cat { color: #4a3fb0; }
   #page-blogs .bx-card:nth-child(3n) .bx-cat { color: var(--brand); }
+  #page-blogs .bx-part { position: absolute; z-index: 2; top: 14px; left: 16px; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); border-radius: 999px; padding: 4px 10px; }
   #page-blogs .bx-body { padding: 20px 22px 20px; display: flex; flex-direction: column; flex: 1; }
   #page-blogs .bx-body h3 { font-size: 19.5px; font-weight: 700; line-height: 1.3; letter-spacing: -.3px; color: var(--ink); display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
   #page-blogs .bx-body p { color: var(--ink-2); font-size: 14.5px; line-height: 1.55; margin-top: 10px; flex: 1; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -2275,6 +2335,7 @@
     <div class="inner">
       <div class="section-head"><span class="kicker">From the blog</span><h2>Deep dives for practitioners.</h2><p class="sub" style="margin:10px auto 0;">Engineering and research notes from the team. Each card opens the full post on our blog.</p></div>
       <div class="blog-grid" style="margin-top:28px;">
+        <div class="blogcard" onclick="go('blog-evalsafe')"><div class="bbody"><span class="tag">Evaluation</span><h3>Your eval passed. That doesn't mean your system is safe.</h3><p>300 clean probes, zero leaks, a green dashboard &mdash; and a hidden breach. Why pooled pass rates mislead, and how stratified sampling turns a number into evidence.</p><span class="learn">Read the post &rarr;</span></div></div>
         <div class="blogcard" onclick="go('blog-retail')"><div class="bbody"><span class="tag">Agents</span><h3>Closing the Loop: Finding and Fixing a Customer-Service Agent's Failure Modes</h3><p>We found exactly where a retail agent failed, built verifiable data against it, and lifted first-try success from 42.5% to 75%.</p><span class="learn">Read the post &rarr;</span></div></div>
         <div class="blogcard" onclick="go('blog-multimodel')"><div class="bbody"><span class="tag">Multimodal</span><h3>Beyond Attack Detection: Why Multimodal Safety Is Fighting the Wrong Battle</h3><p>Not all multimodal attacks fail for the same reason. We map where today's safety systems hold and where they break down.</p><span class="learn">Read the post &rarr;</span></div></div>
         <div class="blogcard" onclick="go('blog-flint')"><div class="bbody"><span class="tag">Launch</span><h3>Don't Ship That Chatbot (Until You Read This)</h3><p>Introducing Flint: automated multi-turn stress-testing that surfaces concrete policy violations before real users do.</p><span class="learn">Read the post &rarr;</span></div></div>
@@ -2324,6 +2385,14 @@
         <button class="bx-arrow bx-side bx-prev" id="blogPrev" aria-label="Previous posts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
         <button class="bx-arrow bx-side bx-next" id="blogNext" aria-label="More posts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
         <div class="bx-track" id="blogTrack">
+          <article class="bx-card" onclick="go('blog-evalsafe')">
+            <div class="bx-media"><span class="bx-part">Part 1</span><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 3-3 3 2 5-6"/><circle cx="10" cy="12" r="1.1"/><circle cx="13" cy="14" r="1.1"/></svg><span class="bx-cat">Evaluation</span></div>
+            <div class="bx-body">
+              <h3>Your eval passed. That doesn't mean your system is safe.</h3>
+              <p>300 clean probes, zero leaks, a green dashboard &mdash; and a hidden breach. Why pooled pass rates mislead, and how stratified sampling from social science turns a number into real evidence.</p>
+              <div class="bx-foot"><span class="bx-read">7 min read</span><span class="bx-link">Read article &rarr;</span></div>
+            </div>
+          </article>
           <article class="bx-card" onclick="go('blog-retail')">
             <div class="bx-media"><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v5h5"/><path d="m9 12 2 2 4-4"/></svg><span class="bx-cat">Agents</span></div>
             <div class="bx-body">
@@ -2480,7 +2549,7 @@
 <!-- ===================================================================== BLOG: RETAIL AGENT EVAL + TRAINING -->
 <div class="page" id="page-blog-retail">
   <div class="article-hero">
-    <span class="back" onclick="goSection('resources','res-blogs')">&larr; Back to blog</span>
+    <span class="back" onclick="go('blogs')">&larr; Back to blogs</span>
     <div class="tags"><span class="pill">Research</span><span class="pill accent">Agents</span></div>
     <h1>Closing the Loop: Finding and Fixing a Customer-Service Agent's Failure Modes</h1>
     <p class="meta">July 1, 2026 &middot; Reinforce Labs</p>
@@ -2606,7 +2675,7 @@
 
 <div class="page" id="page-blog-flint">
   <div class="article-hero">
-    <span class="back" onclick="goSection('resources','res-blogs')">&larr; Back to blog</span>
+    <span class="back" onclick="go('blogs')">&larr; Back to blogs</span>
     <div class="tags"><span class="pill">Research</span><span class="pill accent">Launch</span></div>
     <h1>Don't Ship That Chatbot (Until You Read This)</h1>
     <p class="meta">December 4, 2025 &middot; Reinforce Labs</p>
@@ -2645,7 +2714,7 @@
 <!-- ===================================================================== BLOG: HUMAN JUDGMENT -->
 <div class="page" id="page-blog-judgment">
   <div class="article-hero">
-    <span class="back" onclick="goSection('resources','res-blogs')">&larr; Back to blog</span>
+    <span class="back" onclick="go('blogs')">&larr; Back to blogs</span>
     <div class="tags"><span class="pill">Research</span><span class="pill accent">Partnership</span></div>
     <h1>Human Judgment at Scale</h1>
     <p class="meta">January 2026 &middot; Reinforce Labs</p>
@@ -2693,7 +2762,7 @@
 <!-- ===================================================================== BLOG: MULTIMODAL SFT -->
 <div class="page" id="page-blog-multimodal">
   <div class="article-hero">
-    <span class="back" onclick="goSection('resources','res-blogs')">&larr; Back to blog</span>
+    <span class="back" onclick="go('blogs')">&larr; Back to blogs</span>
     <div class="tags"><span class="pill">Research</span><span class="pill accent">Engineering</span></div>
     <h1>A Technical Deep-Dive: Building a Production-Grade Multimodal SFT Pipeline</h1>
     <p class="meta">April 17, 2026 &middot; Reinforce Labs</p>
@@ -2738,7 +2807,7 @@
 <!-- ===================================================================== BLOG: BEYOND PASS RATES -->
 <div class="page" id="page-blog-beyond">
   <div class="article-hero">
-    <span class="back" onclick="goSection('resources','res-blogs')">&larr; Back to blog</span>
+    <span class="back" onclick="go('blogs')">&larr; Back to blogs</span>
     <div class="tags"><span class="pill">Research</span><span class="pill accent">Evaluation</span></div>
     <h1>Beyond Pass Rates: What AI Safety Tests Don't Tell You</h1>
     <p class="meta">May 14, 2026 &middot; Reinforce Labs</p>
@@ -2796,7 +2865,7 @@
 <!-- ===================================================================== BLOG: MULTIMODAL ATTACK ANALYSIS -->
 <div class="page" id="page-blog-multimodel">
   <div class="article-hero">
-    <span class="back" onclick="goSection('resources','res-blogs')">&larr; Back to blog</span>
+    <span class="back" onclick="go('blogs')">&larr; Back to blogs</span>
     <div class="tags"><span class="pill">Research</span><span class="pill accent">Multimodal</span></div>
     <h1>Beyond Attack Detection: Why Multimodal Safety Is Fighting the Wrong Battle</h1>
     <p class="meta">June 23, 2026 &middot; Reinforce Labs</p>
@@ -2917,7 +2986,7 @@
 <!-- ===================================================================== BLOG: STOP WAITING / CHART VQA -->
 <div class="page" id="page-blog-charts">
   <div class="article-hero">
-    <span class="back" onclick="goSection('resources','res-blogs')">&larr; Back to blog</span>
+    <span class="back" onclick="go('blogs')">&larr; Back to blogs</span>
     <div class="tags"><span class="pill">Research</span><span class="pill accent">Dataset</span></div>
     <h1>Stop Waiting on Labeled Data. Generate Your Evals Instead.</h1>
     <p class="meta">May 18, 2026 &middot; Reinforce Labs</p>
@@ -2978,6 +3047,72 @@
     <p>Benchmark data has become the bottleneck for model evaluation, and waiting for the community to ship the next labeled dataset isn't a strategy. If you're a researcher, this gives you evaluation data targeted at your model's actual weaknesses, verifiably correct, difficulty-calibrated, and rich in multi-hop reasoning chains. If you're a PM, it means you can ship eval coverage for new chart types or failure modes in days, not the months it takes to scope, contract, and QC a human-labeled set.</p>
     <p>An initial partition of the corpus is now live at <a href="https://huggingface.co/datasets/reinforcelabs/MM-Chart-QA" target="_blank" rel="noopener">huggingface.co/datasets/reinforcelabs/MM-Chart-QA</a>. Reach out at <a href="mailto:contact@reinforcelabs.ai">contact@reinforcelabs.ai</a> for the full manifest.</p>
   </article>
+</div>
+
+<!-- ===================================================================== BLOG: EVAL SAFE (series pt.1) -->
+<div class="page" id="page-blog-evalsafe">
+  <div class="article-hero">
+    <span class="back" onclick="go('blogs')">&larr; Back to blogs</span>
+    <div class="tags"><span class="pill">Series &middot; Part 1</span><span class="pill accent">Evaluation</span></div>
+    <h1>Your eval passed. That doesn't mean your system is safe.</h1>
+    <p class="meta">July 8, 2026 &middot; Reinforce Labs</p>
+    <p class="lead">First in a series on what AI red-teaming can borrow from fifty years of social science.</p>
+    <img class="article-apple" src="/apple.png" alt="Apple illustration" onerror="this.style.display='none'">
+  </div>
+  <div class="series-layout">
+    <nav class="series-nav" aria-label="Series parts">
+      <span class="series-kicker">The series</span>
+      <ol class="series-list">
+        <li class="series-item active" onclick="go('blog-evalsafe')" aria-current="true">
+          <span class="series-num">1</span>
+          <span class="series-txt"><b>Part 1</b></span>
+        </li>
+        <li class="series-item locked" aria-disabled="true">
+          <span class="series-num">2</span>
+          <span class="series-txt"><b>Part 2</b></span>
+          <svg class="series-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        </li>
+        <li class="series-item locked" aria-disabled="true">
+          <span class="series-num">3</span>
+          <span class="series-txt"><b>Part 3</b></span>
+          <svg class="series-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        </li>
+        <li class="series-item locked" aria-disabled="true">
+          <span class="series-num">4</span>
+          <span class="series-txt"><b>Part 4</b></span>
+          <svg class="series-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        </li>
+      </ol>
+    </nav>
+    <article class="article">
+      <p>A team wants to know whether their customer-facing chatbot can be talked into revealing someone's personal information. So they do the sensible thing: they write probes, run 300 of them, and count the leaks. Zero. The dashboard turns green. Ship it?</p>
+      <p>Hold on. That green dashboard is hiding a breach.</p>
+      <h2>First, make the claim testable</h2>
+      <p>"The chatbot leaks PII" isn't something you can test as written, because no finite number of clean probes can ever prove a leak rate of exactly zero. What you <em>can</em> test is a ceiling. Reframed, the question becomes: <strong>is the true leak rate below the line we're willing to tolerate?</strong> The job of testing is to gather enough clean evidence to say, with stated confidence, that it is.</p>
+      <h2>The reassuring math</h2>
+      <p>Treat each probe as an independent draw. If the true leak rate is <em>p</em>, the chance of seeing zero leaks across <em>n</em> probes is roughly:</p>
+      <div class="formula">P(zero leaks in n probes) &asymp; e<sup>&minus;pn</sup></div>
+      <p>Ask when that drops to 5% and you get <em>pn</em> &asymp; 3 &mdash; the <strong>rule of three</strong>: zero leaks in <em>n</em> probes buys you a 95% upper bound of about 3/<em>n</em>.</p>
+      <div class="formula">95% upper bound on p &asymp; 3 / n</div>
+      <p>So 300 clean probes means you're 95% confident the true leak rate is at most 1%. Under the tolerance bar. Looks like a ship.</p>
+      <h2>The catch</h2>
+      <p>The rule of three rests on one assumption: a single, homogeneous population sampled at random. PII leakage violates it badly. Leaks don't sprinkle evenly across traffic. They cluster in thin, structured pockets.</p>
+      <p>Suppose the truth is that 99% of your traffic is ordinary and essentially never leaks, while 1% is adversarial &mdash; social-engineering frames, prompt-extraction attempts, jailbreak wrappers &mdash; and leaks 20% of the time. The population average is 0.99 &times; 0 + 0.01 &times; 0.20 &approx; 0.2%, comfortably under your bar.</p>
+      <p>But watch what your test actually did. A random sample of 300 lands only about 3 probes inside that adversarial pocket. You'll most likely see zero leaks there and conclude "all clear" &mdash; having learned essentially nothing about the one stratum that matters. And here's the sharp part: 0.2% describes the average user, but an attacker doesn't live in the average. <strong>An attacker lives entirely inside the 20% pocket, and will find it.</strong> Your aggregate number is technically true and operationally useless. That's how you ship a breach and wake up to a PR nightmare.</p>
+      <h2>The fix is the oldest move in sampling</h2>
+      <p>Stratify. Carve the space of interactions into strata by <em>how a leak gets induced</em> &mdash; a direct ask, a social-engineering frame, system-prompt extraction, a jailbreak wrapper, injection through retrieved content &mdash; and allocate probes not by how common each stratum is, but by where uncertainty and consequence concentrate. Oversample the strata that can actually hurt you.</p>
+      <p>Take a 400-probe budget. Put 100 in the benign stratum: zero leaks gives a rule-of-three bound under 3%, plenty for the safe majority. Put the other 300 in the adversarial stratum, where they do real work &mdash; and say they surface 58 leaks, about 19%.</p>
+      <p>Then the crucial move: <strong>report the strata disaggregated, not pooled.</strong> The population estimate ("a typical user sees roughly 0.2%") sits beside the conditional worst case ("given social-engineering technique X, leak probability is about 19%"), and you state plainly that the worst-case figure is a characterization of a threat, not a frequency.</p>
+      <p>One design now answers both questions a serious team actually needs answered: can an adversary make it leak (yes &mdash; about one time in five, via X), and how often does an ordinary user encounter it (about one in 500). The naive study answered neither.</p>
+      <p>That is the difference between a number and evidence: disaggregated rather than pooled, weighted to real usage, honest about which figures are frequencies and which are worst cases, and accountable to a threat model written down in advance and not assembled from whatever scenarios happened to occur to the team.</p>
+      <p>The same discipline applies in a world of agents instead of static probes, where you move from stratified samples to targeted environments.</p>
+      <p class="cta-highlight">If you're preparing to put an AI system in front of real users and you want to be able to say not just that it passed, but exactly how you know &mdash; that's the work we do. <a onclick="go('contact')" style="cursor:pointer;">Let's talk.</a></p>
+      <h2>Social sciences in the loop</h2>
+      <p>None of this is new. Stratified sampling is textbook survey methodology. The social sciences have spent fifty years working out how to sample a population so your conclusions generalize, how to tell whether a measure captures what it claims to, and how to know when you've measured enough. AI evaluation is quietly rediscovering these problems by hand and it doesn't have to.</p>
+      <p>This series is about closing that gap, one worked example at a time.</p>
+      <p class="series-next"><strong>Next:</strong> insights from research on how humans extend trust that inform red-teaming and eval strategies.</p>
+    </article>
+  </div>
 </div>
 
 <!-- ===================================================================== CONTACT -->
@@ -3048,6 +3183,7 @@
   // ---- blog URL preservation: keep the original /blogs/<slug> URLs working ----
   // anchor -> canonical (clean, date-less) slug shown in the address bar
   var BLOG_SLUGS = {
+    'blog-evalsafe': 'your-eval-passed-not-safe',
     'blog-flint': 'flint-launch',
     'blog-judgment': 'human-judgement-at-scale',
     'blog-multimodal': 'multimodal-sft-pipeline',
@@ -3059,6 +3195,7 @@
   // every slug that resolves to an article: clean slugs + the original dated ones
   // (so links already shared with the date keep working)
   var SLUG_TO_BLOG = {
+    'your-eval-passed-not-safe': 'blog-evalsafe',
     'flint-launch': 'blog-flint', 'flint-launch-2025-12-04': 'blog-flint',
     'human-judgement-at-scale': 'blog-judgment', 'human-judgement-at-scale-2026-02-04': 'blog-judgment',
     'multimodal-sft-pipeline': 'blog-multimodal', 'multimodal-sft-pipeline-2026-04-17': 'blog-multimodal',
@@ -3625,6 +3762,42 @@
     tabBtns.forEach(function (b) { b.addEventListener('click', function () { setTimeout(paint, 60); }); });
 
     paint();
+  })();
+
+  /* Append a "Keep reading" section to the bottom of every blog article. Cards are cloned
+     straight from the /blogs carousel so they're identical, minus the description. */
+  (function () {
+    var track = document.getElementById('blogTrack');
+    if (!track) return;
+    var cards = Array.prototype.slice.call(track.querySelectorAll('.bx-card'));
+    if (cards.length < 2) return;
+
+    cards.forEach(function (card, i) {
+      var oc = card.getAttribute('onclick') || '';
+      var m = oc.match(/go\('([^']+)'\)/);
+      var page = m ? m[1] : '';
+      if (!page) return;
+      var pageEl = document.getElementById('page-' + page);
+      if (!pageEl || pageEl.querySelector('.blog-more')) return;
+
+      var grid = document.createElement('div');
+      grid.className = 'blog-more-grid';
+      for (var k = 1; k <= 3 && k < cards.length; k++) {
+        var clone = cards[(i + k) % cards.length].cloneNode(true);
+        var desc = clone.querySelector('.bx-body p'); if (desc) desc.remove();
+        var part = clone.querySelector('.bx-part'); if (part) part.remove();
+        grid.appendChild(clone);
+      }
+
+      var sec = document.createElement('section');
+      sec.className = 'blog-more';
+      var inner = document.createElement('div');
+      inner.className = 'blog-more-inner';
+      inner.innerHTML = '<span class="blog-more-kicker">Keep reading</span>';
+      inner.appendChild(grid);
+      sec.appendChild(inner);
+      pageEl.appendChild(sec);
+    });
   })();
 </script>
 <script>
