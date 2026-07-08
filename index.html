@@ -389,6 +389,7 @@
 
   /* ---------- series article: floating glass parts navigator (scoped to eval-safe post) ---------- */
   /* Article stays centered in the page; the rail floats in the left gutter so it never eats into the text column. */
+  #page-blog-evalsafe .blog-more-inner { max-width: 940px; }
   #page-blog-evalsafe .article-apple { display: block; width: 132px; height: auto; border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 26px rgba(40,28,90,.12); margin: 30px 0 4px; }
   #page-blog-evalsafe .series-layout { position: relative; }
   #page-blog-evalsafe .series-layout .article { margin: 0 auto; padding: 12px 24px 72px; }
@@ -424,9 +425,9 @@
   /* ---------- blog: "keep reading" related posts (appended to every article) ---------- */
   /* Cards are identical to the /blogs carousel cards (.bx-card), minus the description. */
   .blog-more { position: relative; z-index: 1; }
-  .blog-more-inner { max-width: 920px; margin: 44px auto 0; padding: 44px 24px 64px; border-top: 1px solid var(--line); }
+  .blog-more-inner { max-width: 1000px; margin: 44px auto 0; padding: 44px 24px 64px; border-top: 1px solid var(--line); }
   .blog-more-kicker { display: block; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--brand); margin-bottom: 20px; }
-  .blog-more-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .blog-more-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
   .blog-more .bx-card { border: 1px solid var(--line); border-radius: 18px; background: #fff; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; transition: transform .28s cubic-bezier(.22,.61,.36,1), box-shadow .28s ease, border-color .28s ease; }
   .blog-more .bx-card:hover { transform: translateY(-7px); box-shadow: 0 26px 56px rgba(40,28,90,.16); border-color: var(--brand-2); }
   .blog-more .bx-media { position: relative; height: 150px; overflow: hidden; display: flex; align-items: flex-end; padding: 16px; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, #6941c6 0%, #8a6bff 55%, #b59bff 100%); }
