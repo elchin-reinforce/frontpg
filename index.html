@@ -388,37 +388,41 @@
 
   /* ---------- series article: floating glass parts navigator (scoped to eval-safe post) ---------- */
   /* Article stays centered in the page; the rail floats in the left gutter so it never eats into the text column. */
-  #page-blog-evalsafe .blog-more-inner { max-width: 940px; }
-  #page-blog-evalsafe .article-apple { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 26px rgba(40,28,90,.12); margin: 30px 0 4px; }
-  #page-blog-evalsafe .series-layout { position: relative; }
-  #page-blog-evalsafe .series-layout .article { margin: 0 auto; padding: 12px 24px 72px; }
-  #page-blog-evalsafe .series-nav { position: fixed; top: 50%; transform: translateY(-50%); right: max(20px, calc((100vw - 760px) / 2 - 262px)); width: 166px; max-height: calc(100vh - 130px); overflow-y: auto; padding: 22px 16px; border-radius: 20px; border: 1px solid rgba(105,65,198,.16); background: linear-gradient(160deg, rgba(255,255,255,.72), rgba(139,155,232,.10)); -webkit-backdrop-filter: blur(16px) saturate(1.3); backdrop-filter: blur(16px) saturate(1.3); box-shadow: 0 24px 60px rgba(60,40,140,.10), inset 0 1px 0 rgba(255,255,255,.6); }
-  #page-blog-evalsafe .series-nav::before { content: ""; position: absolute; inset: 0; border-radius: 20px; padding: 1px; background: linear-gradient(160deg, rgba(139,155,232,.5), rgba(105,65,198,0) 45%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
-  #page-blog-evalsafe .series-kicker { display: block; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--brand); margin-bottom: 20px; }
-  #page-blog-evalsafe .series-list { list-style: none; margin: 0; padding: 0; position: relative; }
-  #page-blog-evalsafe .series-list::before { content: ""; position: absolute; left: 17px; top: 14px; bottom: 14px; width: 2px; background: linear-gradient(var(--brand-2), rgba(139,155,232,.25)); }
-  #page-blog-evalsafe .series-item { position: relative; display: flex; align-items: center; gap: 13px; padding: 13px 12px; border-radius: 13px; margin-bottom: 6px; transition: background .25s ease, transform .25s ease, box-shadow .25s ease; }
-  #page-blog-evalsafe .series-num { position: relative; z-index: 1; flex: none; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; background: #fff; border: 2px solid var(--brand-2); color: var(--ink-2); transition: background .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease; }
-  #page-blog-evalsafe .series-txt { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
-  #page-blog-evalsafe .series-txt b { font-size: 13.5px; color: var(--ink); font-weight: 700; white-space: nowrap; }
-  #page-blog-evalsafe .series-txt small { font-size: 12px; color: var(--ink-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  #page-blog-evalsafe .series-item.active { cursor: pointer; background: rgba(105,65,198,.09); }
-  #page-blog-evalsafe .series-item.active .series-num { background: var(--brand); border-color: var(--brand); color: #fff; box-shadow: 0 0 0 5px rgba(105,65,198,.14), 0 6px 16px rgba(105,65,198,.32); }
-  #page-blog-evalsafe .series-item.active .series-txt small { color: var(--brand); }
-  #page-blog-evalsafe .series-item.active:hover { transform: translateX(-3px); box-shadow: 0 10px 26px rgba(60,40,140,.12); }
-  #page-blog-evalsafe .series-item.locked { cursor: not-allowed; opacity: .78; }
-  #page-blog-evalsafe .series-item.locked .series-num { background: var(--bg-2); border-color: var(--line); color: var(--ink-3); }
-  #page-blog-evalsafe .series-item.locked .series-txt b { color: var(--ink-3); font-weight: 650; }
-  #page-blog-evalsafe .series-lock { margin-left: auto; flex: none; width: 15px; height: 15px; color: var(--ink-3); opacity: .85; }
+  .blog-series .blog-more-inner { max-width: 940px; }
+  .blog-series .article-apple { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 26px rgba(40,28,90,.12); margin: 30px 0 4px; }
+  .blog-series .series-layout { position: relative; }
+  .blog-series .series-layout .article { margin: 0 auto; padding: 12px 24px 72px; }
+  .blog-series .series-nav { position: fixed; top: 50%; transform: translateY(-50%); right: max(20px, calc((100vw - 760px) / 2 - 262px)); width: 166px; max-height: calc(100vh - 130px); overflow-y: auto; padding: 22px 16px; border-radius: 20px; border: 1px solid rgba(105,65,198,.16); background: linear-gradient(160deg, rgba(255,255,255,.72), rgba(139,155,232,.10)); -webkit-backdrop-filter: blur(16px) saturate(1.3); backdrop-filter: blur(16px) saturate(1.3); box-shadow: 0 24px 60px rgba(60,40,140,.10), inset 0 1px 0 rgba(255,255,255,.6); }
+  .blog-series .series-nav::before { content: ""; position: absolute; inset: 0; border-radius: 20px; padding: 1px; background: linear-gradient(160deg, rgba(139,155,232,.5), rgba(105,65,198,0) 45%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+  .blog-series .series-kicker { display: block; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--brand); margin-bottom: 20px; }
+  .blog-series .series-list { list-style: none; margin: 0; padding: 0; position: relative; }
+  .blog-series .series-list::before { content: ""; position: absolute; left: 17px; top: 14px; bottom: 14px; width: 2px; background: linear-gradient(var(--brand-2), rgba(139,155,232,.25)); }
+  .blog-series .series-item { position: relative; display: flex; align-items: center; gap: 13px; padding: 13px 12px; border-radius: 13px; margin-bottom: 6px; transition: background .25s ease, transform .25s ease, box-shadow .25s ease; }
+  .blog-series .series-num { position: relative; z-index: 1; flex: none; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; background: #fff; border: 2px solid var(--brand-2); color: var(--ink-2); transition: background .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease; }
+  .blog-series .series-txt { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
+  .blog-series .series-txt b { font-size: 13.5px; color: var(--ink); font-weight: 700; white-space: nowrap; }
+  .blog-series .series-txt small { font-size: 12px; color: var(--ink-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .blog-series .series-item.active { cursor: pointer; background: rgba(105,65,198,.09); }
+  .blog-series .series-item.active .series-num { background: var(--brand); border-color: var(--brand); color: #fff; box-shadow: 0 0 0 5px rgba(105,65,198,.14), 0 6px 16px rgba(105,65,198,.32); }
+  .blog-series .series-item.active .series-txt small { color: var(--brand); }
+  .blog-series .series-item.active:hover { transform: translateX(-3px); box-shadow: 0 10px 26px rgba(60,40,140,.12); }
+  .blog-series .series-item.done { cursor: pointer; }
+  .blog-series .series-item.done .series-num { background: #fff; border-color: var(--brand); color: var(--brand); }
+  .blog-series .series-item.done:hover { background: rgba(105,65,198,.06); transform: translateX(-3px); box-shadow: 0 10px 26px rgba(60,40,140,.10); }
+  .blog-series .series-item.done:hover .series-num { box-shadow: 0 0 0 5px rgba(105,65,198,.12); }
+  .blog-series .series-item.locked { cursor: not-allowed; opacity: .78; }
+  .blog-series .series-item.locked .series-num { background: var(--bg-2); border-color: var(--line); color: var(--ink-3); }
+  .blog-series .series-item.locked .series-txt b { color: var(--ink-3); font-weight: 650; }
+  .blog-series .series-lock { margin-left: auto; flex: none; width: 15px; height: 15px; color: var(--ink-3); opacity: .85; }
   @media (max-width: 1219px) {
-    #page-blog-evalsafe .series-nav { display: none; }
+    .blog-series .series-nav { display: none; }
   }
-  #page-blog-evalsafe .article .cta-highlight { background: linear-gradient(135deg, var(--brand-soft), rgba(139,155,232,.14)); border: 1px solid var(--brand-2); border-left: 4px solid var(--brand); border-radius: 12px; padding: 18px 22px; margin: 28px 0; color: var(--ink); font-size: 17px; line-height: 1.62; }
-  #page-blog-evalsafe .article .cta-highlight a { color: var(--brand); font-weight: 700; }
-  #page-blog-evalsafe .article .series-next { margin-top: 6px; color: var(--ink-2); }
-  #page-blog-evalsafe .article .series-next strong { color: var(--brand); }
+  .blog-series .article .cta-highlight { background: linear-gradient(135deg, var(--brand-soft), rgba(139,155,232,.14)); border: 1px solid var(--brand-2); border-left: 4px solid var(--brand); border-radius: 12px; padding: 18px 22px; margin: 28px 0; color: var(--ink); font-size: 17px; line-height: 1.62; }
+  .blog-series .article .cta-highlight a { color: var(--brand); font-weight: 700; }
+  .blog-series .article .series-next { margin-top: 6px; color: var(--ink-2); }
+  .blog-series .article .series-next strong { color: var(--brand); }
   @media (prefers-reduced-motion: reduce) {
-    #page-blog-evalsafe .series-item, #page-blog-evalsafe .series-num { transition: none; }
+    .blog-series .series-item, #page-blog-evalsafe .series-num { transition: none; }
   }
 
   /* ---------- blog: "keep reading" related posts (appended to every article) ---------- */
@@ -2395,6 +2399,7 @@
       <div class="section-head"><span class="kicker">From the blog</span><h2>Deep dives for practitioners.</h2><p class="sub" style="margin:10px auto 0;">Engineering and research notes from the team. Each card opens the full post on our blog.</p></div>
       <div class="blog-grid" style="margin-top:28px;">
         <div class="blogcard" onclick="go('blog-evalsafe')"><div class="bbody"><span class="tag">Evaluation</span><h3>Your eval passed. That doesn't mean your system is safe.</h3><p>300 clean probes, zero leaks, a green dashboard &mdash; and a hidden breach. Why pooled pass rates mislead, and how stratified sampling turns a number into evidence.</p><span class="learn">Read the post &rarr;</span></div></div>
+        <div class="blogcard" onclick="go('blog-social2')"><div class="bbody"><span class="tag">Red Teaming</span><h3>Social science knowledge as a special tool for your team</h3><p>Multi-turn attacks are social maneuvers &mdash; trust-laundering, strategic ambiguity, gradual escalation. Why fifty years of trust research belongs in your evals and red team.</p><span class="learn">Read the post &rarr;</span></div></div>
         <div class="blogcard" onclick="go('blog-retail')"><div class="bbody"><span class="tag">Agents</span><h3>Closing the Loop: Finding and Fixing a Customer-Service Agent's Failure Modes</h3><p>We found exactly where a retail agent failed, built verifiable data against it, and lifted first-try success from 42.5% to 75%.</p><span class="learn">Read the post &rarr;</span></div></div>
         <div class="blogcard" onclick="go('blog-multimodel')"><div class="bbody"><span class="tag">Multimodal</span><h3>Beyond Attack Detection: Why Multimodal Safety Is Fighting the Wrong Battle</h3><p>Not all multimodal attacks fail for the same reason. We map where today's safety systems hold and where they break down.</p><span class="learn">Read the post &rarr;</span></div></div>
         <div class="blogcard" onclick="go('blog-flint')"><div class="bbody"><span class="tag">Launch</span><h3>Don't Ship That Chatbot (Until You Read This)</h3><p>Introducing Flint: automated multi-turn stress-testing that surfaces concrete policy violations before real users do.</p><span class="learn">Read the post &rarr;</span></div></div>
@@ -2450,6 +2455,14 @@
               <h3>Your eval passed. That doesn't mean your system is safe.</h3>
               <p>300 clean probes, zero leaks, a green dashboard &mdash; and a hidden breach. Why pooled pass rates mislead, and how stratified sampling from social science turns a number into real evidence.</p>
               <div class="bx-foot"><span class="bx-read">7 min read</span><span class="bx-link">Read article &rarr;</span></div>
+            </div>
+          </article>
+          <article class="bx-card" onclick="go('blog-social2')">
+            <div class="bx-media"><span class="bx-part">Part 2</span><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5"/><path d="M16 5.5a3 3 0 0 1 0 5"/><path d="M21 20c0-2.2-1.4-3.8-3.5-4.4"/></svg><span class="bx-cat">Red Teaming</span></div>
+            <div class="bx-body">
+              <h3>Social science knowledge as a special tool for your team</h3>
+              <p>Trust-laundering, strategic ambiguity, gradual escalation &mdash; multi-turn attacks are social maneuvers. Why fifty years of trust research belongs in your evals and your red team.</p>
+              <div class="bx-foot"><span class="bx-read">5 min read</span><span class="bx-link">Read article &rarr;</span></div>
             </div>
           </article>
           <article class="bx-card" onclick="go('blog-retail')">
@@ -3109,7 +3122,7 @@
 </div>
 
 <!-- ===================================================================== BLOG: EVAL SAFE (series pt.1) -->
-<div class="page" id="page-blog-evalsafe">
+<div class="page blog-series" id="page-blog-evalsafe">
   <div class="article-hero">
     <span class="back" onclick="go('blogs')">&larr; Back to blogs</span>
     <div class="tags"><span class="pill">Series &middot; Part 1</span><span class="pill accent">Evaluation</span></div>
@@ -3126,10 +3139,9 @@
           <span class="series-num">1</span>
           <span class="series-txt"><b>Part 1</b></span>
         </li>
-        <li class="series-item locked" aria-disabled="true">
+        <li class="series-item done" onclick="go('blog-social2')">
           <span class="series-num">2</span>
           <span class="series-txt"><b>Part 2</b></span>
-          <svg class="series-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
         </li>
         <li class="series-item locked" aria-disabled="true">
           <span class="series-num">3</span>
@@ -3169,7 +3181,66 @@
       <h2>Social sciences in the loop</h2>
       <p>None of this is new. Stratified sampling is textbook survey methodology. The social sciences have spent fifty years working out how to sample a population so your conclusions generalize, how to tell whether a measure captures what it claims to, and how to know when you've measured enough. AI evaluation is quietly rediscovering these problems by hand and it doesn't have to.</p>
       <p>This series is about closing that gap, one worked example at a time.</p>
-      <p class="series-next"><strong>Next:</strong> insights from research on how humans extend trust that inform red-teaming and eval strategies.</p>
+      <p class="series-next"><strong>Next:</strong> <a onclick="go('blog-social2')" style="cursor:pointer;">how decades of trust research turn into a working detector &mdash; and a red-team plan</a>.</p>
+    </article>
+  </div>
+</div>
+
+<!-- ===================================================================== BLOG: SOCIAL SCIENCE (PART 2) -->
+<div class="page blog-series" id="page-blog-social2">
+  <div class="article-hero">
+    <span class="back" onclick="go('blogs')">&larr; Back to blogs</span>
+    <div class="tags"><span class="pill">Series &middot; Part 2</span><span class="pill accent">Red Teaming</span></div>
+    <h1>Social science knowledge as a special tool for your team</h1>
+    <p class="meta">July 15, 2026 &middot; Reinforce Labs</p>
+    <p class="lead">Attacks on multi-turn systems are social maneuvers &mdash; and the disciplines that spent decades studying those maneuvers belong in how you eval and red-team.</p>
+  </div>
+  <div class="series-layout">
+    <nav class="series-nav" aria-label="Series parts">
+      <span class="series-kicker">The series</span>
+      <ol class="series-list">
+        <li class="series-item done" onclick="go('blog-evalsafe')">
+          <span class="series-num">1</span>
+          <span class="series-txt"><b>Part 1</b></span>
+        </li>
+        <li class="series-item active" onclick="go('blog-social2')" aria-current="true">
+          <span class="series-num">2</span>
+          <span class="series-txt"><b>Part 2</b></span>
+        </li>
+        <li class="series-item locked" aria-disabled="true">
+          <span class="series-num">3</span>
+          <span class="series-txt"><b>Part 3</b></span>
+          <svg class="series-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        </li>
+        <li class="series-item locked" aria-disabled="true">
+          <span class="series-num">4</span>
+          <span class="series-txt"><b>Part 4</b></span>
+          <svg class="series-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        </li>
+      </ol>
+    </nav>
+    <article class="article">
+      <p><strong>Trust-laundering</strong> &mdash; banking cooperative behavior early to spend it later. <strong>Strategic ambiguity</strong> &mdash; keeping every turn individually deniable. <strong>Gradual escalation</strong> &mdash; distributing intent so no single step trips a threshold. In AI security these attacks read as clever new exploits; in the trust literature they are known techniques and processes of manipulation, studied for decades under names like <em>negativity dominance</em> and <em>interpersonal deception</em>.</p>
+      <p>At Reinforce Labs we recognize that a multi-turn attack is a social maneuver, and we integrate the knowledge that the social sciences have accumulated over decades when we deal with it.</p>
+      <h2>How?</h2>
+      <p>Take, for example, the two things we know about how trust evolves.</p>
+      <p>First, <strong>trust is asymmetric</strong>: it accumulates slowly through cooperation and collapses fast under violation. Trust is hard to gain and easy to lose. Second, <strong>bad is stronger than good</strong> &mdash; negative evidence dominates positive evidence rather than merely offsetting it.</p>
+      <p>We build both aspects of how trust evolves into our RL environment and use them to create a trajectory detector that can catch a decomposition attack. It is the integration of social-science knowledge into our engineering infrastructure that lets us outperform per-turn guards when detecting these types of attacks.</p>
+      <p>And because the update rule is fixed by theory rather than learned, our results stay <strong>legible</strong>. When your safety state is a named construct with a known theory behind it, a probe that gets through tells you <em>which</em> mechanism failed and <em>why</em> &mdash; not just that the attack success rate went up.</p>
+      <p class="cta-highlight">Put another way: a testable design decision came straight out of social science &mdash; not out of a hyperparameter sweep.</p>
+      <h2>The same knowledge is a red-team plan</h2>
+      <p>If a theory can tell you how to build a defense, it can tell you how to attack one. The asymmetry described above predicts exactly where a trust-based defense is soft, and each weak point maps to an established social maneuver:</p>
+      <ul>
+        <li><strong>Bank-and-spend.</strong> If recovery is too fast, an attacker launders trust with cooperative turns, then spends it. Test the recovery rate directly.</li>
+        <li><strong>Slow ramp.</strong> Distribute intent thinly enough and the integrator may never cross the threshold. Test how much weak evidence it takes to accumulate &mdash; where is the breaking point between very short conversations (1&ndash;2 turns) and very long ones (more than 25 turns)?</li>
+        <li><strong>Deniable drift.</strong> Keep every turn defensible &mdash; a cover story, a research framing &mdash; and see whether the defense separates real intent-mismatch from a topic that merely sounds sensitive.</li>
+      </ul>
+      <p>A red team that can describe an attack as <em>how it manages the model's trust over time</em> has a strategy, not just a fixture.</p>
+      <p><strong>Your attackers are already using social science. Your red team should too.</strong></p>
+      <p class="cta-highlight">If you're evaluating multi-turn or agentic safety, we'd love to compare notes. Reach us at <a href="mailto:contact@reinforcelabs.ai">contact@reinforcelabs.ai</a>.</p>
+      <h2>Social sciences in the loop</h2>
+      <p>A multi-turn attack isn't a string of isolated prompts; it's a relationship an adversary cultivates and then exploits. Naming the maneuver &mdash; and borrowing the theory that already explains it &mdash; is what turns red-teaming from a bag of tricks into a repeatable, legible practice.</p>
+      <p class="series-next"><strong>Next:</strong> putting trust dynamics to work inside our RL environment &mdash; and what breaks when we stress-test the detector.</p>
     </article>
   </div>
 </div>
@@ -3246,6 +3317,7 @@
   // anchor -> canonical (clean, date-less) slug shown in the address bar
   var BLOG_SLUGS = {
     'blog-evalsafe': 'your-eval-passed-not-safe',
+    'blog-social2': 'social-science-red-teaming',
     'blog-flint': 'flint-launch',
     'blog-judgment': 'human-judgement-at-scale',
     'blog-multimodal': 'multimodal-sft-pipeline',
@@ -3258,6 +3330,7 @@
   // (so links already shared with the date keep working)
   var SLUG_TO_BLOG = {
     'your-eval-passed-not-safe': 'blog-evalsafe',
+    'social-science-red-teaming': 'blog-social2',
     'flint-launch': 'blog-flint', 'flint-launch-2025-12-04': 'blog-flint',
     'human-judgement-at-scale': 'blog-judgment', 'human-judgement-at-scale-2026-02-04': 'blog-judgment',
     'multimodal-sft-pipeline': 'blog-multimodal', 'multimodal-sft-pipeline-2026-04-17': 'blog-multimodal',
