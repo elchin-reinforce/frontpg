@@ -396,7 +396,7 @@
   .blog-series .series-nav::before { content: ""; position: absolute; inset: 0; border-radius: 20px; padding: 1px; background: linear-gradient(160deg, rgba(139,155,232,.5), rgba(105,65,198,0) 45%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
   .blog-series .series-kicker { display: block; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--brand); margin-bottom: 20px; }
   .blog-series .series-list { list-style: none; margin: 0; padding: 0; position: relative; }
-  .blog-series .series-list::before { content: ""; position: absolute; left: 17px; top: 14px; bottom: 14px; width: 2px; background: linear-gradient(var(--brand-2), rgba(139,155,232,.25)); }
+  .blog-series .series-list::before { content: ""; position: absolute; left: 28px; top: 14px; bottom: 14px; width: 2px; background: linear-gradient(var(--brand-2), rgba(139,155,232,.25)); }
   .blog-series .series-item { position: relative; display: flex; align-items: center; gap: 13px; padding: 13px 12px; border-radius: 13px; margin-bottom: 6px; transition: background .25s ease, transform .25s ease, box-shadow .25s ease; }
   .blog-series .series-num { position: relative; z-index: 1; flex: none; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; background: #fff; border: 2px solid var(--brand-2); color: var(--ink-2); transition: background .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease; }
   .blog-series .series-txt { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
@@ -422,7 +422,7 @@
   .blog-series .article .series-next { margin-top: 6px; color: var(--ink-2); }
   .blog-series .article .series-next strong { color: var(--brand); }
   @media (prefers-reduced-motion: reduce) {
-    .blog-series .series-item, #page-blog-evalsafe .series-num { transition: none; }
+    .blog-series .series-item, .blog-series .series-num { transition: none; }
   }
 
   /* ---------- blog: "keep reading" related posts (appended to every article) ---------- */
@@ -2398,15 +2398,15 @@
     <div class="inner">
       <div class="section-head"><span class="kicker">From the blog</span><h2>Deep dives for practitioners.</h2><p class="sub" style="margin:10px auto 0;">Engineering and research notes from the team. Each card opens the full post on our blog.</p></div>
       <div class="blog-grid" style="margin-top:28px;">
-        <div class="blogcard" onclick="go('blog-evalsafe')"><div class="bbody"><span class="tag">Evaluation</span><h3>Your eval passed. That doesn't mean your system is safe.</h3><p>300 clean probes, zero leaks, a green dashboard &mdash; and a hidden breach. Why pooled pass rates mislead, and how stratified sampling turns a number into evidence.</p><span class="learn">Read the post &rarr;</span></div></div>
         <div class="blogcard" onclick="go('blog-social2')"><div class="bbody"><span class="tag">Red Teaming</span><h3>Social science knowledge as a special tool for your team</h3><p>Multi-turn attacks are social maneuvers &mdash; trust-laundering, strategic ambiguity, gradual escalation. Why fifty years of trust research belongs in your evals and red team.</p><span class="learn">Read the post &rarr;</span></div></div>
+        <div class="blogcard" onclick="go('blog-evalsafe')"><div class="bbody"><span class="tag">Evaluation</span><h3>Your eval passed. That doesn't mean your system is safe.</h3><p>300 clean probes, zero leaks, a green dashboard &mdash; and a hidden breach. Why pooled pass rates mislead, and how stratified sampling turns a number into evidence.</p><span class="learn">Read the post &rarr;</span></div></div>
         <div class="blogcard" onclick="go('blog-retail')"><div class="bbody"><span class="tag">Agents</span><h3>Closing the Loop: Finding and Fixing a Customer-Service Agent's Failure Modes</h3><p>We found exactly where a retail agent failed, built verifiable data against it, and lifted first-try success from 42.5% to 75%.</p><span class="learn">Read the post &rarr;</span></div></div>
         <div class="blogcard" onclick="go('blog-multimodel')"><div class="bbody"><span class="tag">Multimodal</span><h3>Beyond Attack Detection: Why Multimodal Safety Is Fighting the Wrong Battle</h3><p>Not all multimodal attacks fail for the same reason. We map where today's safety systems hold and where they break down.</p><span class="learn">Read the post &rarr;</span></div></div>
-        <div class="blogcard" onclick="go('blog-flint')"><div class="bbody"><span class="tag">Launch</span><h3>Don't Ship That Chatbot (Until You Read This)</h3><p>Introducing Flint: automated multi-turn stress-testing that surfaces concrete policy violations before real users do.</p><span class="learn">Read the post &rarr;</span></div></div>
-        <div class="blogcard" onclick="go('blog-beyond')"><div class="bbody"><span class="tag">Evaluation</span><h3>Beyond Pass Rates: What AI Safety Tests Don't Tell You</h3><p>Two reports, same pass rate, failing completely differently. Flint maps <em>how</em> models fail, not just how often.</p><span class="learn">Read the post &rarr;</span></div></div>
         <div class="blogcard" onclick="go('blog-charts')"><div class="bbody"><span class="tag">Dataset</span><h3>Stop Waiting on Labeled Data. Generate Your Evals Instead.</h3><p>A four-stage pipeline for synthetic chart-VQA data with verified answers and calibrated difficulty.</p><span class="learn">Read the post &rarr;</span></div></div>
+        <div class="blogcard" onclick="go('blog-beyond')"><div class="bbody"><span class="tag">Evaluation</span><h3>Beyond Pass Rates: What AI Safety Tests Don't Tell You</h3><p>Two reports, same pass rate, failing completely differently. Flint maps <em>how</em> models fail, not just how often.</p><span class="learn">Read the post &rarr;</span></div></div>
         <div class="blogcard" onclick="go('blog-multimodal')"><div class="bbody"><span class="tag">Engineering</span><h3>Building a Production-Grade Multimodal SFT Pipeline</h3><p>Generating image-prompt-response triples for multimodal safety fine-tuning: what worked, what didn't.</p><span class="learn">Read the post &rarr;</span></div></div>
         <div class="blogcard" onclick="go('blog-judgment')"><div class="bbody"><span class="tag">Partnership</span><h3>Human Judgment at Scale</h3><p>How graded human annotations (our Centific partnership) feed back into Flint's learning loop.</p><span class="learn">Read the post &rarr;</span></div></div>
+        <div class="blogcard" onclick="go('blog-flint')"><div class="bbody"><span class="tag">Launch</span><h3>Don't Ship That Chatbot (Until You Read This)</h3><p>Introducing Flint: automated multi-turn stress-testing that surfaces concrete policy violations before real users do.</p><span class="learn">Read the post &rarr;</span></div></div>
       </div>
     </div>
   </section>
@@ -2449,20 +2449,20 @@
         <button class="bx-arrow bx-side bx-prev" id="blogPrev" aria-label="Previous posts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
         <button class="bx-arrow bx-side bx-next" id="blogNext" aria-label="More posts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
         <div class="bx-track" id="blogTrack">
-          <article class="bx-card" onclick="go('blog-evalsafe')">
-            <div class="bx-media"><span class="bx-part">Part 1</span><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 3-3 3 2 5-6"/><circle cx="10" cy="12" r="1.1"/><circle cx="13" cy="14" r="1.1"/></svg><span class="bx-cat">Evaluation</span></div>
-            <div class="bx-body">
-              <h3>Your eval passed. That doesn't mean your system is safe.</h3>
-              <p>300 clean probes, zero leaks, a green dashboard &mdash; and a hidden breach. Why pooled pass rates mislead, and how stratified sampling from social science turns a number into real evidence.</p>
-              <div class="bx-foot"><span class="bx-read">7 min read</span><span class="bx-link">Read article &rarr;</span></div>
-            </div>
-          </article>
           <article class="bx-card" onclick="go('blog-social2')">
             <div class="bx-media"><span class="bx-part">Part 2</span><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5"/><path d="M16 5.5a3 3 0 0 1 0 5"/><path d="M21 20c0-2.2-1.4-3.8-3.5-4.4"/></svg><span class="bx-cat">Red Teaming</span></div>
             <div class="bx-body">
               <h3>Social science knowledge as a special tool for your team</h3>
               <p>Trust-laundering, strategic ambiguity, gradual escalation &mdash; multi-turn attacks are social maneuvers. Why fifty years of trust research belongs in your evals and your red team.</p>
               <div class="bx-foot"><span class="bx-read">5 min read</span><span class="bx-link">Read article &rarr;</span></div>
+            </div>
+          </article>
+          <article class="bx-card" onclick="go('blog-evalsafe')">
+            <div class="bx-media"><span class="bx-part">Part 1</span><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 3-3 3 2 5-6"/><circle cx="10" cy="12" r="1.1"/><circle cx="13" cy="14" r="1.1"/></svg><span class="bx-cat">Evaluation</span></div>
+            <div class="bx-body">
+              <h3>Your eval passed. That doesn't mean your system is safe.</h3>
+              <p>300 clean probes, zero leaks, a green dashboard &mdash; and a hidden breach. Why pooled pass rates mislead, and how stratified sampling from social science turns a number into real evidence.</p>
+              <div class="bx-foot"><span class="bx-read">7 min read</span><span class="bx-link">Read article &rarr;</span></div>
             </div>
           </article>
           <article class="bx-card" onclick="go('blog-retail')">
@@ -2481,12 +2481,12 @@
               <div class="bx-foot"><span class="bx-read">7 min read</span><span class="bx-link">Read article &rarr;</span></div>
             </div>
           </article>
-          <article class="bx-card" onclick="go('blog-flint')">
-            <div class="bx-media"><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg><span class="bx-cat">Launch</span></div>
+          <article class="bx-card" onclick="go('blog-charts')">
+            <div class="bx-media"><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span class="bx-cat">Dataset</span></div>
             <div class="bx-body">
-              <h3>Don't Ship That Chatbot (Until You Read This)</h3>
-              <p>Introducing Flint: automated multi-turn stress-testing that surfaces concrete policy violations before real users do.</p>
-              <div class="bx-foot"><span class="bx-read">5 min read</span><span class="bx-link">Read article &rarr;</span></div>
+              <h3>Stop Waiting on Labeled Data. Generate Your Evals Instead.</h3>
+              <p>A four-stage pipeline for synthetic chart-VQA data with verified answers and calibrated difficulty.</p>
+              <div class="bx-foot"><span class="bx-read">8 min read</span><span class="bx-link">Read article &rarr;</span></div>
             </div>
           </article>
           <article class="bx-card" onclick="go('blog-beyond')">
@@ -2495,14 +2495,6 @@
               <h3>Beyond Pass Rates: What AI Safety Tests Don't Tell You</h3>
               <p>Two reports, same pass rate, failing completely differently. Flint maps how models fail, not just how often.</p>
               <div class="bx-foot"><span class="bx-read">6 min read</span><span class="bx-link">Read article &rarr;</span></div>
-            </div>
-          </article>
-          <article class="bx-card" onclick="go('blog-charts')">
-            <div class="bx-media"><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span class="bx-cat">Dataset</span></div>
-            <div class="bx-body">
-              <h3>Stop Waiting on Labeled Data. Generate Your Evals Instead.</h3>
-              <p>A four-stage pipeline for synthetic chart-VQA data with verified answers and calibrated difficulty.</p>
-              <div class="bx-foot"><span class="bx-read">8 min read</span><span class="bx-link">Read article &rarr;</span></div>
             </div>
           </article>
           <article class="bx-card" onclick="go('blog-multimodal')">
@@ -2518,6 +2510,14 @@
             <div class="bx-body">
               <h3>Human Judgment at Scale</h3>
               <p>How graded human annotations (our Centific partnership) feed back into Flint's learning loop.</p>
+              <div class="bx-foot"><span class="bx-read">5 min read</span><span class="bx-link">Read article &rarr;</span></div>
+            </div>
+          </article>
+          <article class="bx-card" onclick="go('blog-flint')">
+            <div class="bx-media"><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg><span class="bx-cat">Launch</span></div>
+            <div class="bx-body">
+              <h3>Don't Ship That Chatbot (Until You Read This)</h3>
+              <p>Introducing Flint: automated multi-turn stress-testing that surfaces concrete policy violations before real users do.</p>
               <div class="bx-foot"><span class="bx-read">5 min read</span><span class="bx-link">Read article &rarr;</span></div>
             </div>
           </article>
@@ -3194,6 +3194,7 @@
     <h1>Social science knowledge as a special tool for your team</h1>
     <p class="meta">July 15, 2026 &middot; Reinforce Labs</p>
     <p class="lead">Attacks on multi-turn systems are social maneuvers &mdash; and the disciplines that spent decades studying those maneuvers belong in how you eval and red-team.</p>
+    <img class="article-apple" src="/young_tree.png" alt="Young tree illustration" onerror="this.style.display='none'">
   </div>
   <div class="series-layout">
     <nav class="series-nav" aria-label="Series parts">
