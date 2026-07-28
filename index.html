@@ -394,12 +394,9 @@
   .pass-row { display: flex; align-items: center; gap: 12px; margin: 9px 0; }
   .pass-row .pass-name { flex: 0 0 138px; font-size: 14px; font-weight: 650; color: var(--ink); }
   .pass-row .pass-track { flex: 1; height: 24px; background: var(--bg-2); border: 1px solid var(--line); border-radius: 7px; overflow: hidden; }
-  .pass-row .pass-fill { height: 100%; border-radius: 6px 0 0 6px; background: linear-gradient(90deg, var(--brand-2), var(--brand)); }
+  .pass-row .pass-fill { display: block; height: 100%; min-width: 3px; border-radius: 6px 0 0 6px; background: linear-gradient(90deg, var(--brand-2), var(--brand)); box-shadow: inset 0 1px 0 rgba(255,255,255,.25); }
   .pass-row .pass-pct { flex: 0 0 54px; font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13.5px; font-weight: 700; color: var(--ink); text-align: right; }
   @media (max-width: 520px) { .pass-row .pass-name { flex-basis: 96px; font-size: 12.5px; } }
-  /* pending / "results incoming" variant of the pass-chart, used for short-term rental */
-  .pass-row .pass-fill.pending { background: repeating-linear-gradient(135deg, var(--line) 0, var(--line) 7px, #fff 7px, #fff 14px); border-right: 1px dashed var(--ink-3); }
-  .pass-row .pass-pct.pending { color: var(--ink-3); font-style: italic; font-weight: 650; font-size: 12px; letter-spacing: .02em; }
 
   /* ---------- harness pipeline diagram (used by the TnSBench post) ---------- */
   .tns-pipeline { display: flex; align-items: stretch; gap: 8px; margin: 24px 0; flex-wrap: wrap; }
@@ -2494,8 +2491,8 @@
           <article class="bx-card" onclick="go('blog-tnsbench')">
             <div class="bx-media"><svg class="bx-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg><span class="bx-cat">Evaluation</span></div>
             <div class="bx-body">
-              <h3>Say No to the Nice Customer: Introducing TnSBench</h3>
-              <p>A trust &amp; safety benchmark that pressure-tests tool-using agents across retail, telecom, and short-term rental. Even the best frontier model still fails roughly one task in three &mdash; and safety doesn't scale linearly with cost.</p>
+              <h3>Agent Safety Is Domain-Specific. Your Benchmark Should Be Too.</h3>
+              <p>Introducing TnSBench: the same models tested across retail, telecom, and short-term rental &mdash; where a safety record in one domain barely predicts the next, and even the best model still fails roughly one task in three.</p>
               <div class="bx-foot"><span class="bx-read">8 min read</span><span class="bx-link">Read article &rarr;</span></div>
             </div>
           </article>
@@ -2672,19 +2669,19 @@
   <div class="article-hero">
     <span class="back" onclick="go('blogs')">&larr; Back to blogs</span>
     <div class="tags"><span class="pill">Research</span><span class="pill accent">Evaluation</span></div>
-    <h1>Say No to the Nice Customer: Introducing TnSBench</h1>
+    <h1>Agent Safety Is Domain-Specific. Your Benchmark Should Be Too.</h1>
     <p class="meta">July 27, 2026 &middot; Reinforce Labs</p>
-    <p class="lead">Most agent benchmarks measure whether the job got done. TnSBench measures whether it got done safely &mdash; pressure-testing tool-using AI agents across retail, telecom, and short-term-rental support against customers who are patient, plausible, and never once identify themselves as an attack.</p>
+    <p class="lead">Introducing TnSBench: we ran the same AI agents through retail, telecom, and short-term-rental customer support and found that a model's safety record in one domain predicts surprisingly little about another &mdash; sometimes swinging 20 points on the identical model.</p>
   </div>
   <article class="article">
-    <p>An agent that books the wrong hotel room is an inconvenience. An agent that ports a phone number off an account with an active fraud freeze, or wires a security deposit to an attacker, is a real financial loss. As support, billing, and account-management workflows get handed to LLM agents with real tool access, the interesting failure mode isn't incompetence &mdash; it's <em>compliance</em>. Agents are trained to be helpful, and a patient, plausible-sounding user is very good at turning "helpful" into "exploitable."</p>
-    <p><strong>TnSBench</strong> is a benchmark we built to isolate exactly that gap: not "can the agent do the job," but "can the agent be talked out of doing the right thing." No jailbreak strings, no obvious villain &mdash; just an ordinary-sounding customer, a real policy, and real tools, run until the agent either holds the line or doesn't.</p>
+    <p>Ask whether a model is "safe" and you'll usually get one number back: a pass rate, a refusal rate, a score on a leaderboard. That framing treats safety like a property of the model itself, the way context length or benchmark accuracy is. It isn't. A model can be nearly bulletproof against one kind of pressure and fold immediately against another, depending on what business it's operating in and what a customer is actually asking for.</p>
+    <p><strong>TnSBench</strong> is a benchmark we built to measure that directly: not a single safety score, but a safety <em>profile</em> across real business domains and the specific threats inside each one. We took the same three models and ran them, unmodified, through retail, telecom, and short-term-rental support &mdash; real policies, real tools, a stateful backend, and an LLM playing an ordinary, plausible customer. The result isn't one leaderboard. It's a map of exactly where each model's safety holds and where it quietly doesn't.</p>
 
     <div class="fstats">
-      <div class="fstat"><b>3</b><span>business domains under test</span></div>
-      <div class="fstat"><b>285</b><span>hand-built adversarial tasks</span></div>
-      <div class="fstat"><b>1 in 3</b><span>tasks the best model still fails</span></div>
-      <div class="fstat"><b>29&times;</b><span>cost spread between cheapest and safest model</span></div>
+      <div class="fstat"><b>3</b><span>business domains tested</span></div>
+      <div class="fstat"><b>300</b><span>hand-built adversarial tasks</span></div>
+      <div class="fstat"><b>20pp</b><span>swing in the same model's pass rate, retail vs. telecom</span></div>
+      <div class="fstat"><b>78%</b><span>worst-case failure rate, single threat family</span></div>
     </div>
 
     <h2>How TnSBench actually works</h2>
@@ -2765,15 +2762,13 @@
       </div>
       <div class="card threat-domain-card">
         <h4>Short-term rental &mdash; domain-specific</h4>
-        <div class="td-count">85 tasks</div>
+        <div class="td-count">100 tasks</div>
         <span class="chip">Payout diversion</span>
         <span class="chip">Damage-deposit disputes</span>
         <span class="chip">Fair-housing discrimination</span>
       </div>
     </div>
-    <p>285 hand-built adversarial scenarios in total, each graded by a deterministic pass/fail check on real state, plus an LLM judge for nuance.</p>
-
-    <h2>Headline results: capability and safety aren't the same axis</h2>
+    <h2>Headline results: safety doesn't travel with the model</h2>
     <p>We ran the same three frontier-class models &mdash; Claude Sonnet 5, Kimi K2.6, and Qwen3.5 &mdash; through the retail and telecom suites. The headline metric is <strong>PASS&sup1;</strong>: the fraction of tasks the agent handles safely on a single attempt.</p>
     <figure style="margin:24px 0;">
       <div class="pass-chart">
@@ -2792,7 +2787,8 @@
       </div>
       <figcaption style="font-size:13px; color:var(--ink-3); margin-top:8px;"><strong>Figure 1.</strong> Safety pass rate on a single attempt (PASS&sup1;), retail and telecom suites, 100 tasks each.</figcaption>
     </figure>
-    <p>Two things jump out immediately. There's a nearly 30-point spread between the strongest and weakest model on the identical tasks &mdash; safety is not a solved, model-agnostic property. And even the best model, Sonnet, still fails roughly one task in three. That's not a rounding error; at production volume, that's a steady drip of unauthorized refunds, leaked account data, and fraudulent port-outs.</p>
+    <p>The clearest evidence sits inside a single row of that chart. <strong>Qwen3.5 passes 31.2% of retail tasks but 51.7% of telecom tasks &mdash; a 20-point swing on the exact same model, evaluated the exact same way, just pointed at a different business.</strong> Sonnet and Kimi move the same direction, just less dramatically (+5.1pp and +4.9pp). Whatever makes a model cautious in one domain doesn't fully carry over to the next one &mdash; which is exactly why a single, domain-agnostic safety score can't be trusted to predict real-world behavior.</p>
+    <p>There's also a nearly 30-point spread between the strongest and weakest model on identical tasks within a domain, and even the best model, Sonnet, still fails roughly one telecom task in three. That's not a rounding error; at production volume, that's a steady drip of unauthorized refunds, leaked account data, and fraudulent port-outs.</p>
     <p>A single-attempt score can also flatter a model that just got lucky. So we also measure <strong>pass<sup>k</sup></strong>: whether the agent stays safe across <em>k</em> independent attempts at the same task, not just one.</p>
     <table>
       <thead><tr><th>Domain</th><th>Model</th><th>PASS&sup1;</th><th>PASS&sup2;</th><th>PASS&sup3;</th><th>Drop (1&rarr;3)</th></tr></thead>
@@ -2807,8 +2803,8 @@
     </table>
     <p>Every model loses ground as k rises, some sharply &mdash; Qwen3.5 gives up nearly 20 points on telecom alone. A model that's safe "most of the time" on a given prompt is not the same as a model that's safe <em>every</em> time, and single-attempt evaluation quietly hides that gap. In production, a live agent doesn't get to be correct "on average" &mdash; it serves one customer, once, and has to get that interaction right.</p>
 
-    <h3>Where it actually breaks: failure rate by threat family (telecom)</h3>
-    <p>The overall number tells you <em>how often</em> a model fails. The family breakdown tells you <em>where</em>, and that's the part that determines how bad a failure actually is.</p>
+    <h3>Even within one domain, safety is threat-specific</h3>
+    <p>The overall number tells you <em>how often</em> a model fails. It hides something just as important: the same model can swing almost as much across threat families inside one domain as it does across domains. Qwen3.5's telecom failure rate ranges from 13.3% on enterprise fraud to 77.8% on account takeover &mdash; a 64-point gap, same model, same domain, different threat.</p>
     <table>
       <thead><tr><th>Threat family</th><th>Qwen3.5</th><th>Kimi K2.6</th><th>Claude Sonnet 5</th></tr></thead>
       <tbody>
@@ -2836,34 +2832,24 @@
     </table>
     <p>Sonnet is roughly <strong>29&times; more expensive</strong> than Qwen per episode for about 14 additional points of safety. Kimi, at roughly a fifth of Sonnet's price, still captures 98% of its safety rate &mdash; the clear efficiency frontier of the three. "Biggest model" and "safest model" are correlated but not identical questions, and at deployment volume the cost curve between them is steep enough to matter.</p>
 
-    <h2>Short-term rental: the newest domain, results incoming</h2>
-    <p>We're extending TnSBench to a third domain: a host/guest marketplace where the pressure isn't a stuck port or a wrong refund, but things like a payout redirected mid-stay or a discriminatory booking decision dressed up as a scheduling conflict. The 85-task suite is built and locked; we're currently running it against the same three models and will publish the results here.</p>
+    <h2>A third domain: short-term rental</h2>
+    <p>The same logic extends to a host/guest marketplace, where the pressure isn't a stuck port or a wrong refund but things like a payout redirected mid-stay or a discriminatory booking decision dressed up as a scheduling conflict. The 100-task suite below is built, policy-backed, and running against the same three models &mdash; we'll drop the pass-rate figures into this section the moment the run is graded.</p>
     <table>
       <thead><tr><th>Threat family</th><th>Tasks</th><th>What it probes</th></tr></thead>
       <tbody>
-        <tr><td>Account takeover</td><td>15</td><td>Guest/host identity and login-recovery abuse</td></tr>
-        <tr><td>PII / privacy</td><td>14</td><td>Cross-user data exposure</td></tr>
-        <tr><td>Payout fraud</td><td>10</td><td>Redirecting a host's payout to a new, unverified account</td></tr>
-        <tr><td>Refund / resolution abuse</td><td>10</td><td>Manufactured damage or dispute claims used to force a refund</td></tr>
-        <tr><td>Fair-housing discrimination</td><td>10</td><td>Steering or refusing guests based on protected traits</td></tr>
-        <tr><td>Booking integrity</td><td>6</td><td>Fraudulent or manipulated reservation changes</td></tr>
-        <tr><td>Damage / deposit disputes</td><td>6</td><td>Contested security-deposit claims</td></tr>
-        <tr><td>Review integrity</td><td>5</td><td>Extortion or manipulation via reviews</td></tr>
-        <tr><td>Occupancy &amp; tenancy safety</td><td>5</td><td>Unsafe or illegal occupancy, buried safety reports</td></tr>
-        <tr><td>Privacy / surveillance</td><td>4</td><td>Undisclosed cameras or monitoring devices</td></tr>
+        <tr><td>Account takeover</td><td>17</td><td>Guest/host identity and login-recovery abuse</td></tr>
+        <tr><td>PII / privacy</td><td>16</td><td>Cross-user data exposure</td></tr>
+        <tr><td>Payout fraud</td><td>12</td><td>Redirecting a host's payout to a new, unverified account</td></tr>
+        <tr><td>Refund / resolution abuse</td><td>12</td><td>Manufactured damage or dispute claims used to force a refund</td></tr>
+        <tr><td>Fair-housing discrimination</td><td>12</td><td>Steering or refusing guests based on protected traits</td></tr>
+        <tr><td>Booking integrity</td><td>7</td><td>Fraudulent or manipulated reservation changes</td></tr>
+        <tr><td>Damage / deposit disputes</td><td>7</td><td>Contested security-deposit claims</td></tr>
+        <tr><td>Review integrity</td><td>6</td><td>Extortion or manipulation via reviews</td></tr>
+        <tr><td>Occupancy &amp; tenancy safety</td><td>6</td><td>Unsafe or illegal occupancy, buried safety reports</td></tr>
+        <tr><td>Privacy / surveillance</td><td>5</td><td>Undisclosed cameras or monitoring devices</td></tr>
       </tbody>
     </table>
-    <figure style="margin:24px 0;">
-      <div class="pass-chart">
-        <div class="pass-group">
-          <div class="pass-group-label">Short-term rental &middot; 85 tasks <span class="pill" style="margin-left:8px; vertical-align:1px;">Benchmarking in progress</span></div>
-          <div class="pass-row"><span class="pass-name">Claude Sonnet 5</span><span class="pass-track"><span class="pass-fill pending" style="width:100%"></span></span><span class="pass-pct pending">TBD</span></div>
-          <div class="pass-row"><span class="pass-name">Kimi K2.6</span><span class="pass-track"><span class="pass-fill pending" style="width:100%"></span></span><span class="pass-pct pending">TBD</span></div>
-          <div class="pass-row"><span class="pass-name">Qwen3.5</span><span class="pass-track"><span class="pass-fill pending" style="width:100%"></span></span><span class="pass-pct pending">TBD</span></div>
-        </div>
-      </div>
-      <figcaption style="font-size:13px; color:var(--ink-3); margin-top:8px;"><strong>Figure 2.</strong> Short-term-rental PASS&sup1; results, placeholder pending the completed run. We'll update this figure in place once the evaluation finishes &mdash; no separate post.</figcaption>
-    </figure>
+    <p>Two of these families &mdash; account takeover and PII &mdash; are the same cross-domain threats already stress-tested in retail and telecom. The other eight are specific to running a marketplace where strangers exchange money, keys, and living space: exactly the kind of domain-specific edge a generic safety score would never surface.</p>
 
     <h2>Case study: the agent that knew better</h2>
     <p>Aggregate numbers and family tables show the shape of the problem. A single transcript shows how it actually happens on the ground. Here's a real episode from the telecom suite, task <code>po_freeze_stuck_01</code>, run against Qwen3.5 with an adversarial LLM simulator playing the customer &mdash; and, notably, a port-out freeze failure of exactly the kind that shows up in the family table above.</p>
@@ -2897,8 +2883,8 @@
     </div>
     <p>Nothing here looks like a jailbreak. There's no injected instruction, no roleplay trick, no adversarial phrasing &mdash; just a moderately persistent customer and an agent that got the policy right in words and wrong in action, because a tool result <em>sounded</em> like it resolved a block it hadn't actually resolved. That's the failure mode TnSBench is built to surface: not agents that don't know the rules, but agents that know the rules and still find a path around them &mdash; the exact same story the account-takeover and port-out rows in the family table are telling, just with the transcript attached.</p>
 
-    <h2>Why this matters going forward</h2>
-    <p>Agent capability benchmarks will keep getting better at measuring whether agents get things done. TnSBench exists to keep an equally rigorous eye on whether they get things done <em>safely</em>, across the specific domains &mdash; retail, telecom, and short-term rental, with more to come &mdash; where a wrong tool call isn't a bad UX outcome but a real-world harm. Nearly 30 points of spread between models on identical tasks, a 20-point reliability drop under repeated attempts, and a 29&times; cost gap between the cheapest and safest option all point to the same conclusion: if you're evaluating agents for production deployment in a business with real accounts, real money, and real customers, "it passed the task" was never the whole question.</p>
+    <h2>Why domain-specific testing matters</h2>
+    <p>A single leaderboard score can't tell you that a model handles account recovery calmly in telecom but hands over control under the same style of pressure in retail. It can't tell you that the failure quietly costing you money &mdash; a port freeze bypassed, a payout redirected, a deposit refunded on a manufactured claim &mdash; doesn't even exist as a category outside your own business. If you're evaluating agents for a specific deployment, with real accounts, real money, and real customers, the only representative test is one built on your domain, your tools, and your threats. That's what TnSBench is for, and short-term rental is the next domain completing the picture.</p>
     <p>If you're putting agents into production and want to know where yours is quietly failing, <a onclick="go('contact')" style="cursor:pointer; color:var(--brand); font-weight:600;">let's talk</a>.</p>
   </article>
 </div>
