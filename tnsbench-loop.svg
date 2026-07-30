@@ -1,65 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 350" width="860" height="350" role="img" aria-label="The TnSBench harness: a simulated fraudster and the agent under test exchange turns while the agent calls domain tools that mutate backend state; a safety evaluator reads the transcript and the final state and returns one verdict.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" width="760" height="420" role="img" aria-label="The TnSBench harness: a simulated fraudster and the agent under test exchange turns while the agent calls domain tools that write to live backend state. A safety evaluator reads the transcript and the final state and returns one verdict: pass if the agent refused, stalled, or escalated, fail only if unsafe harm actually landed.">
   <defs>
-    <marker id="tnsArrow" markerWidth="7" markerHeight="7" refX="6.2" refY="3" orient="auto">
+    <marker id="tnsArrow" markerWidth="7" markerHeight="6" refX="6.2" refY="3" orient="auto">
       <path d="M0 0 L6.2 3 L0 6 Z" fill="#8b9be8"/>
     </marker>
-    <marker id="tnsArrowMuted" markerWidth="7" markerHeight="7" refX="6.2" refY="3" orient="auto">
-      <path d="M0 0 L6.2 3 L0 6 Z" fill="#8983a0"/>
+    <marker id="tnsArrowMuted" markerWidth="7" markerHeight="6" refX="6.2" refY="3" orient="auto">
+      <path d="M0 0 L6.2 3 L0 6 Z" fill="#9d97b0"/>
     </marker>
   </defs>
   <g font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
 
+    <text x="380" y="30" text-anchor="middle" font-size="10.5" font-family="'JetBrains Mono', ui-monospace, monospace" letter-spacing="1.5" fill="#6941c6">THE TURNS REPEAT UNTIL THE EPISODE ENDS</text>
+
     <!-- simulated adversary -->
-    <rect x="10" y="104" width="196" height="76" rx="12" fill="#ffffff" stroke="#e6e3f2"/>
-    <text x="108" y="135" text-anchor="middle" font-size="14" font-weight="700" fill="#241c33">Simulated caller</text>
-    <text x="108" y="155" text-anchor="middle" font-size="11" fill="#8983a0">An LLM playing a fraudster</text>
-    <text x="108" y="169" text-anchor="middle" font-size="11" fill="#8983a0">who sounds like a real customer</text>
+    <rect x="10" y="86" width="168" height="80" rx="12" fill="#ffffff" stroke="#e6e3f2"/>
+    <text x="94" y="111" text-anchor="middle" font-size="13.5" font-weight="700" fill="#241c33">Simulated caller</text>
+    <text x="94" y="130" text-anchor="middle" font-size="11" fill="#8983a0">An LLM playing a fraudster</text>
+    <text x="94" y="144" text-anchor="middle" font-size="11" fill="#8983a0">who sounds like a customer</text>
 
     <!-- agent under test -->
-    <rect x="332" y="94" width="196" height="96" rx="12" fill="#ffffff" stroke="#6941c6" stroke-width="1.6"/>
-    <text x="430" y="128" text-anchor="middle" font-size="14" font-weight="700" fill="#241c33">Agent under test</text>
-    <text x="430" y="148" text-anchor="middle" font-size="11" fill="#8983a0">Given the domain policy,</text>
-    <text x="430" y="162" text-anchor="middle" font-size="11" fill="#8983a0">nothing else. No safety</text>
-    <text x="430" y="176" text-anchor="middle" font-size="11" fill="#8983a0">scaffolding, no hints.</text>
+    <rect x="288" y="76" width="184" height="100" rx="12" fill="#ffffff" stroke="#6941c6" stroke-width="1.6"/>
+    <text x="380" y="104" text-anchor="middle" font-size="13.5" font-weight="700" fill="#241c33">Agent under test</text>
+    <text x="380" y="123" text-anchor="middle" font-size="11" fill="#8983a0">Given the domain policy</text>
+    <text x="380" y="137" text-anchor="middle" font-size="11" fill="#8983a0">and the tools, nothing else.</text>
+    <text x="380" y="151" text-anchor="middle" font-size="11" fill="#8983a0">No safety scaffolding.</text>
 
     <!-- domain tools -->
-    <rect x="654" y="104" width="196" height="76" rx="12" fill="#ffffff" stroke="#e6e3f2"/>
-    <text x="752" y="135" text-anchor="middle" font-size="14" font-weight="700" fill="#241c33">Domain tools</text>
-    <text x="752" y="155" text-anchor="middle" font-size="11" fill="#8983a0">Writes land on live account,</text>
-    <text x="752" y="169" text-anchor="middle" font-size="11" fill="#8983a0">order, and booking state</text>
+    <rect x="582" y="86" width="168" height="80" rx="12" fill="#ffffff" stroke="#e6e3f2"/>
+    <text x="666" y="111" text-anchor="middle" font-size="13.5" font-weight="700" fill="#241c33">Domain tools</text>
+    <text x="666" y="130" text-anchor="middle" font-size="11" fill="#8983a0">Writes hit live account,</text>
+    <text x="666" y="144" text-anchor="middle" font-size="11" fill="#8983a0">order, and booking state</text>
 
-    <!-- customer to agent, and back -->
-    <line x1="214" y1="132" x2="324" y2="132" stroke="#8b9be8" stroke-width="1.4" marker-end="url(#tnsArrow)"/>
-    <line x1="324" y1="156" x2="214" y2="156" stroke="#8b9be8" stroke-width="1.4" marker-end="url(#tnsArrow)"/>
-    <text x="269" y="122" text-anchor="middle" font-size="10.5" fill="#524a66">asks, then presses</text>
-    <text x="269" y="174" text-anchor="middle" font-size="10.5" fill="#524a66">answers, or acts</text>
+    <!-- the conversation -->
+    <line x1="186" y1="110" x2="280" y2="110" stroke="#8b9be8" stroke-width="1.4" marker-end="url(#tnsArrow)"/>
+    <line x1="280" y1="142" x2="186" y2="142" stroke="#8b9be8" stroke-width="1.4" marker-end="url(#tnsArrow)"/>
+    <text x="233" y="101" text-anchor="middle" font-size="10.5" fill="#524a66">asks, then presses</text>
+    <text x="233" y="160" text-anchor="middle" font-size="10.5" fill="#524a66">answers, or acts</text>
 
-    <!-- agent to tools, and back -->
-    <line x1="536" y1="132" x2="646" y2="132" stroke="#8b9be8" stroke-width="1.4" marker-end="url(#tnsArrow)"/>
-    <line x1="646" y1="156" x2="536" y2="156" stroke="#8b9be8" stroke-width="1.4" marker-end="url(#tnsArrow)"/>
-    <text x="591" y="122" text-anchor="middle" font-size="10.5" fill="#524a66">tool calls</text>
-    <text x="591" y="174" text-anchor="middle" font-size="10.5" fill="#524a66">results</text>
+    <!-- the tool use -->
+    <line x1="480" y1="110" x2="574" y2="110" stroke="#8b9be8" stroke-width="1.4" marker-end="url(#tnsArrow)"/>
+    <line x1="574" y1="142" x2="480" y2="142" stroke="#8b9be8" stroke-width="1.4" marker-end="url(#tnsArrow)"/>
+    <text x="527" y="101" text-anchor="middle" font-size="10.5" fill="#524a66">tool calls</text>
+    <text x="527" y="160" text-anchor="middle" font-size="10.5" fill="#524a66">results</text>
 
-    <!-- turn counter -->
-    <text x="430" y="72" text-anchor="middle" font-size="10.5" font-family="'JetBrains Mono', ui-monospace, monospace" letter-spacing="1.4" fill="#6941c6">THE LOOP RUNS UNTIL THE EPISODE ENDS</text>
-
-    <!-- evaluator inputs -->
-    <line x1="430" y1="190" x2="430" y2="248" stroke="#8983a0" stroke-width="1.3" stroke-dasharray="4 4" marker-end="url(#tnsArrowMuted)"/>
-    <text x="440" y="222" font-size="10.5" fill="#524a66">the transcript</text>
-    <path d="M752 180 C752 226 668 218 566 246" fill="none" stroke="#8983a0" stroke-width="1.3" stroke-dasharray="4 4" marker-end="url(#tnsArrowMuted)"/>
-    <text x="672" y="212" font-size="10.5" fill="#524a66">the final state</text>
+    <!-- what the evaluator reads -->
+    <path d="M233 172 L233 212 Q233 222 243 222 L656 222 Q666 222 666 212 L666 172" fill="none" stroke="#9d97b0" stroke-width="1.3" stroke-dasharray="4 4"/>
+    <line x1="380" y1="222" x2="380" y2="256" stroke="#9d97b0" stroke-width="1.3" stroke-dasharray="4 4" marker-end="url(#tnsArrowMuted)"/>
+    <text x="246" y="203" font-size="10.5" fill="#524a66">the transcript</text>
+    <text x="653" y="203" text-anchor="end" font-size="10.5" fill="#524a66">the final state</text>
 
     <!-- evaluator -->
-    <rect x="280" y="250" width="300" height="84" rx="12" fill="#fafafd" stroke="#e6e3f2"/>
-    <text x="430" y="281" text-anchor="middle" font-size="14" font-weight="700" fill="#241c33">Safety evaluator</text>
-    <text x="430" y="301" text-anchor="middle" font-size="11" fill="#8983a0">Deterministic checks on real state,</text>
-    <text x="430" y="315" text-anchor="middle" font-size="11" fill="#8983a0">plus an LLM judge for the nuance</text>
+    <rect x="206" y="268" width="348" height="84" rx="12" fill="#fafafd" stroke="#e6e3f2"/>
+    <text x="380" y="296" text-anchor="middle" font-size="13.5" font-weight="700" fill="#241c33">Safety evaluator</text>
+    <text x="380" y="315" text-anchor="middle" font-size="11" fill="#8983a0">Deterministic checks on real state,</text>
+    <text x="380" y="329" text-anchor="middle" font-size="11" fill="#8983a0">plus an LLM judge for the nuance</text>
 
-    <!-- verdict -->
-    <line x1="580" y1="292" x2="614" y2="292" stroke="#8b9be8" stroke-width="1.4" marker-end="url(#tnsArrow)"/>
-    <circle cx="630" cy="277" r="4" fill="#0f7a52"/>
-    <text x="643" y="281" font-size="11.5" fill="#524a66"><tspan font-weight="700" fill="#0f7a52">Pass</tspan> if it refused or escalated</text>
-    <circle cx="630" cy="305" r="4" fill="#b4453c"/>
-    <text x="643" y="309" font-size="11.5" fill="#524a66"><tspan font-weight="700" fill="#b4453c">Fail</tspan> only if harm actually landed</text>
+    <!-- one verdict -->
+    <line x1="380" y1="352" x2="380" y2="366" stroke="#8b9be8" stroke-width="1.4" marker-end="url(#tnsArrow)"/>
+    <circle cx="264" cy="382" r="4" fill="#0f7a52"/>
+    <text x="278" y="386" font-size="11.5" fill="#524a66"><tspan font-weight="700" fill="#0f7a52">Pass</tspan> if it refused, stalled, or escalated</text>
+    <circle cx="264" cy="404" r="4" fill="#b4453c"/>
+    <text x="278" y="408" font-size="11.5" fill="#524a66"><tspan font-weight="700" fill="#b4453c">Fail</tspan> only if unsafe harm actually landed</text>
   </g>
 </svg>
